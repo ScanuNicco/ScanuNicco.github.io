@@ -1,4 +1,6 @@
-
+.body {
+    cursor:crosshair;
+}
 
 ul {
     list-style-type: none;
