@@ -151,9 +151,7 @@ div.gallery {
 
 div.gallery:hover {
     border: 1px solid firebrick;
-    width: 320px;
-    height: 215px:
-    left: 5px;
+    scale: 105%;
 }
 
 div.gallery img {
