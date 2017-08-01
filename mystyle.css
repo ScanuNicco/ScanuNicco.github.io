@@ -151,9 +151,9 @@ div.gallery {
 
 div.gallery:hover {
     border: 1px solid firebrick;
-    -ms-transform: scale(1.1); /* IE 9 */
-    -webkit-transform: scale(1.1); /* Chrome, Safari, Opera */
-    transform: scale(1.1);
+    -ms-transform: scale(1.09); /* IE 9 */
+    -webkit-transform: scale(1.09); /* Chrome, Safari, Opera */
+    transform: scale(1.09);
 }
 
 div.gallery img {
