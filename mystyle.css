@@ -146,6 +146,7 @@ textarea {
 
 div.gallery {
     border: 1px solid #ccc;
+    transition-duration: .5s;
 }
 
 div.gallery:hover {
