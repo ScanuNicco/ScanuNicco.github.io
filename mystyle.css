@@ -153,6 +153,7 @@ div.gallery:hover {
     border: 1px solid firebrick;
     width: 320px;
     height: 215px:
+    left: 5px;
 }
 
 div.gallery img {
