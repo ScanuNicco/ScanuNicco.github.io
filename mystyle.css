@@ -105,9 +105,9 @@ form {
     z-index: -1;
 }
 
-contact-form{
+form#contact-form {
     position: relative;
-    bottom: 200px
+    bottom: 230px;
 }
 
 #DFC_Rules{
