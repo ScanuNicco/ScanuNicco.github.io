@@ -97,11 +97,12 @@ form {
     font-family: arial;
 }
 
-#Contact {
+#ContactImg {
     height: auto; 
     width: auto; 
     max-width: 400px; 
     max-height: 400px;
+    z-index: -1:
 }
 
 contact-form{
