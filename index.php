@@ -29,6 +29,12 @@ if(isset($_POST['enter'])){
     }
 }
 ?>
+ <?php
+if(!isset($_SESSION['name'])){
+    loginForm();
+}
+else{
+ ?>
 <div id="wrapper">
     <div id="menu">
         <p class="welcome">Welcome, <b></b></p>
@@ -50,5 +56,8 @@ $(document).ready(function(){
  
 });
 </script>
+ <?php
+}
+?>
 </body>
 </html>
