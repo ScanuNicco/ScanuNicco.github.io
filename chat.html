@@ -33,7 +33,7 @@ function get_chat_msg()
     }
     
     oxmlHttp.onreadystatechange = get_chat_msg_result;
-    oxmlHttp.open("GET","chat_recv_ajax.php",true);
+    oxmlHttp.open("GET","https://scanunicco.github.io/chat_recv_ajax.php",true);
     oxmlHttp.send(null);
 }
      
@@ -69,7 +69,7 @@ function set_chat_msg()
        return;
     }
     
-    var url = "chat_send_ajax.php";
+    var url = "https://scanunicco.github.io/chat_send_ajax.php";
     var strname="noname";
     var strmsg="";
     if (document.getElementById("txtname") != null)
