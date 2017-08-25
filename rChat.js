@@ -11,7 +11,7 @@ $(document).ready(function () {
         var userNameString = $userName.val();
         var chatInputString = $chatInput.val();
 
-        $.get("./write.php", {
+        $.get("https://scanunicco.github.io/write.php", {
             username: userNameString,
             text: chatInputString
         });
@@ -21,7 +21,7 @@ $(document).ready(function () {
     }
 
     function retrieveMessages() {
-        $.get("./read.php", function (data) {
+        $.get("https://scanunicco.github.io/read.php", function (data) {
             $chatOutput.html(data); //Paste content into chat output
         });
     }
