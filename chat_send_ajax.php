@@ -1,6 +1,6 @@
 <?php
 
-     require_once('dbconnect.php');
+     require_once('https://scanunicco.github.io/dbconnect.php');
 
      db_connect();
 
