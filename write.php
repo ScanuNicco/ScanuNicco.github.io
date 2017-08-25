@@ -1,5 +1,5 @@
 <?php
-require("./_connect.php");
+require("https://scanunicco.github.io/_connect.default.php");
 
 //connect to db
 $db = new mysqli($db_host,$db_user, $db_password, $db_name);
