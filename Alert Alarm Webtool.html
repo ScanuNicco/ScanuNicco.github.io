@@ -30,7 +30,12 @@
 <button onclick="setTimeout(doAlarm, 1800000)">30 Minutes</button>
 <button onclick="setTimeout(doAlarm, 3600000)">1 Hour</button>
 <button onclick="beep()">Beep</button>
-
+ 
+  <a id="help" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Help</a>
+        <div id="light" class="white_content"><div id="top"><a id="close_button" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">&#10006;
+</a></div><div id="help_content"><center><h1>How was your day generator</h1><h3><u>Why I made it</u></h3><p>Do your parents ever get mad at you for just saying good when they ask abouy your day? The how is your day generator solves this problem, just hit Generate and it will pick a random synonym for good</p><br><h3><u>What it does</u></h3><p>The How was your day generator picks a random word from a list of 19 synonyms for good.</p><br><h3><u>How to use it</u></h3><p>To generate a synonym for good, just hit the generate buton. Press the button again to get a new word.</p></center></div>
+  </div>
+  <div id="fade" class="black_overlay"></div>
 </center>
 <style>
 h1, h2, h3, h4, h5, h6, p {
@@ -134,6 +139,63 @@ button {
         
     .menu-icon:hover {
         transform: scale (1.2);
+      
+      .black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+.white_content {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 60%;
+  height: 75%;
+  padding: 0px;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 1002;
+  overflow: auto;
+  color: black;
+  top: 10.25%;
+}
+#top {
+  background: black;  
+  height: 20px;
+  font-family: arial;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+ }
+        #help_content {
+            position: relative;
+            height: 65%;
+            bottom: 100;
+            background: white;
+        }
+        
+#close_button {
+    position: absolute;
+    right: 1%;
+    color: white;
+    text-decoration: none;
+    top: -5px;
+    }
+    #help {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    transform: scale(.8);
+    color: white;
+    }    
 </style>
 
 
