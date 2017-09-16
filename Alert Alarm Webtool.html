@@ -31,12 +31,7 @@
 <button onclick="setTimeout(doAlarm, 3600000)">1 Hour</button>
 <button onclick="beep()">Beep</button>
  </center>
-  <a id="help" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Help</a>
-        <div id="light" class="white_content"><div id="top"><a id="close_button" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">&#10006;
-</a></div><div id="help_content"></div>
-  </div>
-  <div id="fade" class="black_overlay"></div>
-
+  
 <style>
 h1, h2, h3, h4, h5, h6, p {
     font-family: arial;
@@ -140,62 +135,6 @@ button {
     .menu-icon:hover {
         transform: scale (1.2);
       
-      .black_overlay {
-  display: none;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 1001;
-  -moz-opacity: 0.8;
-  opacity: .80;
-  filter: alpha(opacity=80);
-}
-.white_content {
-  display: none;
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 60%;
-  height: 75%;
-  padding: 0px;
-  border-radius: 5px;
-  background-color: white;
-  z-index: 1002;
-  overflow: auto;
-  color: black;
-  top: 10.25%;
-}
-#top {
-  background: black;  
-  height: 20px;
-  font-family: arial;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
- }
-        #help_content {
-            position: relative;
-            height: 65%;
-            bottom: 100;
-            background: white;
-        }
-        
-#close_button {
-    position: absolute;
-    right: 1%;
-    color: white;
-    text-decoration: none;
-    top: -5px;
-    }
-    #help {
-    position: absolute;
-    bottom: 2px;
-    right: 5px;
-    transform: scale(.8);
-    color: white;
-    }    
 </style>
 
 
