@@ -18,6 +18,7 @@
 <FORM NAME="WordForm">  
 <INPUT TYPE=TEXT NAME="WordBox" id="wordbox"><BR>
 <INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button">
+<input type="BUTTON" value="Generate bad" onclick="PickRandomWord2(document.WordForm);" id="button2">
 </FORM>
     <a id="help" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Help</a>
         <div id="light" class="white_content"><div id="top"><a id="close_button" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">&#10006;
@@ -63,7 +64,7 @@ h1 {
     border: 0;
 }
 
-#button {
+#button, #button2 {
   background: #0b7fba;
     border: 0;
     color: #fff;
@@ -228,6 +229,32 @@ words[17] = "Splendid"
 words[18] = "Pleasing"
 words[19] = "Perfect"
 
+        
+var words2 = new BuildArray(NumberOfWords)
+
+// Use the following variables to 
+// define your random words:
+words2[1] = "Atrocious"
+words2[2] = "Awful"
+words2[3] = "Dreadful"
+words2[4] = "Lousy
+words2[5] = "Unacceptable"
+words2[6] = "Terrible"
+words2[7] = "Horrible"
+words2[8] = "Unpleasant"
+words2[9] = "Unsatisfying"
+words2[10] = "Unhappy"
+words2[11] = "Horrendous"
+words2[12] = "Ghastly"
+words2[13] = "Disastrous"
+words2[14] = "Inconvinent"
+words2[15] = "Obnoxious"
+words2[16] = "Abominable"
+words2[17] = "Rotten"
+words2[18] = "Frightful"
+words2[19] = "Painful"
+        
+        
 function BuildArray(size){
 this.length = size
 for (var i = 1; i <= size; i++){
@@ -242,7 +269,15 @@ var rnd = Math.ceil(Math.random() * NumberOfWords)
 // Display the word inside the text box
 frm.WordBox.value = words[rnd]
 }
-    
+ 
+function PickRandomWord2(frm2) {
+// Generate a random number between 1 and NumberOfWords
+var rnd2 = Math.ceil(Math.random() * NumberOfWords)
+
+// Display the word inside the text box
+// Display the word inside the text box
+frm2.WordBox.value = words2[rnd2]
+}
     </script>
     </body>
 </html>
