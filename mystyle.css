@@ -200,3 +200,8 @@ div.desc {
 #r2 {
     color: white;
 }
+
+#time {
+  text-align: center;
+  font-size: 60px;
+}
