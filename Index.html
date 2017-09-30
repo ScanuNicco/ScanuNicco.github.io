@@ -35,7 +35,38 @@
      <img id="Welcome" src="http://formproratings.co.nz/wp-content/uploads/2015/07/BETATESTINGsquareStampRed.jpg" style="width:40%" border="2">
           
 <p style="padding-top: 10;"> I have decided to stop using the old website builder and code the entire website myself. This is a preview version of my home coded website. It is currently hosted on <a href="https://github.com/ScanuNicco/ScanuNicco.github.io/">Github</a> but it will replace the old version on scanuproductions.com some time in december. </p>
-       
+       <p id="time">
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 17, 2017 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("time").innerHTML = days + " days, " + hours + " hours, "
+    + minutes + " minutes, and " + seconds + " seconds. ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("time").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
         <h2>How Was Your Day Webtool</h2>
         <img src="http://nebula.wsimg.com/3f4de41b3ba57e41bda506c0b7f9f87d?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1">
  <p>Are You Tired of listening to your parents complain because when they ask you how your day was you just say good? If so, I have the perfect webtool for you. The How Was Your Day generator will randomly pick a word from a list of 19 synonyms for good. <a href="https://scanunicco.github.io/How%20Was%20Your%20Day%20Webtool.html">Try it now!</a></p>
