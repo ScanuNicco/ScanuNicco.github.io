@@ -2,11 +2,11 @@
 body {
     background-image: url(background);
     margin: 0px;
-    font-family: ubuntu;
+    font-family: arial;
 }
 
 #top-bar {
-    background: grey;
+    background: linear-gradient(#3a3a3a, #666464);
     height: 20px;
     top: 0px;
     z-index: 3;
@@ -14,7 +14,7 @@ body {
 
 #left-bar {
     width: 50px;
-    background: black;
+    background: linear-gradient(to right, rgba(0, 0, 0, .7) , rgba(100, 100, 100, .7));
     height: 97%;
     margin-top: 0px;
     z-index: 3;
