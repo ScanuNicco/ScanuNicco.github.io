@@ -20,6 +20,16 @@ body {
     z-index: 3;
 }
 
+.dockIcon {
+    height: 50px;
+    width: 50px;
+    background: rgba(0, 0, 0, 0);
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+    margin: 3px;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
