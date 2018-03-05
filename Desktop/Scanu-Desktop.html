@@ -1,0 +1,240 @@
+<html>
+    <head>
+        <title>Scanu Online Desktop</title>
+        <link rel="stylesheet" type="text/css" href="Scanu-Desktop.css">
+    </head>
+    <body id="content" scroll="no" style="overflow: hidden">
+        <script>
+var elem = document.getElementById("content");
+  elem.requestFullscreen();
+</script>
+  <div id="desktopContent">      
+        <div id="top-bar"><h3>Scanu Online OS</h3><h4 id="clock"></h4>
+        <script type="text/javascript" src="Scanu-Desktop-Clock.js">
+</script>
+
+
+        </div>
+        <div id="left-bar">
+            <button id="launcherButton" onclick="openLauncher()">
+            <img src="http://www.thepetsplaceanimalhospital.com/images/menu.svg" width="34px"></button>
+            <button id="myBtn" onclick="openSettings()"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
+            <button id="HowDayLaunch" onclick="openHowDay()"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
+            <button id="BrowserLaunch" onclick="openBrowser()"><img src="http://icons.iconarchive.com/icons/martz90/circle-addon2/512/browser-icon.png" width="34px"></button>
+        </div>
+        
+<div id="Menu">
+        <button id="closeLauncherButton" onclick="closeLauncher()"><b id="launcherCloseText">x</b>
+    <button id="myBtn" onclick="openSettings()"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
+            <button id="HowDayLaunch" onclick="openHowDay()"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
+            <button id="BrowserLaunch" onclick="openBrowser()"><img src="http://icons.iconarchive.com/icons/martz90/circle-addon2/512/browser-icon.png" width="34px"></button>
+            <button id="NotebookLaunch" onclick="openNotepad()"><img src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/60.png" width="34px"></button>
+            <button id="htmlLaunch" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
+    </button>
+        </div>
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+<!-- Modal content -->
+<div class="modal-content" draggable="true">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+      <center><h3>System Settings</h3></center>
+    </div>
+    <center>
+<h3>Appearence</h3>
+        <h5>Background Image</h5><input type="text" value="Enter image URL" id="Background">
+        <button onclick="refreshBackground()">Apply Background</button>
+        <br>
+        <p>For local files use file://path/to/image</p>
+        </center>
+  </div>
+</div>
+<div id="HowDayApp" class="HowDay" >
+
+<!-- Modal content -->
+<div class="HowDay-content" draggable="true">
+  <div class="HowDay-header">
+    <span class="HowDayclose">&times;</span>
+      <center><h3>How Was Your Day Generator</h3></center>
+    </div>
+    <center>
+        <iframe src="https://scanunicco.github.io/How%20Was%20Your%20Day%20Webtool.html" width="100%" Height="85%" frameborder="none" id="HowDayFrame"></iframe>
+        </center>
+  </div>
+</div> 
+<!-- The Modal -->
+<div id="BrowserApp" class="Browser" >
+
+<!-- Modal content -->
+<div class="Browser-content" draggable="true">
+  <div class="Browser-header">
+    <span class="Browserclose">&times;</span>
+      <center><h3>Browser</h3></center>
+      <input class="browserTool" type="text" id="urlSource" value="http://">  <input class="browserTool" type="button" value="Go" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">Reload</button>
+    </div>
+    <iframe id="urlDisplay" width="95%" height="70%" frameborder=10px >
+</iframe>
+  </div>
+      </div>
+      <div id="notepadApp" draggable="true"><div id="notepadHeader">Notepad App<button onclick="closeNotepad()" id="notepadClose">X</button><br> <button id="create">Generate File</button> <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br></div>
+      <textarea id="notepadContent"></textarea>
+          <script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+(function () {
+var textFile = null,
+  makeTextFile = function (text) {
+    var data = new Blob([text], {type: 'text/plain'});
+
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+      window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+
+    return textFile;
+  };
+
+
+  var create = document.getElementById('create'),
+    textbox = document.getElementById('notepadContent');
+
+  create.addEventListener('click', function () {
+    var link = document.getElementById('downloadlink');
+    link.href = makeTextFile(textbox.value);
+    link.style.display = 'block';
+  }, false);
+})();
+
+}//]]> 
+
+</script>
+
+
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "qm5AG"
+    }], "*")
+  }
+</script>
+      </div>
+      <div id="editHtmlApp" draggable="true">
+      <div id="editHtmlHeader">Edit Html<button onclick="closeEditHtml()" id="editHtmlClose">X</button><br><a id="download" onclick="downloadHtml()" href="#">Download As Html</a>
+<div>
+ <input type="file" id="input-file">
+</div>
+</form>
+<div id="preview"></div></div><textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
+</textarea>
+    
+<style>
+
+    body {
+        padding:0;
+        margin:0;
+    }
+    
+    #preview {
+        position:absolute;
+        right: 0px;
+        top: 38px;
+        width: 50%;
+        height: 100%;
+        border-left-style: solid;
+        border-left-color: black;
+        border-width: 5px;
+        box-shadow: none;
+        color: black;
+    }
+    
+    #input {
+        background: rgba(0, 0, 0, .1);
+        resize: none;
+        height:100%;
+        width:50%;
+        border: none;
+    }
+    
+    #download {
+        color: lightslategray;
+        position: absolute;
+        left: 5px;
+    }
+    
+    #input-file {
+        background: rgba(0, 0, 0, 0);
+        text-decoration: underline;
+        border: none;
+        color: lightslategray;
+    }
+    
+</style>
+<script>
+    
+function runPreview() {
+    var input = document.getElementById("input").value;
+    document.getElementById("preview").innerHTML = input;
+}
+    
+function downloadHtml() {
+    var hiddenElement = document.createElement('a');
+    var downloadInput = document.getElementById('preview').innerHTML;
+    
+    hiddenElement.href = 'data:attachment/text,' + encodeURI(downloadInput);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'myHtml.html';
+    hiddenElement.click();
+}
+
+function uploadFile() {
+    var fileContent = document.getElementById("file").value;
+    document.getElementById('input').innerHTML = fileContent;
+    alert(fileContent);
+}
+    
+document.getElementById('input-file')
+  .addEventListener('change', getFile)
+
+function getFile(event) {
+	const input = event.target
+  if ('files' in input && input.files.length > 0) {
+	  placeFileContent(
+      document.getElementById('input'),
+      input.files[0])
+  }
+}
+
+function placeFileContent(target, file) {
+	readFileContent(file).then(content => {
+  	target.value = content
+  }).catch(error => console.log(error))
+}
+
+function readFileContent(file) {
+	const reader = new FileReader()
+  return new Promise((resolve, reject) => {
+    reader.onload = event => resolve(event.target.result)
+    reader.onerror = error => reject(error)
+    reader.readAsText(file)
+  })
+}
+</script>
+</body>
+
+      </div>
+    </div>
+<script src="Scanu-Desktop-HowDayApp.js">
+</script> 
+<script src="Scanu-Desktop-Settings.js"></script>
+<script src="Scanu-Desktop-Browser.js"></script>
+<script src="Scanu-Desktop-Launcher.js"></script>
+<script src="Scanu-Desktop-Notepad.js"></script>
+<script src="Scanu-Desktop-Html-Edit.js"></script>
+    </body>
+</html>

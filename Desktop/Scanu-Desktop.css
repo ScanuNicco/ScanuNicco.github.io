@@ -1,0 +1,334 @@
+/* Tool Bars and App Tray*/
+body {
+    background-image: url(background);
+    margin: 0px;
+    font-family: ubuntu;
+}
+
+#top-bar {
+    background: grey;
+    height: 20px;
+    top: 0px;
+    z-index: 3;
+}
+
+#left-bar {
+    width: 50px;
+    background: black;
+    height: 97%;
+    margin-top: 0px;
+    z-index: 3;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 50;
+    top: 20;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+    position:  absolute;
+    left: 0;
+    top: 0;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    bottom: 4px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+    background-color: #f4b042;
+    color: white;
+    position: relative;
+    top: -20;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+#myBtn {
+    resize: .5;
+}
+
+#clock {
+    position: fixed;
+    top: 1px;
+    right: 5px;
+    margin: 0;
+    
+}
+
+/* The Modal (background) */
+.HowDay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 50;
+    top: 20;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.HowDay-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 450px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+    position:  absolute;
+    left: 0;
+    top: 0;
+}
+
+/* The Close Button */
+.HowDayclose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    bottom: 4px;
+}
+
+.HowDayclose:hover,
+.HowDayclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.HowDay-header {
+    background-color: #f4b042;
+    color: white;
+    position: relative;
+    top: -20;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Modal Body */
+.HowDay-body {padding: 2px 16px;}
+
+#myBtn {
+    resize: .5;
+}
+
+#HowDayFrame {
+    position: relative;
+    bottom: 37;
+}
+
+/* The Modal (background) */
+.Browser {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 50;
+    top: 20;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.Browser-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+    position:  absolute;
+    left: 0;
+    top: 0;
+}
+
+/* The Close Button */
+.Browserclose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    bottom: 4px;
+}
+
+.Browserclose:hover,
+.Browserclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Header */
+.Browser-header {
+    background-color: #f4b042;
+    color: white;
+    position: relative;
+    top: -20;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+/* Modal Body */
+.Browser-body {padding: 2px 16px;}
+
+#Menu {
+    background: rgba(0, 0, 0, .7);
+    height: 150;
+    width: 500;
+    z-index: 1;
+    position: absolute;
+    top: 20;
+    left: 50;
+    border-style: solid;
+    border-color: white;
+    border-bottom-right-radius: 10px;
+}
+
+#closeLauncherButton {
+    height: 15;
+    width: 15;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    position: absolute;
+    left: 485;
+}
+
+#launcherCloseText {
+    position: relative;
+    bottom: 4;
+    right: 3;
+}
+
+#notepadApp {
+    position: absolute;
+    left: 50;
+    top: 20;
+    background: white;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+}
+
+#notepadHeader {
+    background-color: #f4b042;
+    color: white;
+    text-align: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#notepadClose {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    float: right;
+}
+
+#notepadContent {
+    width: 100%;
+    height: 88%;
+    border: none;
+    resize: none;
+    z-index: -1;
+}
+
+#downloadlink {
+    position:absolute;
+    top: 19;
+    left: 100;
+    color: white;
+    font-size:13 ;
+}
+
+#create {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    text-decoration: underline;
+    position: absolute;
+    left: 3;
+}
+
+#editHtmlApp {
+    position: absolute;
+    left: 50;
+    top: 20;
+    background: white;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow:hidden;
+}
+
+#editHtmlHeader {
+    background-color: #f4b042;
+    color: white;
+    text-align: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#editHtmlClose {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    float: right;
+}
