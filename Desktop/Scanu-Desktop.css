@@ -2,7 +2,7 @@
 body {
     background-image: url(background);
     margin: 0px;
-    font-family: arial;
+    font-family: ubuntu;
 }
 
 #top-bar {
@@ -10,6 +10,7 @@ body {
     height: 20px;
     top: 0px;
     z-index: 3;
+    color: white;
 }
 
 #left-bar {
@@ -241,7 +242,7 @@ body {
     z-index: 1;
     position: absolute;
     top: 20;
-    left: 50;
+    left: 55;
     border-style: solid;
     border-color: white;
     border-bottom-right-radius: 10px;
