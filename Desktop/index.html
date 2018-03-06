@@ -5,6 +5,12 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
     </head>
     <body id="content" scroll="no" style="overflow: hidden">
+        <div id="splashScreen"><br><br>
+            <h1 id="title">Rag OS</h1>
+            <h4>v1.0</h4>
+            <br>
+            <img src="Images/loading.png" id="loading">
+        </div>
         <script>
 var elem = document.getElementById("content");
   elem.requestFullscreen();
@@ -226,7 +232,7 @@ function readFileContent(file) {
   })
 }
 </script>
-</body>
+
 
       </div>
     </div>
@@ -237,5 +243,13 @@ function readFileContent(file) {
 <script src="Scanu-Desktop-Launcher.js"></script>
 <script src="Scanu-Desktop-Notepad.js"></script>
 <script src="Scanu-Desktop-Html-Edit.js"></script>
+<script>
+    setInterval(stop, 2000);
+
+
+    function stop() {
+        document.getElementById("splashScreen").style.display = "none";
+    }
+</script>
     </body>
 </html>
