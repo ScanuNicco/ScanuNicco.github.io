@@ -11,24 +11,15 @@ function refreshBackground() {
 
 }
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
 function openSettings() {
-    modal.style.display = "block";
+    document.getElementById("settings").style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+function closeSettings() {
+    console.log("closing settings")
+    document.getElementById("settings").style.display = "none";
+    console.log("settings closed")
 }
-
 
 function drag_start(event) {
     var style = window.getComputedStyle(event.target, null);

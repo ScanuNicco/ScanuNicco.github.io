@@ -40,12 +40,12 @@ var elem = document.getElementById("content");
     </button>
         </div>
 <!-- The Modal -->
-<div id="myModal" class="modal" >
+
 
 <!-- Modal content -->
-<div class="modal-content" draggable="true">
+<div class="window" draggable="true" id="settings">
   <div class="modal-header">
-    <span class="close">&times;</span>
+    <button class="close" onclick="closeSettings()">X</button>
       <center><h3>System Settings</h3></center>
     </div>
     <center>
@@ -58,34 +58,30 @@ var elem = document.getElementById("content");
         <p>Rag OS is a computer operating system coded entirely in HTML, CSS, and JavaScript. It is still being developed so certain features may not work right now and many more will be added in the future. </p>
         </center>
   </div>
-</div>
-<div id="HowDayApp" class="HowDay" >
+
 
 <!-- Modal content -->
-<div class="HowDay-content" draggable="true">
+<div class="window" draggable="true" id="howDay">
   <div class="HowDay-header">
-    <span class="HowDayclose">&times;</span>
+    <button class="close" onclick="closeHowDay()">X</button>
       <center><h3>How Was Your Day Generator</h3></center>
     </div>
     <center>
         <iframe src="http://scanurag.com/How%20Was%20Your%20Day%20Webtool.html" width="100%" Height="85%" frameborder="none" id="HowDayFrame"></iframe>
         </center>
   </div>
-</div> 
 <!-- The Modal -->
-<div id="BrowserApp" class="Browser" >
-
 <!-- Modal content -->
-<div class="Browser-content" draggable="true">
+<div class="window" draggable="true" id="browser">
   <div class="Browser-header">
-    <span class="Browserclose">&times;</span>
+    <button class="close" onclick="closeBrowser()">X</button>
       <center><h3>Browser</h3></center>
       <input class="browserTool" type="text" id="urlSource" value="http://">  <input class="browserTool" type="button" value="Go" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">Reload</button>
     </div>
     <iframe id="urlDisplay" width="95%" height="70%" frameborder=10px >
 </iframe>
   </div>
-      </div>
+      
       <div id="notepadApp" draggable="true"><div id="notepadHeader">Notepad App<button onclick="closeNotepad()" id="notepadClose">X</button><br> <button id="create">Generate File</button> <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br></div>
       <textarea id="notepadContent"></textarea>
           <script type='text/javascript'>//<![CDATA[
