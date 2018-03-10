@@ -88,6 +88,28 @@ body {
     margin: 3px;
 }
 
+.logOutItem {
+    display: block;
+    margin: 0px;
+    padding: 3px;
+    width: 200;
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.logOutItem:hover {
+    background: white;
+    transition-duration: .5s;
+}
+
+#logOutMenu {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    background: #292a2b;
+    width: 200;
+}
+
 /* Modal Content */
 .window {
     background-color: #fefefe;
