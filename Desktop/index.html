@@ -11,10 +11,6 @@
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
-        <script>
-var elem = document.getElementById("content");
-  elem.requestFullscreen();
-</script>
   <div id="desktopContent">      
         <div id="top-bar"><h3>Rag OS v1.1</h3><h4 id="clock"></h4>
         <script type="text/javascript" src="Scanu-Desktop-Clock.js">
@@ -39,10 +35,15 @@ var elem = document.getElementById("content");
             <button id="htmlLaunch" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
     </button>
         </div>
-<!-- The Modal -->
+<div id="logOutMenu">
+	<a class="logOutItem" href="http://scanunicco.github.io">Log Out</a>
+	<a class="logOutItem" href="http://scanunicco.github.io/Deskop">Restart</a>
+	<a class="logOutItem" href="#" onclick="shutDown()">Shut Down</a>
+</div>
+	  
 
 
-<!-- Modal content -->
+<!-- Settings -->
 <div class="window" draggable="true" id="settings">
   <div class="modal-header">
     <button class="close" onclick="closeSettings()">X</button>
@@ -60,7 +61,7 @@ var elem = document.getElementById("content");
   </div>
 
 
-<!-- Modal content -->
+<!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay">
   <div class="HowDay-header">
     <button class="close" onclick="closeHowDay()">X</button>
@@ -70,8 +71,8 @@ var elem = document.getElementById("content");
         <iframe src="http://scanurag.com/How%20Was%20Your%20Day%20Webtool.html" width="100%" Height="85%" frameborder="none" id="HowDayFrame"></iframe>
         </center>
   </div>
-<!-- The Modal -->
-<!-- Modal content -->
+
+<!-- Browser -->
 <div class="window" draggable="true" id="browser">
   <div class="Browser-header">
     <button class="close" onclick="closeBrowser()">X</button>
@@ -82,7 +83,14 @@ var elem = document.getElementById("content");
 </iframe>
   </div>
       
-      <div id="notepadApp" draggable="true"><div id="notepadHeader">Notepad App<button onclick="closeNotepad()" id="notepadClose">X</button><br> <button id="create">Generate File</button> <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br></div>
+<!-- Notepad -->
+      <div id="notepadApp" draggable="true">
+	      <div id="notepadHeader">
+		      Notepad App
+		      <button onclick="closeNotepad()" id="notepadClose">X</button><br> 
+		      <button id="create">Generate File</button>
+		      <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br>
+	      </div>
       <textarea id="notepadContent"></textarea>
           <script type='text/javascript'>//<![CDATA[
 window.onload=function(){
@@ -129,13 +137,18 @@ var textFile = null,
   }
 </script>
       </div>
+<!-- HTML Editor -->
       <div id="editHtmlApp" draggable="true">
-      <div id="editHtmlHeader">Edit Html<button onclick="closeEditHtml()" id="editHtmlClose">X</button><br><a id="download" onclick="downloadHtml()" href="#">Download As Html</a>
-<div>
- <input type="file" id="input-file">
-</div>
-</form>
-<div id="preview"></div></div><textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
+	<div id="editHtmlHeader">
+	      Edit Html
+	      <button onclick="closeEditHtml()" id="editHtmlClose">X</button><br>
+	     	 <a id="download" onclick="downloadHtml()" href="#">Download As Html</a>
+	     	 <div>
+ 		<input type="file" id="input-file">
+		</div>
+	</form>
+	<div id="preview"></div>
+	 </div><textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
 </textarea>
     
 <style>
