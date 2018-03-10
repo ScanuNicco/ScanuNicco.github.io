@@ -15,6 +15,17 @@ function closeLogOut() {
     document.getElementById("logOutMenu").style.display = 'none';
 }
 
+function shutDown() {
+    console.log("shutting down");
+    document.getElementById("splashScreen").style.display = "block";
+    setTimeout(turnOff, 2000);
+}
+
+function turnOff() {
+    document.getElementById("content").style.background = "rgb(0, 0, 0)";
+    document.getElementById("content").style.opacity = "0";
+    document.getElementById("splashScreen").style.display = "none";
+}
 closeLogOut();
 
 document.getElementById('desktopContent').onclick = function(e) {
