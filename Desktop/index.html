@@ -7,16 +7,15 @@
     <body id="content" scroll="no" style="overflow: hidden">
         <div id="splashScreen"><br><br>
             <h1 id="title">Rag OS</h1>
-            <h4>v1.0</h4>
+            <h4>v1.2</h4>
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
   <div id="desktopContent">      
-        <div id="top-bar"><h3>Rag OS v1.1</h3><h4 id="clock"></h4>
-        <script type="text/javascript" src="Scanu-Desktop-Clock.js">
-</script>
-
-
+        <div id="top-bar">
+            <h3>Rag OS v1.2</h3>
+            <h4 id="clock"></h4>
+            <button id="logOutButton" onclick="openLogOut()">+</button>
         </div>
         <div id="left-bar">
             <button id="launcherButton" class="dockIcon" onclick="openLauncher()">
@@ -247,6 +246,8 @@ function readFileContent(file) {
 
       </div>
     </div>
+<script type="text/javascript" src="Scanu-Desktop-Clock.js">
+</script>
 <script src="Scanu-Desktop-HowDayApp.js">
 </script> 
 <script src="Scanu-Desktop-Settings.js"></script>

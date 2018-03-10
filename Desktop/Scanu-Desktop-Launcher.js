@@ -7,7 +7,7 @@ function closeLauncher() {
     document.getElementById("Menu").style.display = 'none';
 }
 
-function openLogOut () {
+function openLogOut() {
     document.getElementById("logOutMenu").style.display = 'block';
 }
 
@@ -16,3 +16,11 @@ function closeLogOut() {
 }
 
 closeLogOut();
+
+document.getElementById('desktopContent').onclick = function(e) {
+  if(e.target != document.getElementById('logOutMenu') && e.target != document.getElementById('logOutButton')) {
+      closeLogOut();
+  } else {
+      console.log('You clicked inside');
+  }
+}

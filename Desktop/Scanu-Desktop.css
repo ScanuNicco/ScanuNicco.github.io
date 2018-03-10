@@ -110,6 +110,17 @@ body {
     width: 200;
 }
 
+#logOutButton {
+    position: absolute;
+    top: -2px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 20;
+    height: 22px;
+    color: white;
+}
+
 /* Modal Content */
 .window {
     background-color: #fefefe;
@@ -169,9 +180,8 @@ body {
 #clock {
     position: fixed;
     top: 1px;
-    right: 5px;
+    right: 35px;
     margin: 0;
-    
 }
 
 /* Modal Content */
