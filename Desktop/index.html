@@ -7,13 +7,13 @@
     <body id="content" scroll="no" style="overflow: hidden">
         <div id="splashScreen"><br><br>
             <h1 id="title">Rag OS</h1>
-            <h4>v1.2</h4>
+            <h4>v1.3</h4>
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
   <div id="desktopContent">      
         <div id="top-bar">
-            <h3>Rag OS v1.2</h3>
+            <h3>Rag OS v1.3</h3>
             <h4 id="clock"></h4>
             <button id="logOutButton" onclick="openLogOut()">+</button>
         </div>
@@ -23,6 +23,8 @@
             <button id="myBtn" onclick="openSettings()" class="dockIcon"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
             <button id="HowDayLaunch" onclick="openHowDay()" class="dockIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
             <button id="BrowserLaunch" onclick="openBrowser()" class="dockIcon"><img src="http://icons.iconarchive.com/icons/martz90/circle-addon2/512/browser-icon.png" width="34px"></button>
+            <button class="dockIcon" onclick="openNotepad()"><img src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/60.png" width="34px"></button>
+            <button class="dockIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
         </div>
         
 <div id="Menu">
@@ -44,14 +46,14 @@
 
 <!-- Settings -->
 <div class="window" draggable="true" id="settings">
-  <div class="modal-header">
+  <div class="header">
     <button class="close" onclick="closeSettings()">X</button>
       <center><h3>System Settings</h3></center>
     </div>
     <center>
 <h3>Appearence</h3>
-        <h5>Background Image</h5><input type="text" value="Enter image URL" id="Background">
-        <button onclick="refreshBackground()">Apply Background</button>
+        <h5>Background Image</h5><input type="text" placeholder="Enter image URL" id="Background">
+        <button onclick="refreshBackground()" class="defaultButton">Apply Background</button>
         <br>
         <p>For local files use file:///path/to/image</p>
 <h3>About</h3>
@@ -62,7 +64,7 @@
 
 <!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay">
-  <div class="HowDay-header">
+  <div class="header">
     <button class="close" onclick="closeHowDay()">X</button>
       <center><h3>How Was Your Day Generator</h3></center>
     </div>
@@ -73,7 +75,7 @@
 
 <!-- Browser -->
 <div class="window" draggable="true" id="browser">
-  <div class="Browser-header">
+  <div class="header">
     <button class="close" onclick="closeBrowser()">X</button>
       <center><h3>Browser</h3></center>
       <input class="browserTool" type="text" id="urlSource" value="http://">  <input class="browserTool" type="button" value="Go" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">Reload</button>
@@ -83,10 +85,10 @@
   </div>
       
 <!-- Notepad -->
-      <div id="notepadApp" draggable="true">
+      <div id="notepadApp" class="window" draggable="true">
 	      <div id="notepadHeader">
 		      Notepad App
-		      <button onclick="closeNotepad()" id="notepadClose">X</button><br> 
+		      <button onclick="closeNotepad()" class="close">X</button><br> 
 		      <button id="create">Generate File</button>
 		      <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br>
 	      </div>
@@ -137,11 +139,12 @@ var textFile = null,
 </script>
       </div>
 <!-- HTML Editor -->
-      <div id="editHtmlApp" draggable="true">
+      <div id="editHtmlApp" class="window" draggable="true">
 	<div id="editHtmlHeader">
 	      Edit Html
-	      <button onclick="closeEditHtml()" id="editHtmlClose">X</button><br>
-	     	 <a id="download" onclick="downloadHtml()" href="#">Download As Html</a>
+	      <button onclick="closeEditHtml()" class="close">X</button><br>
+	     	 <a id="download" onclick="downloadHtml()" href="#">Download Html</a>
+            <label for="input-file" id="file-label">Open File</label>
 	     	 <div>
  		<input type="file" id="input-file">
 		</div>
@@ -176,19 +179,6 @@ var textFile = null,
         height:100%;
         width:50%;
         border: none;
-    }
-    
-    #download {
-        color: lightslategray;
-        position: absolute;
-        left: 5px;
-    }
-    
-    #input-file {
-        background: rgba(0, 0, 0, 0);
-        text-decoration: underline;
-        border: none;
-        color: lightslategray;
     }
     
 </style>

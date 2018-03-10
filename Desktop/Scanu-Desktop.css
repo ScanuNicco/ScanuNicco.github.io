@@ -135,11 +135,10 @@ body {
     color: white;
 }
 
-/* Modal Content */
+/* Default Window  */
 .window {
     background-color: #fefefe;
     margin: auto;
-    padding: 0px;
     border: 1px solid #888;
     width: 80%;
     max-height: 100%;
@@ -150,12 +149,11 @@ body {
     position:  absolute;
     left: 55;
     top: 20;
-    z-index: -2;
     display: none;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 }
 
-/* The Close Button */
+/* Default Close Button */
 .close {
     color: white;
     float: right;
@@ -175,8 +173,8 @@ body {
     cursor: pointer;
 }
 
-/* Modal Header */
-.modal-header {
+/* Default Header */
+.header {
     background-color: #f4b042;
     color: white;
     position: relative;
@@ -185,8 +183,6 @@ body {
     border-top-right-radius: 6px;
 }
 
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
 
 #myBtn {
     resize: .5;
@@ -199,73 +195,11 @@ body {
     margin: 0;
 }
 
-/* Modal Content */
-.HowDay-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 450px;
-    border-radius: 6px;
-    resize: both;
-    overflow: auto;
-    position:  absolute;
-    left: 0;
-    top: 0;
-}
-
-/* Modal Header */
-.HowDay-header {
-    background-color: #f4b042;
-    color: white;
-    position: relative;
-    top: -20;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-/* Modal Body */
-.HowDay-body {padding: 2px 16px;}
-
-#myBtn {
-    resize: .5;
-}
-
 #HowDayFrame {
     position: relative;
     bottom: 37;
+    width: 100%;
 }
-
-/* Modal Content */
-.Browser-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 300px;
-    border-radius: 6px;
-    resize: both;
-    overflow: auto;
-    position:  absolute;
-    left: 0;
-    top: 0;
-}
-
-
-/* Modal Header */
-.Browser-header {
-    background-color: #f4b042;
-    color: white;
-    position: relative;
-    top: -20;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-}
-
-/* Modal Body */
-.Browser-body {padding: 2px 16px;}
 
 #Menu {
     background: rgba(0, 0, 0, .7);
@@ -299,7 +233,7 @@ body {
 
 #notepadApp {
     position: absolute;
-    left: 50;
+    left: 55;
     top: 20;
     background: white;
     width: 80%;
@@ -317,12 +251,6 @@ body {
     border-top-right-radius: 6px;
 }
 
-#notepadClose {
-    background: rgba(0, 0, 0, 0);
-    color: white;
-    border: none;
-    float: right;
-}
 
 #notepadContent {
     width: 100%;
@@ -351,7 +279,7 @@ body {
 
 #editHtmlApp {
     position: absolute;
-    left: 50;
+    left: 55;
     top: 20;
     background: white;
     width: 80%;
@@ -367,11 +295,28 @@ body {
     text-align: center;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    height: 38
 }
 
-#editHtmlClose {
-    background: rgba(0, 0, 0, 0);
+#input-file {
+    display: none;
+}
+
+ #download {
     color: white;
+    position: absolute;
+    left: 5px;
+}
+
+#file-label {
+    position: absolute;
+    left: 125px;
+    text-decoration: underline;
+}
+
+.defaultButton {
     border: none;
-    float: right;
+    padding: 5px;
+    color: white;
+    background: #f4b042;
 }

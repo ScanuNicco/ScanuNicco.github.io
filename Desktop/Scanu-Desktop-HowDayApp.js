@@ -2,6 +2,6 @@ function openHowDay() {
     document.getElementById("howDay").style.display = "block";
 }
 
-function closeSettings() {
+function closeHowDay() {
     document.getElementById("howDay").style.display = "none";
 }
