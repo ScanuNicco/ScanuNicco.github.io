@@ -107,7 +107,7 @@ body {
     transition-duration: .5s;
 }
 
-.logOutItem:hover {3
+.logOutItem:hover {
     background: white;
     transition-duration: .5s;
 }
@@ -152,6 +152,7 @@ body {
     top: 20;
     z-index: -2;
     display: none;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 }
 
 /* The Close Button */
