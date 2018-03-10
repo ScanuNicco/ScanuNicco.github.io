@@ -6,3 +6,13 @@ function openLauncher() {
 function closeLauncher() {
     document.getElementById("Menu").style.display = 'none';
 }
+
+function openLogOut () {
+    document.getElementById("logOutMenu").style.display = 'block';
+}
+
+function closeLogOut() {
+    document.getElementById("logOutMenu").style.display = 'none';
+}
+
+closeLogOut();
