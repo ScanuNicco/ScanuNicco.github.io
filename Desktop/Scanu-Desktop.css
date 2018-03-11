@@ -22,7 +22,7 @@ body {
 
 #loading {
     width: 50;
-        -webkit-animation-name: spin;
+    -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
@@ -195,12 +195,6 @@ body {
     margin: 0;
 }
 
-#HowDayFrame {
-    position: relative;
-    bottom: 37;
-    width: 100%;
-}
-
 #Menu {
     background: rgba(0, 0, 0, .7);
     height: 150;
@@ -319,4 +313,61 @@ body {
     padding: 5px;
     color: white;
     background: #f4b042;
+}
+
+#howDay {
+    text-align: center;
+    background: coral;
+    color: white;
+    min-width: 480;
+    min-height: 380;
+}
+
+#wordbox {
+    font-size: 30;
+    background: coral;
+    color: white;
+    border: solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#button, #button2 {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    font-size: 18;
+    color: white;
+    background: #1c65db;
+    border-radius: 5px;
+}
+
+#urlSource {
+    width: 99%;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: none;
+    padding: 2px;
+}
+
+.browserTool {
+    position: absolute;
+    right: 10px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#reload-btn {
+    right: 40px;
+}
+
+#urlDisplay {
+    width: 99%;
+    height: 80%;
+    border: none;
+}
+
+#browser {
+    min-width: 871;
+    min-height: 417;
 }

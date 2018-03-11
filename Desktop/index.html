@@ -68,9 +68,16 @@
     <button class="close" onclick="closeHowDay()">X</button>
       <center><h3>How Was Your Day Generator</h3></center>
     </div>
-    <center>
-        <iframe src="http://scanurag.com/How%20Was%20Your%20Day%20Webtool.html" width="100%" Height="85%" frameborder="none" id="HowDayFrame"></iframe>
-        </center>
+    <h1>How Was Your Day?</h1>
+    <form name="WordForm">  
+        <input type="TEXT" name="WordBox" id="wordbox"><br>
+        <input type="BUTTON" value="Generate good" onclick="PickRandomWord(document.WordForm);" id="button">
+        <br>
+        <input type="BUTTON" value="Generate bad" onclick="PickRandomWord2(document.WordForm);" id="button2">
+    </form>
+    <div id="Warning" style="visibility: hidden;">
+    <center><b>⚠ Warning! ⚠</b><p>bad words are likely to cause extensive conversation about your day.</p></center>
+  </div>
   </div>
 
 <!-- Browser -->
@@ -78,9 +85,9 @@
   <div class="header">
     <button class="close" onclick="closeBrowser()">X</button>
       <center><h3>Browser</h3></center>
-      <input class="browserTool" type="text" id="urlSource" value="http://">  <input class="browserTool" type="button" value="Go" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">Reload</button>
+      <input type="text" id="urlSource" value="http://">  <input class="browserTool" type="button" value="&#8594;" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">&#x21bb;</button>
     </div>
-    <iframe id="urlDisplay" width="95%" height="70%" frameborder=10px >
+    <iframe id="urlDisplay" frameborder=10px >
 </iframe>
   </div>
       
