@@ -32,13 +32,13 @@ function drag_over(event) {
 } 
 function drop(event) { 
     var offset = event.dataTransfer.getData("body").split(',');
-    var dm = document.getElementById('modal-content');
+    var dm = document.getElementById('settings');
     dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
     dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
     event.preventDefault();
     return false;
 } 
-var dm = document.getElementById('modal-content'); 
+var dm = document.getElementById('settings'); 
 dm.addEventListener('dragstart',drag_start,false); 
 document.body.addEventListener('dragover',drag_over,false); 
 document.body.addEventListener('drop',drop,false); 

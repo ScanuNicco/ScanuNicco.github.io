@@ -7,13 +7,13 @@
     <body id="content" scroll="no" style="overflow: hidden">
         <div id="splashScreen"><br><br>
             <h1 id="title">Rag OS</h1>
-            <h4>v1.4</h4>
+            <h4>v1.5</h4>
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
   <div id="desktopContent">      
         <div id="top-bar">
-            <h3>Rag OS v1.4</h3>
+            <h3>Rag OS v1.5</h3>
             <h4 id="clock"></h4>
             <button id="logOutButton" onclick="openLogOut()">+</button>
         </div>
@@ -45,7 +45,7 @@
 
 
 <!-- Settings -->
-<div class="window" draggable="true" id="settings">
+<div class="window" draggable="true" id="settings" onclick='focusWindow("settings")'>
   <div class="header">
     <button class="close" onclick="closeSettings()">X</button>
       <center><h3>System Settings</h3></center>
@@ -63,7 +63,7 @@
 
 
 <!-- How Was Your Day Generator -->
-<div class="window" draggable="true" id="howDay">
+<div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
   <div class="header">
     <button class="close" onclick="closeHowDay()">X</button>
       <center><h3>How Was Your Day Generator</h3></center>
@@ -81,7 +81,7 @@
   </div>
 
 <!-- Browser -->
-<div class="window" draggable="true" id="browser">
+<div class="window" draggable="true" id="browser" onclick='focusWindow("browser")'>
   <div class="header">
     <button class="close" onclick="closeBrowser()">X</button>
       <center><h3>Browser</h3></center>
@@ -92,7 +92,7 @@
   </div>
       
 <!-- Notepad -->
-      <div id="notepadApp" class="window" draggable="true">
+      <div id="notepadApp" class="window" draggable="true" onclick='focusWindow("notepadApp")'>
 	      <div id="notepadHeader">
 		      Notepad App
 		      <button onclick="closeNotepad()" class="close">X</button><br> 
@@ -114,7 +114,7 @@
 </script>
       </div>
 <!-- HTML Editor -->
-      <div id="editHtmlApp" class="window" draggable="true">
+      <div id="editHtmlApp" class="window" draggable="true" onclick='focusWindow("editHtmlApp")'>
 	<div id="editHtmlHeader">
 	      Edit Html
 	      <button onclick="closeEditHtml()" class="close">X</button><br>
@@ -170,6 +170,21 @@
 <script src="Scanu-Desktop-Launcher.js"></script>
 <script src="Scanu-Desktop-Notepad.js"></script>
 <script src="Scanu-Desktop-Html-Edit.js"></script>
+<script>
+    var oldElement = "settings";
+    console.log("defined oldElement")
+    
+    function focusWindow(element) {
+        document.getElementById(oldElement).style.opacity = .8;
+        document.getElementById(oldElement).style.zIndex = 0;
+        oldElement = element; 
+        console.log("removed focus from " + oldElement)
+        document.getElementById(element).style.opacity = 1;
+        document.getElementById(element).style.zIndex = 1;
+        console.log("focused " + element);
+    }
+    
+    </script>
 <script>
     setInterval(stop, 2000);
 
