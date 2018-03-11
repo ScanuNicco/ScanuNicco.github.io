@@ -7,13 +7,13 @@
     <body id="content" scroll="no" style="overflow: hidden">
         <div id="splashScreen"><br><br>
             <h1 id="title">Rag OS</h1>
-            <h4>v1.3</h4>
+            <h4>v1.4</h4>
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
   <div id="desktopContent">      
         <div id="top-bar">
-            <h3>Rag OS v1.3</h3>
+            <h3>Rag OS v1.4</h3>
             <h4 id="clock"></h4>
             <button id="logOutButton" onclick="openLogOut()">+</button>
         </div>
@@ -100,38 +100,6 @@
 		      <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br>
 	      </div>
       <textarea id="notepadContent"></textarea>
-          <script type='text/javascript'>//<![CDATA[
-window.onload=function(){
-(function () {
-var textFile = null,
-  makeTextFile = function (text) {
-    var data = new Blob([text], {type: 'text/plain'});
-
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (textFile !== null) {
-      window.URL.revokeObjectURL(textFile);
-    }
-
-    textFile = window.URL.createObjectURL(data);
-
-    return textFile;
-  };
-
-
-  var create = document.getElementById('create'),
-    textbox = document.getElementById('notepadContent');
-
-  create.addEventListener('click', function () {
-    var link = document.getElementById('downloadlink');
-    link.href = makeTextFile(textbox.value);
-    link.style.display = 'block';
-  }, false);
-})();
-
-}//]]> 
-
-</script>
 
 
 
@@ -189,56 +157,6 @@ var textFile = null,
     }
     
 </style>
-<script>
-    
-function runPreview() {
-    var input = document.getElementById("input").value;
-    document.getElementById("preview").innerHTML = input;
-}
-    
-function downloadHtml() {
-    var hiddenElement = document.createElement('a');
-    var downloadInput = document.getElementById('preview').innerHTML;
-    
-    hiddenElement.href = 'data:attachment/text,' + encodeURI(downloadInput);
-    hiddenElement.target = '_blank';
-    hiddenElement.download = 'myHtml.html';
-    hiddenElement.click();
-}
-
-function uploadFile() {
-    var fileContent = document.getElementById("file").value;
-    document.getElementById('input').innerHTML = fileContent;
-    alert(fileContent);
-}
-    
-document.getElementById('input-file')
-  .addEventListener('change', getFile)
-
-function getFile(event) {
-	const input = event.target
-  if ('files' in input && input.files.length > 0) {
-	  placeFileContent(
-      document.getElementById('input'),
-      input.files[0])
-  }
-}
-
-function placeFileContent(target, file) {
-	readFileContent(file).then(content => {
-  	target.value = content
-  }).catch(error => console.log(error))
-}
-
-function readFileContent(file) {
-	const reader = new FileReader()
-  return new Promise((resolve, reject) => {
-    reader.onload = event => resolve(event.target.result)
-    reader.onerror = error => reject(error)
-    reader.readAsText(file)
-  })
-}
-</script>
 
 
       </div>

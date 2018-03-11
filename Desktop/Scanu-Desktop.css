@@ -370,4 +370,5 @@ body {
 #browser {
     min-width: 871;
     min-height: 417;
+    resize: none;
 }
