@@ -1,20 +1,20 @@
 <html>
     <head>
-        <title>Rag OS</title>
+        <title>Rag OS v1.6</title>
         <link rel="stylesheet" type="text/css" href="Scanu-Desktop.css">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
     </head>
     <body id="content" scroll="no" style="overflow: hidden">
         <div id="splashScreen"><br><br>
             <h1 id="title">Rag OS</h1>
-            <h4>v1.5</h4>
+            <h4>v1.6</h4>
             <br>
             <img src="Images/loading.png" id="loading">
         </div>
   <div id="desktopContent">      
         <div id="top-bar">
-            <h3>Rag OS v1.5</h3>
-            <h4 id="clock"></h4>
+            <h3>Rag OS v1.6</h3>
+            <div id="clockbox"></div>
             <button id="logOutButton" onclick="openLogOut()">+</button>
         </div>
         <div id="left-bar">
@@ -56,11 +56,50 @@
         <button onclick="refreshBackground()" class="defaultButton">Apply Background</button>
         <br>
         <p>For local files use file:///path/to/image</p>
+        <h5>Header Color</h5>
+        <button class="defaultButton" onclick="openHeaderColor()">Choose A Color</button>
+        <h5>Rounded Corners</h5>
+        <input type="range" min="0" max="12" value="6" class="slider" oninput="borderRadius()" id="borderRadiusInput">
 <h3>About</h3>
         <p>Rag OS is a computer operating system coded entirely in HTML, CSS, and JavaScript. It is still being developed so certain features may not work right now and many more will be added in the future. </p>
         </center>
   </div>
-
+<div class="window" id="chooseHeaderColor" onclick='focusWindow("chooseHeaderColor")'>
+      <div class="header"><center><h3>Choose A Color</h3></center></div>
+    <center>
+              <table id="colorChart">
+            <tr>
+                <th style="background: Salmon" onclick="headerColor('salmon')"></th>
+                <th style="background: Gold" onclick="headerColor('gold')"></th>
+                <th style="background: Khaki" onclick="headerColor('khaki')"></th>
+                <th style="background: lightgreen" onclick="headerColor('lightgreen')"></th>
+                <th style="background: lightblue" onclick="headerColor('lightblue')"></th>
+                <th style="background: violet" onclick="headerColor('violet')"></th>
+                <th style="background: lightgrey" onclick="headerColor('lightgrey')"></th>
+            </tr>
+            <tr>
+                <th style="background: red" onclick="headerColor('red')"></th>
+                <th style="background: orange" onclick="headerColor('orange')"></th>
+                <th style="background: yellow" onclick="headerColor('yellow')"></th>
+                <th style="background: lime" onclick="headerColor('lime')"></th>
+                <th style="background: blue" onclick="headerColor('blue')"></th>
+                <th style="background: magenta" onclick="headerColor('magenta')"></th>
+                <th style="background: grey" onclick="headerColor('grey')"></th>
+            </tr>
+            <tr>
+                <th style="background: maroon" onclick="headerColor('maroon')"></th>
+                <th style="background: DarkOrange" onclick="headerColor('darkorange')"></th>
+                <th style="background: olive" onclick="headerColor('olive')"></th>
+                <th style="background: green" onclick="headerColor('green')"></th>
+                <th style="background: navy" onclick="headerColor('navy')"></th>
+                <th style="background: purple" onclick="headerColor('purple')"></th>
+                <th style="background: black" onclick="headerColor('black')"></th>
+            </tr>
+        </table>
+        <button class="defaultButton" onclick="headerColor('#f4b042')">Reset To Default</button>
+        <button class="defaultButton" onclick="closeHeaderColor()">Done</button>
+        </center>
+      </div>
 
 <!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
@@ -93,7 +132,7 @@
       
 <!-- Notepad -->
       <div id="notepadApp" class="window" draggable="true" onclick='focusWindow("notepadApp")'>
-	      <div id="notepadHeader">
+	      <div id="notepadHeader" class="header">
 		      Notepad App
 		      <button onclick="closeNotepad()" class="close">X</button><br> 
 		      <button id="create">Generate File</button>
@@ -115,17 +154,17 @@
       </div>
 <!-- HTML Editor -->
       <div id="editHtmlApp" class="window" draggable="true" onclick='focusWindow("editHtmlApp")'>
-	<div id="editHtmlHeader">
-	      Edit Html
+	<div id="editHtmlHeader" class="header">
+	      <center>Edit Html</center>
 	      <button onclick="closeEditHtml()" class="close">X</button><br>
 	     	 <a id="download" onclick="downloadHtml()" href="#">Download Html</a>
             <label for="input-file" id="file-label">Open File</label>
 	     	 <div>
  		<input type="file" id="input-file">
 		</div>
-	</form>
+	</div>
 	<div id="preview"></div>
-	 </div><textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
+	 <textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
 </textarea>
     
 <style>

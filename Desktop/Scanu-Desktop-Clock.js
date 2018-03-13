@@ -14,7 +14,7 @@ else if(nhour>12){ap=" PM";nhour-=12;}
 
 if(nmin<=9) nmin="0"+nmin;
 
-document.getElementById('clock').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+ap+"";
+document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+ap+"";
 }
 
 window.onload=function(){

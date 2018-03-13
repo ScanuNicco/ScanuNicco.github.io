@@ -1,5 +1,5 @@
 //Set the default background and set it as the background
-var background = "url(Images/Scanu-Desktop-Background.jpg)";
+var background = "url(Images/Scanu-Desktop-Background-2.jpg)";
 document.body.style.backgroundImage = background;
 
 
@@ -8,7 +8,23 @@ function refreshBackground() {
     var backgroundinput = document.getElementById("Background").value;
     var background = "url(" + backgroundinput + ")"
     document.body.style.backgroundImage = background;
+}
 
+function headerColor(color) {
+    var header = document.getElementsByClassName('header');
+    for(i=0; i<header.length; i++) {
+        header[i].style.backgroundColor =    color;
+    }
+}
+
+function borderRadius() {
+    var roundedCorners = document.getElementById("borderRadiusInput").value;
+    console.log("Changing Border Radius To " + roundedCorners);
+    var window = document.getElementsByClassName('window');
+    for(i=0; i<window.length; i++) {
+        window[i].style.borderRadius = roundedCorners + "px";
+        console.log("New radius applied to " + i + " objects");
+    }
 }
 
 function openSettings() {
@@ -42,3 +58,12 @@ var dm = document.getElementById('settings');
 dm.addEventListener('dragstart',drag_start,false); 
 document.body.addEventListener('dragover',drag_over,false); 
 document.body.addEventListener('drop',drop,false); 
+
+function openHeaderColor() {
+    document.getElementById("chooseHeaderColor").style.display = "block";
+    focusWindow("chooseHeaderColor");
+}
+
+function closeHeaderColor() {
+    document.getElementById("chooseHeaderColor").style.display = "none";
+}
