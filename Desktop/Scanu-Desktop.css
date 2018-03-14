@@ -157,10 +157,11 @@ body {
 /* Default Close Button */
 .close {
     color: white;
-    float: right;
-    font-size: 16px;
+    font-size: 26px;
     font-weight: bold;
-    position: relative;
+    position: absolute;
+    right: 2px;
+    top: -4px;
     padding: 1px;
     margin: 1px;
     height: 22;
@@ -244,7 +245,6 @@ body {
     top: 0px;
     text-align: center;
 }
-
 
 #notepadContent {
     width: 100%;
