@@ -375,10 +375,15 @@ body {
 }
 
 #urlDisplay {
-    width: 99%;
-    height: 80%;
+    width: 100%;
+    height: calc(100% - 63px);
     border: none;
     resize: none;
+    position: absolute;
+    top: 63;
+    z-index: -100;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 #browser {
