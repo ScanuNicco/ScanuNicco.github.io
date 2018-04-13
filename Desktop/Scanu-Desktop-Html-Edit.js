@@ -40,6 +40,10 @@ function runPreview() {
     var input = document.getElementById("input").value;
     document.getElementById("preview").innerHTML = input;
 }
+
+function runCode() {
+    openwindow(input);
+}
     
 function downloadHtml() {
     var hiddenElement = document.createElement('a');

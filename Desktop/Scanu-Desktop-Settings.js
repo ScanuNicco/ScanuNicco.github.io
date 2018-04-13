@@ -61,7 +61,6 @@ document.body.addEventListener('drop',drop,false);
 
 function openHeaderColor() {
     document.getElementById("chooseHeaderColor").style.display = "block";
-    focusWindow("chooseHeaderColor");
 }
 
 function closeHeaderColor() {

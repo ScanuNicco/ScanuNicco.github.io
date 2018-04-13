@@ -22,8 +22,8 @@
             <img src="http://www.thepetsplaceanimalhospital.com/images/menu.svg" width="34px"></button>
             <button id="myBtn" onclick="openSettings()" class="dockIcon"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
             <button id="HowDayLaunch" onclick="openHowDay()" class="dockIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
-            <button id="BrowserLaunch" onclick="openBrowser()" class="dockIcon"><img src="http://icons.iconarchive.com/icons/martz90/circle-addon2/512/browser-icon.png" width="34px"></button>
-            <button class="dockIcon" onclick="openNotepad()"><img src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/60.png" width="34px"></button>
+            <button id="BrowserLaunch" onclick="openBrowser()" class="dockIcon"><img src="images/browser-icon.png" width="34px"></button>
+            <button class="dockIcon" onclick="openNotepad()"><img src="images/notepad-icon.png" width="34px"></button>
             <button class="dockIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
         </div>
         
@@ -31,8 +31,8 @@
         <button id="closeLauncherButton" onclick="closeLauncher()"><b id="launcherCloseText">x</b>
             <button class="launcherIcon" onclick="openSettings()"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
             <button onclick="openHowDay()" class="launcherIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
-            <button class="launcherIcon" onclick="openBrowser()"><img src="http://icons.iconarchive.com/icons/martz90/circle-addon2/512/browser-icon.png" width="34px"></button>
-            <button class="launcherIcon" onclick="openNotepad()"><img src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/60.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openBrowser()"><img src="images/browser-icon.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openNotepad()"><img src="images/notepad-icon.png" width="34px"></button>
             <button class="launcherIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
     </button>
         </div>
@@ -57,7 +57,7 @@
         <br>
         <p>For local files use file:///path/to/image</p>
         <h5>Header Color</h5>
-        <button class="defaultButton" onclick="openHeaderColor()">Choose A Color</button>
+        <button class="defaultButton" onclick="focusWindow('chooseHeaderColor'), openHeaderColor()">Choose A Color</button>
         <h5>Rounded Corners</h5>
         <input type="range" min="0" max="12" value="6" class="slider" oninput="borderRadius()" id="borderRadiusInput">
 <h3>About</h3>
@@ -159,6 +159,7 @@
 	      <button onclick="closeEditHtml()" class="close" id="closeHTML">&times;</button><br>
 	     	 <a id="download" onclick="downloadHtml()" href="#">Download Html</a>
             <label for="input-file" id="file-label">Open File</label>
+             <a id="run" onclick="runCode()" href="#">Download Html</a>
 	     	 <div>
  		<input type="file" id="input-file">
 		</div>
