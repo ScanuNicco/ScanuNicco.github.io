@@ -23,7 +23,7 @@ function borderRadius() {
     var window = document.getElementsByClassName('window');
     for(i=0; i<window.length; i++) {
         window[i].style.borderRadius = roundedCorners + "px";
-        console.log("New radius applied to " + i + " objects");
+        console.log("New radius applied to " + i + " elements");
     }
 }
 
