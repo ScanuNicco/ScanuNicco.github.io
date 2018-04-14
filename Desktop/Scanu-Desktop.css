@@ -448,3 +448,74 @@ body {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+#run {
+    position: absolute;
+    left: 200px;
+    bottom: 0px;
+    color: white;
+}
+
+#colorLabel {
+        background: rgba(0, 0, 0, 0);
+        text-decoration: underline;
+        border: none;
+        color: white;
+        position: absolute;
+        left: 275;
+        bottom: 0; 
+        cursor: pointer;
+    }
+
+#colorInputElement {
+     display: none;
+}
+
+#container {
+    z-index: 1000;
+    background: rgba(0, 0, 0, .6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    text-align: center;
+}
+
+#inner {
+    background: #f4f4f4;
+    z-index: 1001;
+    width: 40%;
+    hight: 40%;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    padding-bottom: 20px;
+}
+
+#closeButton, #clipboardButton {
+    border: none;
+    background: #bababa;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .8);
+    transition: .5s;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+#closeButton:hover, #clipboardButton:hover {
+     background: grey;
+     box-shadow: 2px 2px 1px rgba(0, 0, 0, .8);
+     transform: scale(.9);
+}
+
+#colorDisplay {
+     display: block;
+     border: none;
+     background: rgba(0, 0, 0, 0);
+     font-size: 14;
+     text-align: center;
+     margin: auto;
+}

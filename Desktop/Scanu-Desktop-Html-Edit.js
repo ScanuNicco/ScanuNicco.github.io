@@ -30,11 +30,6 @@ dm.addEventListener('dragstart',drag_start,false);
 document.body.addEventListener('dragover',drag_over,false); 
 document.body.addEventListener('drop',drop,false); 
 
-function runCode() {
-    var code = document.getElementById("htmlInput").value;
-    document.getElementById("htmlDisplay").innerHTML == "code";
-}
-
     
 function runPreview() {
     var input = document.getElementById("input").value;
@@ -42,7 +37,10 @@ function runPreview() {
 }
 
 function runCode() {
-    openwindow(input);
+    var input = document.getElementById("input").value;
+    var new_window = window.open();
+    new_window.document.open();
+    new_window.document.write(input);
 }
     
 function downloadHtml() {
@@ -86,4 +84,19 @@ function readFileContent(file) {
     reader.onerror = error => reject(error)
     reader.readAsText(file)
   })
+}
+
+function displayColor() {
+    console.log("getting color");
+    var colorInput = document.getElementById("colorInputElement").value;
+    console.log("showing window");
+    document.getElementById("container").style.display = "block";
+    console.log("Displaying Color Code");
+    document.getElementById("colorDisplay").value = colorInput;
+ }
+ 
+function copyToClipboard() {  
+  var copyText = document.getElementById("colorDisplay");
+  copyText.select();
+  document.execCommand("Copy");
 }

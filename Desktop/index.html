@@ -19,7 +19,7 @@
         </div>
         <div id="left-bar">
             <button id="launcherButton" class="dockIcon" onclick="openLauncher()">
-            <img src="http://www.thepetsplaceanimalhospital.com/images/menu.svg" width="34px"></button>
+            <img src="Images/menu.svg" width="34px"></button>
             <button id="myBtn" onclick="openSettings()" class="dockIcon"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
             <button id="HowDayLaunch" onclick="openHowDay()" class="dockIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
             <button id="BrowserLaunch" onclick="openBrowser()" class="dockIcon"><img src="images/browser-icon.png" width="34px"></button>
@@ -31,8 +31,8 @@
         <button id="closeLauncherButton" onclick="closeLauncher()"><b id="launcherCloseText">x</b>
             <button class="launcherIcon" onclick="openSettings()"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
             <button onclick="openHowDay()" class="launcherIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
-            <button class="launcherIcon" onclick="openBrowser()"><img src="images/browser-icon.png" width="34px"></button>
-            <button class="launcherIcon" onclick="openNotepad()"><img src="images/notepad-icon.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openBrowser()"><img src="Images/browser-icon.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openNotepad()"><img src="Images/notepad-icon.png" width="34px"></button>
             <button class="launcherIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
     </button>
         </div>
@@ -158,8 +158,10 @@
 	      <center>Edit Html</center>
 	      <button onclick="closeEditHtml()" class="close" id="closeHTML">&times;</button><br>
 	     	 <a id="download" onclick="downloadHtml()" href="#">Download Html</a>
-            <label for="input-file" id="file-label">Open File</label>
-             <a id="run" onclick="runCode()" href="#">Download Html</a>
+             <label for="input-file" id="file-label">Open File</label>
+             <a id="run" onclick="runCode()" href="#">Run Code</a>
+             <input type="color" id="colorInputElement" onchange="displayColor()" value="#ff0000">
+             <label for="colorInputElement" id="colorLabel">Color Picker</label>
 	     	 <div>
  		<input type="file" id="input-file">
 		</div>
@@ -167,6 +169,14 @@
 	<div id="preview"></div>
 	 <textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
 </textarea>
+    <div id="container">
+	<div id="inner">
+		<p>Your color code is </p><input type="text" id="colorDisplay" readonly>
+		<button id="closeButton" onclick="document.getElementById('container').style.display = 'none';">Close</button>
+		<button id="clipboardButton" onclick="copyToClipboard()">Copy To Clipboard</button>
+	</div>
+</div>
+
     
 <style>
 
