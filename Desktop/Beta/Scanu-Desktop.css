@@ -120,7 +120,7 @@ body {
     position: absolute;
     right: 0px;
     top: 20px;
-    background: #292a2b;
+    background: #555555;
     width: 200;
 }
 
@@ -518,4 +518,40 @@ body {
      font-size: 14;
      text-align: center;
      margin: auto;
+}
+
+#channelButton {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0);
+    border:none;
+    color: white;
+}
+
+#channelMenu {
+    background: #555555;
+    width: 13 6;
+    position: absolute;
+    right: 30;
+    top: 20;
+    display: none;
+}
+
+.channelItem {
+    display: block;
+    margin: 0px;
+    padding: 3px;
+    width: 130;
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.channelItem:hover {
+    background: white;
+    transition-duration: .5s;
+}
+
+.channelItem:visited {
+    color: blue;
 }
