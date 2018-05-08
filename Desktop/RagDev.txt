@@ -1,0 +1,1 @@
+This is the Dev channel of Rag OS, it is currently in the process of being made so certain features may not work
