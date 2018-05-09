@@ -1,0 +1,252 @@
+<html>
+    <head>
+        <title>Rag OS v1.6 Beta</title>
+        <link rel="stylesheet" type="text/css" href="Scanu-Desktop.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+    </head>
+    <body id="content" scroll="no" style="overflow: hidden">
+        <div id="splashScreen"><br><br>
+            <h1 id="title">Rag OS</h1>
+            <h4>v1.6 Beta</h4>
+            <br>
+            <img src="Images/loading.png" id="loading">
+        </div>
+  <div id="desktopContent">      
+        <div id="top-bar">
+            <h3>Rag OS v1.6 Beta</h3>
+            <div id="clockbox"></div>
+            <button id="logOutButton" onclick="openLogOut()">+</button>
+            <button id="ChannelButton" onclick="openChannel()">Rag OS Beta ▼</button>
+            <div id="channelMenu">
+            <a href="#" class="channelItem" style="color: grey">Rag OS Stable</a>
+            <a href="#" class="channelItem" style="color: grey">Rag OS Dev</a>
+            </div>
+        </div>
+        <div id="left-bar">
+            <button id="launcherButton" class="dockIcon" onclick="openLauncher()">
+            <img src="Images/menu.svg" width="34px"></button>
+            <button id="myBtn" onclick="openSettings()" class="dockIcon"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
+            <button id="HowDayLaunch" onclick="openHowDay()" class="dockIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
+            <button id="BrowserLaunch" onclick="openBrowser()" class="dockIcon"><img src="Images/browser-icon.png" width="34px"></button>
+            <button class="dockIcon" onclick="openNotepad()"><img src="Images/notepad-icon.png" width="34px"></button>
+            <button class="dockIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
+        </div>
+        
+<div id="Menu">
+        <button id="closeLauncherButton" onclick="closeLauncher()"><b id="launcherCloseText">x</b>
+            <button class="launcherIcon" onclick="openSettings()"><img src="Scanu-Desktop-Settings-Icon.png" width="34px"></button>
+            <button onclick="openHowDay()" class="launcherIcon"><img src="http://nebula.wsimg.com/c8a99047cb3a0a733545234c9a46d050?AccessKeyId=60D717E36188D945BF0A&disposition=0&alloworigin=1" width="34px"></button>
+            <button class="launcherIcon" onclick="openBrowser()"><img src="Images/browser-icon.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openNotepad()"><img src="Images/notepad-icon.png" width="34px"></button>
+            <button class="launcherIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
+    </button>
+        </div>
+<div id="logOutMenu">
+	<a class="logOutItem" href="http://scanunicco.github.io">Log Out</a>
+	<a class="logOutItem" href="http://scanunicco.github.io/Desktop">Restart</a>
+	<a class="logOutItem" href="#" onclick="shutDown()">Shut Down</a>
+</div>
+	  
+
+
+<!-- Settings -->
+<div class="window" draggable="true" id="settings" onclick='focusWindow("settings")'>
+  <div class="header">
+    <button class="close" onclick="closeSettings()">&times;</button>
+      <center><h3>System Settings</h3></center>
+    </div>
+    <center>
+<h3>Appearence</h3>
+        <h5>Background Image</h5><input type="text" placeholder="Enter image URL" id="Background">
+        <button onclick="refreshBackground()" class="defaultButton">Apply Background</button>
+        <br>
+        <p>For local files use file:///path/to/image</p>
+        <h5>Header Color</h5>
+        <button class="defaultButton" onclick="focusWindow('chooseHeaderColor'), openHeaderColor()">Choose A Color</button>
+        <h5>Rounded Corners</h5>
+        <input type="range" min="0" max="12" value="6" class="slider" oninput="borderRadius()" id="borderRadiusInput">
+<h3>About</h3>
+        <p>Rag OS is a computer operating system coded entirely in HTML, CSS, and JavaScript. It is still being developed so certain features may not work right now and many more will be added in the future. </p>
+        </center>
+  </div>
+<div class="window" id="chooseHeaderColor" onclick='focusWindow("chooseHeaderColor")'>
+      <div class="header"><center><h3>Choose A Color</h3></center></div>
+    <center>
+              <table id="colorChart">
+            <tr>
+                <th style="background: Salmon" onclick="headerColor('salmon')"></th>
+                <th style="background: Gold" onclick="headerColor('gold')"></th>
+                <th style="background: Khaki" onclick="headerColor('khaki')"></th>
+                <th style="background: lightgreen" onclick="headerColor('lightgreen')"></th>
+                <th style="background: lightblue" onclick="headerColor('lightblue')"></th>
+                <th style="background: violet" onclick="headerColor('violet')"></th>
+                <th style="background: lightgrey" onclick="headerColor('lightgrey')"></th>
+            </tr>
+            <tr>
+                <th style="background: red" onclick="headerColor('red')"></th>
+                <th style="background: orange" onclick="headerColor('orange')"></th>
+                <th style="background: yellow" onclick="headerColor('yellow')"></th>
+                <th style="background: lime" onclick="headerColor('lime')"></th>
+                <th style="background: blue" onclick="headerColor('blue')"></th>
+                <th style="background: magenta" onclick="headerColor('magenta')"></th>
+                <th style="background: grey" onclick="headerColor('grey')"></th>
+            </tr>
+            <tr>
+                <th style="background: maroon" onclick="headerColor('maroon')"></th>
+                <th style="background: DarkOrange" onclick="headerColor('darkorange')"></th>
+                <th style="background: olive" onclick="headerColor('olive')"></th>
+                <th style="background: green" onclick="headerColor('green')"></th>
+                <th style="background: navy" onclick="headerColor('navy')"></th>
+                <th style="background: purple" onclick="headerColor('purple')"></th>
+                <th style="background: black" onclick="headerColor('black')"></th>
+            </tr>
+        </table>
+        <button class="defaultButton" onclick="headerColor('#3f3f3f')">Reset To Default</button>
+        <button class="defaultButton" onclick="closeHeaderColor()">Done</button>
+        </center>
+      </div>
+
+<!-- How Was Your Day Generator -->
+<div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
+  <div class="header">
+    <button class="close" onclick="closeHowDay()">&times;</button>
+      <center><h3>How Was Your Day Generator</h3></center>
+    </div>
+    <h1>How Was Your Day?</h1>
+    <form name="WordForm">  
+        <input type="TEXT" name="WordBox" id="wordbox"><br>
+        <input type="BUTTON" value="Generate good" onclick="PickRandomWord(document.WordForm);" id="button">
+        <br>
+        <input type="BUTTON" value="Generate bad" onclick="PickRandomWord2(document.WordForm);" id="button2">
+    </form>
+    <div id="Warning" style="visibility: hidden;">
+    <center><b>⚠ Warning! ⚠</b><p>bad words are likely to cause extensive conversation about your day.</p></center>
+  </div>
+  </div>
+
+<!-- Browser -->
+<div class="window" draggable="true" id="browser" onclick='focusWindow("browser")'>
+  <div class="header">
+    <button class="close" onclick="closeBrowser()">&times;</button>
+      <center><h3>Browser</h3></center>
+      <input type="text" id="urlSource" value="http://" onkeydown="checkEnter(event)">  <input class="browserTool" type="button" value="&#8594;" onclick="loadUrl()">    <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">&#x21bb;</button>
+    </div>
+    <iframe id="urlDisplay" frameborder=10px >
+</iframe>
+  </div>
+      
+<!-- Notepad -->
+      <div id="notepadApp" class="window" draggable="true" onclick='focusWindow("notepadApp")'>
+	      <div id="notepadHeader" class="header">
+		      Notepad App
+		      <button onclick="closeNotepad()" class="close">&times;</button><br> 
+		      <button id="create">Generate File</button>
+		      <a download="MyDocument.txt" id="downloadlink" style="display: none">Download File</a><br>
+	      </div>
+      <textarea id="notepadContent"></textarea>
+
+
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "qm5AG"
+    }], "*")
+  }
+</script>
+      </div>
+<!-- HTML Editor -->
+      <div id="editHtmlApp" class="window" draggable="true" onclick='focusWindow("editHtmlApp")'>
+	<div id="editHtmlHeader" class="header">
+	      <center>Edit Html</center>
+	      <button onclick="closeEditHtml()" class="close" id="closeHTML">&times;</button><br>
+	     	 <a id="download" onclick="downloadHtml()" href="#">Download Html</a>
+             <label for="input-file" id="file-label">Open File</label>
+             <a id="run" onclick="runCode()" href="#">Run Code</a>
+             <input type="color" id="colorInputElement" onchange="displayColor()" value="#ff0000">
+             <label for="colorInputElement" id="colorLabel">Color Picker</label>
+	     	 <div>
+ 		<input type="file" id="input-file">
+		</div>
+	</div>
+	<div id="preview"></div>
+	 <textarea id="input" oninput="runPreview()" placeholder="Type your code here (Will not run javascript, I don't know why, feedback would be appreciated)">
+</textarea>
+    <div id="container">
+	<div id="inner">
+		<p>Your color code is </p><input type="text" id="colorDisplay" readonly>
+		<button id="closeButton" onclick="document.getElementById('container').style.display = 'none';">Close</button>
+		<button id="clipboardButton" onclick="copyToClipboard()">Copy To Clipboard</button>
+	</div>
+</div>
+
+    
+<style>
+
+    body {
+        padding:0;
+        margin:0;
+    }
+    
+    #preview {
+        position:absolute;
+        right: 0px;
+        top: 38px;
+        width: 50%;
+        height: 100%;
+        border-left-style: solid;
+        border-left-color: black;
+        border-width: 5px;
+        box-shadow: none;
+        color: black;
+    }
+    
+    #input {
+        background: rgba(0, 0, 0, .1);
+        resize: none;
+        height:100%;
+        width:50%;
+        border: none;
+    }
+    
+</style>
+
+
+      </div>
+    </div>
+<script type="text/javascript" src="Scanu-Desktop-Clock.js">
+</script>
+<script src="Scanu-Desktop-HowDayApp.js">
+</script> 
+<script src="Scanu-Desktop-Settings.js"></script>
+<script src="Scanu-Desktop-Browser.js"></script>
+<script src="Scanu-Desktop-Launcher.js"></script>
+<script src="Scanu-Desktop-Notepad.js"></script>
+<script src="Scanu-Desktop-Html-Edit.js"></script>
+<script>
+    var oldElement = "settings";
+    console.log("defined oldElement")
+    
+    function focusWindow(element) {
+        document.getElementById(oldElement).style.opacity = .8;
+        document.getElementById(oldElement).style.zIndex = 0;
+        oldElement = element; 
+        console.log("removed focus from " + oldElement)
+        document.getElementById(element).style.opacity = 1;
+        document.getElementById(element).style.zIndex = 1;
+        console.log("focused " + element);
+    }
+    
+    </script>
+<script>
+    setInterval(stop, 2000);
+
+
+    function stop() {
+        document.getElementById("splashScreen").style.display = "none";
+    }
+</script>
+    </body>
+</html>

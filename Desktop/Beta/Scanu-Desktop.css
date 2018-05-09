@@ -1,0 +1,557 @@
+/* Tool Bars and App Tray*/
+body {
+    background-image: url(background);
+    margin: 0px;
+    font-family: ubuntu;
+}
+
+#splashScreen {
+    background: white;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    z-index: 10;
+}
+
+#title {
+    font-size: 100;
+}
+
+#loading {
+    width: 50;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+#top-bar {
+    background: linear-gradient(#3a3a3a, #666464);
+    height: 20px;
+    top: 0px;
+    z-index: 9;
+    color: white;
+}
+
+#left-bar {
+    width: 55px;
+    background: linear-gradient(to right, rgba(0, 0, 0, .7) , rgba(100, 100, 100, .7));
+    height: 100%;
+    margin-top: 0px;
+    z-index: 9;
+}
+
+.dockIcon {
+    height: 50px;
+    width: 50px;
+    background: rgba(255, 255, 255, .3);
+    /*border: solid;
+    border-color: white;*/
+    border: none;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.launcherIcon {
+    height: 50px;
+    width: 50px;
+    border: solid;
+    border-color: white;
+    border-radius: 5px;
+    margin: 3px;
+}
+    
+.logOutItem {
+    display: block;
+    margin: 0px;
+    padding: 3px;
+    width: 200;
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.logOutItem:hover {
+    background: white;
+    transition-duration: .5s;
+}
+
+.logOutItem:visited {
+    color: blue;
+}
+
+#logOutMenu {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    background: #555555;
+    width: 200;
+}
+
+#logOutButton {
+    position: absolute;
+    top: -2px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    font-size: 20;
+    height: 22px;
+    color: white;
+}
+
+/* Default Window  */
+.window {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 80%;
+    max-height: 100%;
+    min-height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+    position:  absolute;
+    left: 55;
+    top: 20;
+    display: none;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    opacity: .8;
+}
+
+/* Default Close Button */
+.close {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    position: absolute;
+    right: 2px;
+    top: -4px;
+    padding: 1px;
+    margin: 1px;
+    height: 22;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+.close:hover,
+.close:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Default Header */
+.header {
+    background-color: #3f3f3f;
+    color: white;
+    position: relative;
+    top: -20;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    cursor: default;
+}
+
+
+#myBtn {
+    resize: .5;
+}
+
+#clockbox {
+    position: absolute;
+    top: 100px;
+    right: 35px;
+    margin: 0;
+    width: 100;
+    height: 18;
+    color: white;
+    font-size: 20;
+}
+
+#Menu {
+    background: rgba(0, 0, 0, .7);
+    height: 150;
+    width: 500;
+    z-index: 1;
+    position: absolute;
+    top: 20;
+    left: 55;
+    border-style: solid;
+    border-color: white;
+    border-bottom-right-radius: 10px;
+}
+
+#closeLauncherButton {
+    height: 15;
+    width: 15;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-radius: 50px;
+    color: white;
+    position: absolute;
+    left: 485;
+}
+
+#launcherCloseText {
+    position: relative;
+    bottom: 4;
+    right: 3;
+}
+
+#notepadApp {
+    position: absolute;
+    left: 55;
+    top: 20;
+    background: white;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow: auto;
+}
+
+#notepadHeader {
+    top: 0px;
+    text-align: center;
+}
+
+#notepadContent {
+    width: 100%;
+    height: 88%;
+    border: none;
+    resize: none;
+    z-index: -1;
+}
+
+#downloadlink {
+    position:absolute;
+    top: 19;
+    left: 100;
+    color: white;
+    font-size:13 ;
+}
+
+#create {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    text-decoration: underline;
+    position: absolute;
+    left: 3;
+}
+
+#editHtmlApp {
+    position: absolute;
+    left: 55;
+    top: 20;
+    background: white;
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    resize: both;
+    overflow:hidden;
+}
+
+#editHtmlHeader {
+    height: 38;
+    top: 0px;
+}
+
+#input-file {
+    display: none;
+}
+
+ #download {
+    color: white;
+    position: absolute;
+    left: 5px;
+    top: 20px;
+}
+
+#file-label {
+    position: absolute;
+    left: 125px;
+    text-decoration: underline;
+    top: 20px;
+}
+
+.defaultButton {
+    border: none;
+    padding: 5px;
+    color: white;
+    background: #f4b042;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#howDay {
+    text-align: center;
+    background: coral;
+    color: white;
+    min-width: 480;
+    min-height: 380;
+}
+
+#wordbox {
+    font-size: 30;
+    background: coral;
+    color: white;
+    border: solid;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#button, #button2 {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    font-size: 18;
+    color: white;
+    background: #1c65db;
+    border-radius: 5px;
+}
+
+#urlSource {
+    width: 99%;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: none;
+    padding: 2px;
+}
+
+.browserTool {
+    position: absolute;
+    right: 10px;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#reload-btn {
+    right: 40px;
+}
+
+#urlDisplay {
+    width: 100%;
+    height: calc(100% - 63px);
+    border: none;
+    resize: none;
+    position: absolute;
+    top: 63;
+    z-index: -100;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#browser {
+    min-width: 871;
+    min-height: 417;
+}
+
+#colorChart th {
+    width: 50;
+    height: 50;
+    margin: 0px;
+    transition-duration: .5s;
+    border-radius: 5px;
+}
+
+#colorChart th:hover {
+    transform:scale(1.1);
+    transition-duration: .5s;
+}
+
+.slidecontainer {
+    width: 70%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #f4b042;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #f4b042;
+    cursor: pointer;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#run {
+    position: absolute;
+    left: 200px;
+    bottom: 0px;
+    color: white;
+}
+
+#colorLabel {
+        background: rgba(0, 0, 0, 0);
+        text-decoration: underline;
+        border: none;
+        color: white;
+        position: absolute;
+        left: 275;
+        bottom: 0; 
+        cursor: pointer;
+    }
+
+#colorInputElement {
+     display: none;
+}
+
+#container {
+    z-index: 1000;
+    background: rgba(0, 0, 0, .6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    text-align: center;
+}
+
+#inner {
+    background: #f4f4f4;
+    z-index: 1001;
+    width: 40%;
+    hight: 40%;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    padding-bottom: 20px;
+}
+
+#closeButton, #clipboardButton {
+    border: none;
+    background: #bababa;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .8);
+    transition: .5s;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+#closeButton:hover, #clipboardButton:hover {
+     background: grey;
+     box-shadow: 2px 2px 1px rgba(0, 0, 0, .8);
+     transform: scale(.9);
+}
+
+#colorDisplay {
+     display: block;
+     border: none;
+     background: rgba(0, 0, 0, 0);
+     font-size: 14;
+     text-align: center;
+     margin: auto;
+}
+
+#channelButton {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0);
+    border:none;
+    color: white;
+}
+
+#channelMenu {
+    background: #555555;
+    width: 13 6;
+    position: absolute;
+    right: 30;
+    top: 20;
+    display: none;
+}
+
+.channelItem {
+    display: block;
+    margin: 0px;
+    padding: 3px;
+    width: 130;
+    text-decoration: none;
+    transition-duration: .5s;
+}
+
+.channelItem:hover {
+    background: white;
+    transition-duration: .5s;
+}
+
+.channelItem:visited {
+    color: blue;
+}
