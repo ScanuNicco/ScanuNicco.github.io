@@ -19,14 +19,14 @@ function drag_over(event) {
 } 
 function drop(event) { 
     var offset = event.dataTransfer.getData("body").split(',');
-    var dm = document.getElementById('editHtmlApp');
-    dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
-    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+    var dragHtml = document.getElementById('editHtmlApp');
+    dragHtml.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+    dragHtml.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
     event.preventDefault();
     return false;
 } 
-var dm = document.getElementById('editHtmlApp'); 
-dm.addEventListener('dragstart',drag_start,false); 
+var dragHtml = document.getElementById('editHtmlApp'); 
+dragHtml.addEventListener('dragstart',drag_start,false); 
 document.body.addEventListener('dragover',drag_over,false); 
 document.body.addEventListener('drop',drop,false); 
 
