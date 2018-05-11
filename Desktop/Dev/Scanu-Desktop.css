@@ -1,6 +1,7 @@
 /* Tool Bars and App Tray*/
 body {
     background-image: url(background);
+    background-size:cover;
     margin: 0px;
     font-family: ubuntu;
 }

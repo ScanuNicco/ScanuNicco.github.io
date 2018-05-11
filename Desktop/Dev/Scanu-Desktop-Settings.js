@@ -1,5 +1,5 @@
 //Set the default background and set it as the background
-var background = "url(Images/Scanu-Desktop-Background-2.jpg)";
+var background = "url(Images/Scanu-Desktop-Background-3.jpg)";
 document.body.style.backgroundImage = background;
 
 
