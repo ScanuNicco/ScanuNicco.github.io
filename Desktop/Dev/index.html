@@ -108,7 +108,7 @@
 
 <!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
-  <div class="header">
+  <div class="header" onmousedown="startDrag('howDay')" onmouseup="stopDrag('howDay')">
     <button class="close" onclick="closeHowDay()">&times;</button>
       <center><h3>How Was Your Day Generator</h3></center>
     </div>

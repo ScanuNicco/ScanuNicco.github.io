@@ -29,6 +29,7 @@ function borderRadius() {
 
 function openSettings() {
     document.getElementById("settings").style.display = "block";
+    focusWindow("settings");
 }
 
 function closeSettings() {

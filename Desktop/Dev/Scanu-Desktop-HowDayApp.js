@@ -1,5 +1,6 @@
 function openHowDay() {
     document.getElementById("howDay").style.display = "block";
+    focusWindow("howDay");
 }
 
 function closeHowDay() {

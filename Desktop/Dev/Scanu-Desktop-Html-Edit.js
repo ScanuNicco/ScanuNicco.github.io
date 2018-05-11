@@ -1,5 +1,6 @@
 function openEditHtml() {
     document.getElementById("editHtmlApp").style.display = 'block';
+    focusWindow("editHtmlApp");
 }
 
 function closeEditHtml() {

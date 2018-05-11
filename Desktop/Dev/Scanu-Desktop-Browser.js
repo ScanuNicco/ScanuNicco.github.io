@@ -1,5 +1,6 @@
 function openBrowser() {
     document.getElementById("browser").style.display = "block";
+    focusWindow("browser");
 }
 
 function closeBrowser() {

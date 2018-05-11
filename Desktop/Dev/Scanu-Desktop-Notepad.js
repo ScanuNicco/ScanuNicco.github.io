@@ -1,5 +1,6 @@
 function openNotepad() {
     document.getElementById("notepadApp").style.display = 'block';
+    focusWindow("notepadApp");
 }
 
 function closeNotepad() {

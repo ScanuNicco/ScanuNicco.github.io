@@ -49,3 +49,11 @@ document.getElementById('desktopContent').onclick = function(e) {
       console.log('You clicked inside the channel menu');
   }
 }
+
+function startDrag(windowID) {
+    console.log("You started dragging " + windowID);
+}
+
+function stopDrag(windowID) {
+    console.log("You stopped dragging " + windowID);
+}
