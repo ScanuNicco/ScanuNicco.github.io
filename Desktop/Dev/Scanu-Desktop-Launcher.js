@@ -40,13 +40,13 @@ document.getElementById('desktopContent').onclick = function(e) {
   if(e.target != document.getElementById('logOutMenu') && e.target != document.getElementById('logOutButton')) {
       closeLogOut();
   } else {
-      console.log('You clicked inside the logout menu');
+      //console.log('You clicked inside the logout menu');
   }
   if(e.target != document.getElementById('channelMenu') && e.target != document.getElementById('ChannelButton')) {
       closeChannel();
-      console.log('You clicked outside the channel menu');
+      //console.log('You clicked outside the channel menu');
   } else {
-      console.log('You clicked inside the channel menu');
+      //console.log('You clicked inside the channel menu');
   }
 }
 

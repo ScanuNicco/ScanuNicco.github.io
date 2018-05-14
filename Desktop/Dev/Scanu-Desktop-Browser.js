@@ -7,15 +7,6 @@ function closeBrowser() {
     document.getElementById("browser").style.display = "none";
 }
 
-function loadUrl() {
-    document.getElementById("urlDisplay").src = document.getElementById("urlSource").value;
-}
-    
-function Reload () {
-var f = document.getElementById('urlDisplay');
-f.src = f.src;
-}
-
 window.onload=checkEnter;
 function checkEnter(e) {
     var keycode = (e.keyCode ? e.keyCode : e.which);
@@ -29,6 +20,7 @@ function checkEnter(e) {
 var numberOfTabs = 1;
 //the number of tabs currently open
 var remainingTabs = 1;
+var tabs = [{tabNumber: 0, iframeNumber: 0, url: "http://www.scanurag.com"}, ]
 function addTab() {
     //calculate the position of the new tab, each tab is 100px wide with 15px between each tab
     var newTabPosition = remainingTabs * 105 + 10;
@@ -44,26 +36,40 @@ function addTab() {
     nTab.style.left = newTabPosition;
     nTab.style.top = "0px";
     nTab.setAttribute("id", "tab" + numberOfTabs)
-    nTab.setAttribute("onclick", "focusTab('tab" + numberOfTabs + "')")
+    nTab.setAttribute("onclick", "focusTab('tab" + numberOfTabs + "', " + numberOfTabs + ")")
     nTab.innerHTML = "Tab #" + tabNumber + '<p class="closeButton" onclick="closeTab(\'tab' + numberOfTabs + '\')">&times;</p>';
     //add tab to tab container
     var container = document.getElementById("tabContainer");
     container.appendChild(nTab);
     //re-position the add tab button
     document.getElementById("addTab").style.left = newTabPosition + 105;
+    //Add a new entry to the tabs array
+    tabs.push({tabNumber: numberOfTabs, iframeNumber: numberOfTabs, url: "http://www.scanurag.com"})
     //increase the number of tabs counter
     numberOfTabs++;
     remainingTabs++;
 }
 
-var oldTab = "tab0"
-function focusTab(tabID) {
+var oldTab = "tab0";
+var selectedTab = 0;
+function focusTab(tabID, tabIDcode) {
     //remove active class from old tab
     document.getElementById(oldTab).classList.remove("activeTab");
     //add active class to new tab
     document.getElementById(tabID).classList.add("activeTab");
     //re define the old tab
     oldTab = tabID;
+    //define a variable for the currently selected tab
+    selectedTab = tabIDcode;
+    alert(selectedTab);
+    console.log("Running Loop");
+    for (i=0; i<tabs.length; i++) {
+        console.log('.');
+        //search for array entry with id number that matches tabIDcode
+        if(tabIDcode == tabs[i].tabNumber) {
+            document.getElementById("urlSource").value = tabs[i].url;
+        }
+    }
 }
 
 function closeTab(tab) {
@@ -88,4 +94,16 @@ function repositionTabs() {
         tabs[i].style.left = i * 105 + 10;
     }
     document.getElementById("addTab").style.left = i * 105 + 10;
+}
+
+function loadUrl() {
+    alert(selectedTab);
+    var newUrl = document.getElementById("urlSource").value;
+    tabs[selectedTab].url = newUrl;
+    document.getElementById("urlDisplay").src = newUrl;
+}
+    
+function Reload () {
+var f = document.getElementById('urlDisplay');
+f.src = f.src;
 }
