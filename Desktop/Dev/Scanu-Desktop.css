@@ -375,7 +375,7 @@ body {
     right: 40px;
 }
 
-#urlDisplay {
+.displayFrame {
     width: 100%;
     height: calc(100% - 63px);
     border: none;

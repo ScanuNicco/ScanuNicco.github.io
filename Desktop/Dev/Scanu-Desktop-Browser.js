@@ -12,7 +12,7 @@ function checkEnter(e) {
     var keycode = (e.keyCode ? e.keyCode : e.which);
     console.log("the key that was pressed is " + keycode);
     if (keycode == 13) {
-        document.getElementById("urlSource").onkeydown = loadUrl; //no parentheses
+        loadUrl();
     }
 }
 
@@ -41,6 +41,8 @@ function addTab() {
     //add tab to tab container
     var container = document.getElementById("tabContainer");
     container.appendChild(nTab);
+    //add the associated frem for the new tab
+    addFrame();
     //re-position the add tab button
     document.getElementById("addTab").style.left = newTabPosition + 105;
     //Add a new entry to the tabs array
@@ -48,6 +50,21 @@ function addTab() {
     //increase the number of tabs counter
     numberOfTabs++;
     remainingTabs++;
+}
+
+function addFrame() {
+    //define parent element
+    var browserWindow = document.getElementById("browser"); 
+    //create the new element
+    var nFrame = document.createElement("div");
+    //assign an id
+    nFrame.setAttribute("id", "frame" + numberOfTabs);
+    //add the required class
+    nFrame.classList.add("displayFrame");
+    //hide frame
+    nFrame.setAttribute("display", "none");
+    //apply new frame to parent element
+    browserWindow.appendChild(nFrame);
 }
 
 var oldTab = "tab0";
@@ -61,7 +78,6 @@ function focusTab(tabID, tabIDcode) {
     oldTab = tabID;
     //define a variable for the currently selected tab
     selectedTab = tabIDcode;
-    alert(selectedTab);
     console.log("Running Loop");
     for (i=0; i<tabs.length; i++) {
         console.log('.');
@@ -70,6 +86,18 @@ function focusTab(tabID, tabIDcode) {
             document.getElementById("urlSource").value = tabs[i].url;
         }
     }
+    //run the focusFrame() function to display correct page
+    focusFrame(tabIDcode);
+}
+
+var frameID = "frame0";
+function focusFrame(frameIDcode){
+    //Hide the old frame
+    document.getElementById(frameID).style.display = "none";
+    //Get ID of new frame
+    frameID = "frame" + frameIDcode;
+    //Display New Frame
+    document.getElementById(frameID).style.display = "block";
 }
 
 function closeTab(tab) {
@@ -97,10 +125,12 @@ function repositionTabs() {
 }
 
 function loadUrl() {
-    alert(selectedTab);
+    console.log("Loading...");
     var newUrl = document.getElementById("urlSource").value;
     tabs[selectedTab].url = newUrl;
-    document.getElementById("urlDisplay").src = newUrl;
+    document.getElementById("frame" + selectedTab).src = newUrl;
+    console.log("loaded " + newUrl + " on frame " + selectedTab);
+    console.log("finished");
 }
     
 function Reload () {
