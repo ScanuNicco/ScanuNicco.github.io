@@ -56,7 +56,7 @@ function addFrame() {
     //define parent element
     var browserWindow = document.getElementById("browser"); 
     //create the new element
-    var nFrame = document.createElement("div");
+    var nFrame = document.createElement("iframe");
     //assign an id
     nFrame.setAttribute("id", "frame" + numberOfTabs);
     //add the required class
