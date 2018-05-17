@@ -1,6 +1,7 @@
 function openBrowser() {
     document.getElementById("browser").style.display = "block";
     focusWindow("browser");
+    focusTab("tab0", "0")
 }
 
 function closeBrowser() {
@@ -63,6 +64,8 @@ function addFrame() {
     nFrame.classList.add("displayFrame");
     //hide frame
     nFrame.setAttribute("display", "none");
+    //alert doneloading function when loading complete
+    nFrame.setAttribute("onload", "doneLoading()");
     //apply new frame to parent element
     browserWindow.appendChild(nFrame);
 }
@@ -125,15 +128,20 @@ function repositionTabs() {
 }
 
 function loadUrl() {
-    console.log("Loading...");
+    document.getElementById("reload-btn").classList.add("spin");
     var newUrl = document.getElementById("urlSource").value;
     tabs[selectedTab].url = newUrl;
     document.getElementById("frame" + selectedTab).src = newUrl;
     console.log("loaded " + newUrl + " on frame " + selectedTab);
-    console.log("finished");
 }
     
 function Reload () {
-var f = document.getElementById('urlDisplay');
+document.getElementById("reload-btn").classList.add("spin");
+var f = document.getElementById('frame' + selectedTab);
 f.src = f.src;
+}
+
+function doneLoading() {
+    console.log("done loading");
+    setTimeout(document.getElementById("reload-btn").classList.remove("spin"), 1000);
 }

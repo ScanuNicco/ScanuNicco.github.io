@@ -121,7 +121,7 @@ body {
     position: absolute;
     right: 0px;
     top: 20px;
-    background: #555555;
+    background: #292a2b;
     width: 200;
 }
 
@@ -375,7 +375,7 @@ body {
     right: 40px;
 }
 
-#urlDisplay {
+.displayFrame {
     width: 100%;
     height: calc(100% - 63px);
     border: none;
@@ -521,6 +521,45 @@ body {
      margin: auto;
 }
 
+#tabContainer {
+    position: absolute;
+    top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+}
+
+.tab {
+    background-color: grey;
+    color: black;
+    width: 100px;
+    text-align: center;
+}
+
+#addTab {
+    background-color: darkgrey;
+    color: black;
+    position: absolute;
+    top: 0px;
+    left: 115px;
+    width: 15px;
+    text-align: center;
+}
+
+.activeTab {
+    background-color: darkgrey;
+    transform: scale(1.05);
+}
+ 
+.closeButton {
+    padding-right: 2px;
+    display: inline-block;
+    margin: -1px;
+    float: right;
+    font-size: 18;
+    cursor: pointer;
+}
+
 #channelButton {
     position: absolute;
     top: 0px;
@@ -555,4 +594,26 @@ body {
 
 .channelItem:visited {
     color: blue;
+}
+
+.spin {
+  
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+  /* transform: rotate(3deg); */
+   /* transform: rotate(0.3rad);/ */
+   /* transform: rotate(3grad); */ 
+   /* transform: rotate(.03turn);  */
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
 }
