@@ -1,7 +1,12 @@
 function openBrowser() {
+    //open the window
     document.getElementById("browser").style.display = "block";
+    //focus the window
     focusWindow("browser");
-    focusTab("tab0", "0")
+    //focus tab 0
+    focusTab("tab0", "0");
+    //load the page
+    loadUrl();
 }
 
 function closeBrowser() {
@@ -48,6 +53,10 @@ function addTab() {
     document.getElementById("addTab").style.left = newTabPosition + 105;
     //Add a new entry to the tabs array
     tabs.push({tabNumber: numberOfTabs, iframeNumber: numberOfTabs, url: "http://www.scanurag.com"})
+    //focus the new tab
+    focusTab("tab" + numberOfTabs, numberOfTabs);
+    //load the home page on the new tab
+    loadUrl();
     //increase the number of tabs counter
     numberOfTabs++;
     remainingTabs++;
