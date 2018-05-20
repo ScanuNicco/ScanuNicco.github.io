@@ -10,4 +10,12 @@ Right now I only have one project here, <a href="http://scanunicco.github.io/Des
         padding-bottom: 20px;
         border-bottom: solid 2px  darkgrey;
     }
+    
+    h1 {
+        display: none;
+    }
+    
+    #scanu-productions-beta {
+        display: block;
+    }
 </style>
