@@ -124,7 +124,7 @@
   </div>
   </div>
 
-<!-- Browser -->
+!-- Browser -->
 <div class="window" draggable="true" id="browser" onclick='focusWindow("browser")'>
   <div class="header">
     <button class="close" onclick="closeBrowser()">&times;</button>
@@ -138,7 +138,9 @@
       <input type="text" id="urlSource" value="http://" onkeydown="checkEnter(event)">  
       <input class="browserTool" type="button" value="&#8594;" onclick="loadUrl()">    
       <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">&#x21bb;</button>
+      <button id="fullscreen-btn" class="browserTool" class="glyphicon glyphicon-fullscreen" href="#" onclick="fullscreenIframe()">&#57664;</button>
     </div>
+   
     <iframe id="frame0" class="displayFrame" frameborder=10px onload="doneLoading()">
 </iframe>
   </div>

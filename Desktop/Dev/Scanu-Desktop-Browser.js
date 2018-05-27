@@ -158,6 +158,10 @@ function doneLoading() {
 function fullscreenIframe() {
     console.log("Put frame into fullscreen mode");
     var elem = document.getElementById("frame" + selectedTab);
-    elem.webkitRequestFullscreen();
-    elem.mozRequestFullscreen();
+    if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    }
+    if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+    }  
 }
