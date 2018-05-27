@@ -154,3 +154,9 @@ function doneLoading() {
     console.log("done loading");
     setTimeout(document.getElementById("reload-btn").classList.remove("spin"), 1000);
 }
+
+function fullscreenIframe() {
+    console.log("Put frame into fullscreen mode");
+    var elem = document.getElementById("frame" + selectedTab);
+    elem.webkitRequestFullscreen();
+}
