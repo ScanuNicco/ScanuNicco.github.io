@@ -383,6 +383,10 @@ body {
     right: 40px;
 }
 
+#fullscreen-btn {
+    right: 70px;
+}
+
 .displayFrame {
     width: 100%;
     height: calc(100% - 63px);
