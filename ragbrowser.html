@@ -5,9 +5,7 @@
     <body>
         <center>
             <h1 id="header">Rag Browser</h1>
-            <a onclick="download()">
-            <button>Download Now</button>
-            </a>
+            <button onclick="downloadFile()">Download Now</button>
             <img src="RagBrowserMain.PNG" id="headerbackground">
             <hr id="header-bottom">
             <h1>Featuring Tecnophobe Mode</h1>
@@ -15,7 +13,7 @@
             <img src="TecnophobeImage.PNG" style="width: 75%">
         </center>
         <script>
-            function download(){
+            function downloadFile(){
                 location.href='Rag-Browser.zip';
                 setTimeout(location.href='downloadragbrowser.html', 1500);
             }
