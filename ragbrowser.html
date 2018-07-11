@@ -5,7 +5,7 @@
     <body>
         <center>
             <h1 id="header">Rag Browser</h1>
-            <a onclick="location.href='Rag-Browser.zip'; location.href='downloadragbrowser.html'">
+            <a onclick="download()">
             <button>Download Now</button>
             </a>
             <img src="RagBrowserMain.PNG" id="headerbackground">
@@ -14,6 +14,13 @@
             <p>A more simple interface missing all of the essential browser features that you hate like tabs, navigation buttons, and reload buttons.</p>
             <img src="TecnophobeImage.PNG" style="width: 75%">
         </center>
+        <script>
+            function download(){
+                location.href='Rag-Browser.zip';
+                setTimeout(location.href='downloadragbrowser.html';, 1500);
+            }
+        </script>
+                
         <style>
             #header {
                 font-family: arial;
