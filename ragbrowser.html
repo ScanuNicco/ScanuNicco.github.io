@@ -5,22 +5,68 @@
     <body>
         <center>
             <h1 id="header">Rag Browser</h1>
-            <button onclick="downloadFile()">Download Now</button>
+            <button onclick="document.getElementById('backdrop').style.display = 'block'">Download Now</button>
             <img src="RagBrowserMain.PNG" id="headerbackground">
             <hr id="header-bottom">
             <h1>Featuring Tecnophobe Mode</h1>
             <p>A more simple interface missing all of the essential browser features that you hate like tabs, navigation buttons, and reload buttons.</p>
             <img src="TecnophobeImage.PNG" style="width: 75%">
+			<div id="backdrop">
+			<div id="versionDiv">
+				<h1>Choose A Version</h1>
+				<select onchange="greyOptions()">
+					<option id="win">Windows</option>
+					<option id="lin">Linux</option>
+				</select>
+				<select>
+					<option id="64">64 bit</option>
+					<option id="32">32 bit</option>
+					<option id="ARM7" disabled>ARM v7 - Linux Only</option>
+					<option id="ARM64" disabled>ARM 64 - Linux Only</option>
+				</select>
+				<br>
+				<br>
+				<button style="margin: 10px;"  onclick="downloadFile()">Download</button>
+			<p>Need Help? <a href="https://scanurag.com/Scanuproductions_Contact.html" target="_blank">Contact Me</a></p>
+			</div>
+			</div>
         </center>
         <script>
             function downloadFile(){
-                location.href='Rag-Browser.zip';
+				var platform = "win";
+				var arch = "64";
+				if (document.getElementById("win").selected == true){
+					platform = "win";
+				} else {
+					platform = "lin";
+				}
+				
+				if (document.getElementById("64").selected == true){
+					arch = "64";
+				} else if (document.getElementById("32").selected == true){
+					arch = "32";
+				} else if (document.getElementById("ARM7").selected == true){
+					arch = "ARM7";
+				} else if (document.getElementById("ARM64").selected == true){
+					arch = "ARM64";
+				}
+                location.href = platform + arch + '/Rag-Browser.zip';
                 setTimeout(openPage, 1500);
             }
             
             function openPage() {
                 location.href='downloadragbrowser.html';
             }
+			
+			function greyOptions() {
+				if (document.getElementById("win").selected == true){
+					document.getElementById("ARM7").disabled = true;
+					document.getElementById("ARM64").disabled = true;
+				} else {
+					document.getElementById("ARM7").disabled = false;
+					document.getElementById("ARM64").disabled = false;
+				}
+			}
         </script>
                 
         <style>
@@ -54,6 +100,27 @@
                 z-index: -1;
                 width: 100%;
             }
+			
+			#backdrop {
+				position: fixed;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .3);
+				display: none;
+			}
+			
+			#versionDiv {
+				background: white;
+				width: 50%;
+				height: 50%;
+				border-radius: 15px;
+				padding: 10px;
+				position: fixed;
+				top: 25%;
+				left: 25%;
+			}
         </style>
     </body>
 </html>
