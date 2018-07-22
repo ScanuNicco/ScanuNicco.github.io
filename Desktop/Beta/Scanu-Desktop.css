@@ -64,7 +64,7 @@ body {
 
 
 #top-bar {
-    background: linear-gradient(#3a3a3a, #666464);
+    background: linear-gradient(black, #151515);
     height: 20px;
     top: 0px;
     z-index: 9;
@@ -73,7 +73,7 @@ body {
 
 #left-bar {
     width: 55px;
-    background: linear-gradient(to right, rgba(0, 0, 0, .7) , rgba(100, 100, 100, .7));
+    background: rgba(0, 0, 0, .7);
     height: 100%;
     margin-top: 0px;
     z-index: 9;
@@ -82,7 +82,7 @@ body {
 .dockIcon {
     height: 50px;
     width: 50px;
-    background: rgba(255, 255, 255, .3);
+    background: rgba(255, 255, 255, .8);
     /*border: solid;
     border-color: white;*/
     border: none;
@@ -97,6 +97,7 @@ body {
     border-color: white;
     border-radius: 5px;
     margin: 3px;
+    background: rgba(0, 0, 0, .7);
 }
     
 .logOutItem {
@@ -138,14 +139,15 @@ body {
 
 /* Default Window  */
 .window {
-    background-color: #fefefe;
+    background-color: black;
+    color: white;
     margin: auto;
     border: 1px solid #888;
     width: 80%;
     max-height: 100%;
     min-height: 350px;
     min-width: 200px;
-    border-radius: 6px;
+    border-radius: 0px;
     resize: both;
     overflow: auto;
     position:  absolute;
@@ -158,7 +160,7 @@ body {
 
 /* Default Close Button */
 .close {
-    color: white;
+    color: black;
     font-size: 26px;
     font-weight: bold;
     position: absolute;
@@ -186,8 +188,8 @@ body {
 
 /* Default Header */
 .header {
-    background-color: #3f3f3f;
-    color: white;
+    background-color: white;
+    color: black;
     position: relative;
     top: -20;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -217,7 +219,7 @@ body {
 }
 
 #Menu {
-    background: rgba(0, 0, 0, .7);
+    background: rgba(255, 255, 255, .7);
     height: 150;
     width: 500;
     z-index: 1;
@@ -225,8 +227,7 @@ body {
     top: 20;
     left: 55;
     border-style: solid;
-    border-color: white;
-    border-bottom-right-radius: 10px;
+    border-color: black;
 }
 
 #closeLauncherButton {
@@ -235,7 +236,8 @@ body {
     background-color: rgba(0, 0, 0, 0);
     border-style: solid;
     border-radius: 50px;
-    color: white;
+    color: black;
+    border-color: black;
     position: absolute;
     left: 485;
 }
@@ -250,7 +252,6 @@ body {
     position: absolute;
     left: 55;
     top: 20;
-    background: white;
     width: 80%;
     height: 300px;
     border-radius: 6px;
@@ -269,6 +270,8 @@ body {
     border: none;
     resize: none;
     z-index: -1;
+    background: black;
+    color: white;
 }
 
 #downloadlink {
@@ -326,8 +329,8 @@ body {
 .defaultButton {
     border: none;
     padding: 5px;
-    color: white;
-    background: #f4b042;
+    color: black;
+    background: white;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -335,6 +338,11 @@ body {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+input {
+    border: none;
+    padding: 5px;
 }
 
 #howDay {
@@ -403,6 +411,7 @@ body {
 #browser {
     min-width: 871;
     min-height: 417;
+    background: white;
 }
 
 #colorChart th {
@@ -426,7 +435,7 @@ body {
     -webkit-appearance: none;
     width: 70%;
     height: 25px;
-    background: #d3d3d3;
+    background: white;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -442,14 +451,14 @@ body {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #f4b042;
+    background: black;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #f4b042;
+    background: black;
     cursor: pointer;
 }
 
@@ -543,24 +552,31 @@ body {
 }
 
 .tab {
-    background-color: grey;
+    background-color: white;
     color: black;
     width: 100px;
     text-align: center;
+    border: solid;
+    border-color: black;
+    border-width: thin;
 }
 
 #addTab {
-    background-color: darkgrey;
+    background-color: white;
     color: black;
     position: absolute;
     top: 0px;
     left: 115px;
     width: 15px;
     text-align: center;
+    border: solid;
+    border-color: black;
+    border-width: thin;
 }
 
 .activeTab {
-    background-color: darkgrey;
+    background-color: black;
+    color: white;
     transform: scale(1.05);
 }
  

@@ -64,7 +64,7 @@
         <h5>Header Color</h5>
         <button class="defaultButton" onclick="focusWindow('chooseHeaderColor'), openHeaderColor()">Choose A Color</button>
         <h5>Rounded Corners</h5>
-        <input type="range" min="0" max="12" value="6" class="slider" oninput="borderRadius()" id="borderRadiusInput">
+        <input type="range" min="0" max="12" value="0" class="slider" oninput="borderRadius()" id="borderRadiusInput">
 <h3>About</h3>
         <p>Rag OS is a computer operating system coded entirely in HTML, CSS, and JavaScript. It is still being developed so certain features may not work right now and many more will be added in the future. </p>
         </center>
@@ -98,10 +98,10 @@
                 <th style="background: green" onclick="headerColor('green')"></th>
                 <th style="background: navy" onclick="headerColor('navy')"></th>
                 <th style="background: purple" onclick="headerColor('purple')"></th>
-                <th style="background: black" onclick="headerColor('black')"></th>
+                <th style="background: white" onclick="headerColor('white')"></th>
             </tr>
         </table>
-        <button class="defaultButton" onclick="headerColor('#3f3f3f')">Reset To Default</button>
+        <button class="defaultButton" onclick="headerColor('white')">Reset To Default</button>
         <button class="defaultButton" onclick="closeHeaderColor()">Done</button>
         </center>
       </div>
@@ -136,7 +136,7 @@
           <div id="addTab" onclick="addTab()">+</div>
       </div>
       <input type="text" id="urlSource" value="http://" onkeydown="checkEnter(event)">  
-      <input class="browserTool" type="button" value="&#8594;" onclick="loadUrl()">    
+      <button class="browserTool" onclick="loadUrl()">&#8594;</button>    
       <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">&#x21bb;</button>
       <button id="fullscreen-btn" class="browserTool" class="glyphicon glyphicon-fullscreen" href="#" onclick="fullscreenIframe()">&#57664;</button>
     </div>
