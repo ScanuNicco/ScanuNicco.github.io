@@ -17,6 +17,7 @@
 				<select onchange="greyOptions()" onload="greyOptions()">
 					<option id="win">Windows</option>
 					<option id="lin">Linux</option>
+                    <option id="mac">Mac (Darwin)</option>
 				</select>
 				<select>
 					<option id="64">64 bit</option>
@@ -37,6 +38,8 @@
 				var arch = "64";
 				if (document.getElementById("win").selected == true){
 					platform = "win";
+				} else if (document.getElementById("mac").selected == true){
+					platform = "mac";
 				} else {
 					platform = "lin";
 				}
@@ -62,9 +65,15 @@
 				if (document.getElementById("win").selected == true){
 					document.getElementById("ARM7").disabled = true;
 					document.getElementById("ARM64").disabled = true;
+                    document.getElementById("32").disabled = false;
+				} else if (document.getElementById("mac").selected == true){
+					document.getElementById("ARM7").disabled = true;
+					document.getElementById("ARM64").disabled = true;
+                    document.getElementById("32").disabled = true;
 				} else {
 					document.getElementById("ARM7").disabled = false;
 					document.getElementById("ARM64").disabled = false;
+                    document.getElementById("32").disabled = false;
 				}
 			}
         </script>
