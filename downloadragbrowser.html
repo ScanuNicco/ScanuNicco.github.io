@@ -44,6 +44,11 @@
 				<li>Run the rag browser executable</li>
 				<li>Pin rag browser to your dock</li>
 			</ul>
+        <div id="linksContainer">
+            <a class="link" href="/">Home</a>
+            <a class="link" href="/Desktop">Rag OS</a>
+            <a class="activeLink link" href="/ragbrowser.html">Rag Browser</a>
+        </div>
         <style>
             #header {
                 font-family: arial;
@@ -79,6 +84,29 @@
             ul {
                 margin-left: 25%;
             }
+            
+              .link:hover {
+                  color: #444444;
+                  transition-duration: .5s;
+              }
+                
+              .link {
+                  transition-duration: .5s;
+                  color: grey;
+                  text-decoration: none;
+                  margin: 10px;
+               }
+      
+              #linksContainer {
+                  position: fixed;
+                  margin: auto;
+                  bottom: 0px;
+              }
+                
+              .activeLink {
+                  color: black;
+                  text-decoration: underline;
+              }
         </style>
     </body>
 </html>
