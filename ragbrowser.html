@@ -17,6 +17,7 @@
 				<select onchange="greyOptions()" onload="greyOptions()">
 					<option id="win">Windows</option>
 					<option id="lin">Linux</option>
+                    <option id="mac">Mac (Darwin)</option>
 				</select>
 				<select>
 					<option id="64">64 bit</option>
@@ -31,12 +32,19 @@
 			</div>
 			</div>
         </center>
+        <div id="linksContainer">
+                <a class="link" href="/">Home</a>
+                <a class="link" href="/Desktop">Rag OS</a>
+                <a class="activeLink link" href="/ragbrowser.html">Rag Browser</a>
+        </div>
         <script>
             function downloadFile(){
 				var platform = "win";
 				var arch = "64";
 				if (document.getElementById("win").selected == true){
 					platform = "win";
+				} else if (document.getElementById("mac").selected == true){
+					platform = "mac";
 				} else {
 					platform = "lin";
 				}
@@ -62,9 +70,15 @@
 				if (document.getElementById("win").selected == true){
 					document.getElementById("ARM7").disabled = true;
 					document.getElementById("ARM64").disabled = true;
+                    document.getElementById("32").disabled = false;
+				} else if (document.getElementById("mac").selected == true){
+					document.getElementById("ARM7").disabled = true;
+					document.getElementById("ARM64").disabled = true;
+                    document.getElementById("32").disabled = true;
 				} else {
 					document.getElementById("ARM7").disabled = false;
 					document.getElementById("ARM64").disabled = false;
+                    document.getElementById("32").disabled = false;
 				}
 			}
         </script>
@@ -121,6 +135,29 @@
 				top: 25%;
 				left: 25%;
 			}
+            
+            .link:hover {
+                  color: #444444;
+                  transition-duration: .5s;
+              }
+                
+              .link {
+                  transition-duration: .5s;
+                  color: grey;
+                  text-decoration: none;
+                  margin: 10px;
+               }
+      
+              #linksContainer {
+                  position: fixed;
+                  margin: auto;
+                  bottom: 0px;
+              }
+                
+              .activeLink {
+                  color: black;
+                  text-decoration: underline;
+              }
         </style>
     </body>
 </html>
