@@ -39,6 +39,7 @@
             <button class="launcherIcon" onclick="openBrowser()"><img src="Images/browser-icon.png" width="34px"></button>
             <button class="launcherIcon" onclick="openNotepad()"><img src="Images/notepad-icon.png" width="34px"></button>
             <button class="launcherIcon" onclick="openEditHtml()"><img src="Images/htmleditoricon.png" width="34px"></button>
+	    <button class="launcherIcon" onclick="openInstaller()">Install Apps</button>
     </button>
         </div>
 <div id="logOutMenu">
@@ -105,7 +106,8 @@
         <button class="defaultButton" onclick="closeHeaderColor()">Done</button>
         </center>
       </div>
-
+<!-- App Installer -->
+	  <div class="window" draggable="true" id="installer"></div>	  
 <!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
   <div class="header" onmousedown="startDrag('howDay')" onmouseup="stopDrag('howDay')">
