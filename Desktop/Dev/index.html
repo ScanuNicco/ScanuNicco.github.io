@@ -107,7 +107,23 @@
         </center>
       </div>
 <!-- App Installer -->
-	  <div class="window" draggable="true" id="installer"></div>	  
+	  <div class="window" draggable="true" id="installer" onclick='focusWindow("installer")'>
+        <div class="header">
+          <center><h3>Install Apps</h3></center>
+          <button class="close" onclick="closeInstaller()">&times;</button>
+        </div>
+        <center>
+          <h1>Install An App</h1>
+          <h2>Maunal Installation</h2>
+          <h4>Path to app's index.html</h4>
+          <input id="path" type="text" placeholder="Ex. file://C:/users/ScanuRag/documents/Ragbrowser/index.html" style="width: 50%">
+          <h4>App's Name</h4>
+          <input id="name" type="text" style="width: 50%" placeholder="Rag Browser"><br>
+          <button onclick="installApp()">Install</button>
+          <h3>Warning!</h3>
+          <p>While Rag OS apps cannot access your computer, apps you install could still trick you into giving them login or credit card inforation by pretending to be a different app. I reccomend that you only install apps from sources that yoy trust.</p>
+        </center>
+      </div>	  
 <!-- How Was Your Day Generator -->
 <div class="window" draggable="true" id="howDay" onclick='focusWindow("howDay")'>
   <div class="header" onmousedown="startDrag('howDay')" onmouseup="stopDrag('howDay')">
@@ -228,11 +244,10 @@
 
       </div>
     </div>
-<script type="text/javascript" src="Scanu-Desktop-Clock.js">
-</script>
-<script src="Scanu-Desktop-HowDayApp.js">
-</script> 
+<script type="text/javascript" src="Scanu-Desktop-Clock.js"></script>
+<script src="Scanu-Desktop-HowDayApp.js"></script> 
 <script src="Scanu-Desktop-Settings.js"></script>
+<script src="Scanu-Desktop-Installer.js"></script>
 <script src="Scanu-Desktop-Browser.js"></script>
 <script src="Scanu-Desktop-Launcher.js"></script>
 <script src="Scanu-Desktop-Notepad.js"></script>
