@@ -1,0 +1,10 @@
+{
+ "name": "rag-browser",
+ "productName": "Rag Browser",
+ "version": "0.1.0",
+ "main": "main.js",
+ "devDependencies": {
+  "electron": "^1.4.3",
+  "electron-packager": "^8.7.2"
+ }
+}

@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>About | Rag Browser</title>
+</head>
+<body>
+	<div id="title-bar">
+        <h5 id="title">About Rag Browser</h5>
+		<link rel="shortcut icon" type="image/png" href="/Icons/icon.png"/>
+        <link type="text/css" rel="stylesheet" href="main.css">
+    </div>
+    <button class="titleButtons" style="right: 45px; top: -8px; height: 28px;" onclick="minWindow()">-</button>
+    <button class="titleButtons" style="right:25px; top: -9px; height: 19px;" onclick="maxWindow()">&squ;</button>
+    <button class="titleButtons" style="right: 5px; top: -5px; height: 25px;" onclick="closeWindow()">&times;</button>
+	<script src="about.js"></script>
+	<h1>About Rag Browser</h1>
+	<h4>Installed Version: 0.1</h4>
+	<h4 style="display: inline-block;">Current Version: <h4 style="display: inline-block;" id="versionDisplay"></h4></h4><script src="https://scanunicco.github.io/Rag Browser/Version/version.js"></script>
+	<div id="actions"></div>
+	<br><button id='upgradeButton' style="display: none" onclick='window.opener.postMessage("Update"); window.close()'>Upgrade Now!</button>
+	<div id="new"></div>
+	<script>
+		var current = 0.0;
+		document.getElementById("versionDisplay").innerHTML = version;
+		document.getElementById("new").innerHTML = "<h3>What's new in version " + version + "</h3>" + whatsNew;
+		if (current < version) {
+			document.getElementById("actions").innerHTML = "<b style='color: red'>You need to upgrade</b> to version " + version;
+			document.getElementById("upgradeButton").style.display = "block";
+		} else if (current == version) {
+			document.getElementById("actions").innerHTML = "You already have the greatest and latest version of Rag Browser. <b style='color: green'>Good Job!</b>";
+		} else {
+			document.getElementById("actions").innerHTML = "You appear to be using a unreleased version of Rag Browser, how do you like it?";
+		}
+	</script>
+</body>
+</html>

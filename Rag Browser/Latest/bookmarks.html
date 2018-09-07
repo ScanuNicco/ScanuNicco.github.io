@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Bookmarks Manager</title>
+        <link type="text/css" rel="stylesheet" href="main.css">
+    </head>
+    <body>
+		<!-- The title Bar -->
+		<div id="title-bar">
+			<h5 id="title">Rag Browser</h5>
+    	</div>
+		<button class="titleButtons" style="right: 45px; top: -8px; height: 28px;" onclick="minWindow()">-</button>
+    	<button class="titleButtons" style="right:25px; top: -9px; height: 19px;" onclick="maxWindow()">&squ;</button>
+		<button class="titleButtons" style="right: 5px; top: -5px; height: 25px;" onclick="closeWindow()">&times;</button>
+        <div class="header" style="-webkit-app-region: drag;">
+            <h1 style="display: inline-block;">Bookmarks Manager</h1>
+            <button onclick="moveBookmark('up')" style="-webkit-app-region: no-drag;">Move Bookmark Up</button>
+            <button onclick="moveBookmark('down')" style="-webkit-app-region: no-drag;">Move Bookmark Down</button>
+            <button onclick="deleteBookmark()" style="-webkit-app-region: no-drag;">Delete Bookmark</button>
+        </div>
+        <div id="bookmarksContainer"></div>
+        <script src="bookmarks.js"></script>
+    </body>
+</html>

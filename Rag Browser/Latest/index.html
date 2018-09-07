@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rag Browser</title>
+    <link rel="shortcut icon" type="image/png" href="/Icons/icon.png"/>
+    <link type="text/css" rel="stylesheet" href="main.css">
+  </head>
+  <body onload="focusTab('tab0', 0); loadUrl();">
+  <!-- Terminal command to run rag browser dev ..\..\Users\Nicco\node_modules\electron\dist\electron.exe C:\Users\Nicco\Documents\GitHub\Rag-Browser\main.js -->
+<!-- The Main Window -->
+<div id="browser">
+    <!-- The title Bar -->
+	<div id="title-bar">
+        <h5 id="title">Rag Browser</h5>
+    </div>
+    <button class="titleButtons" style="right: 45px; top: -8px; height: 28px;" onclick="minWindow()">-</button>
+    <button class="titleButtons" style="right:25px; top: -9px; height: 19px;" onclick="maxWindow()">&squ;</button>
+    <button class="titleButtons" style="right: 5px; top: -5px; height: 25px;" onclick="closeWindow()">&times;</button>
+    <!-- The Header -->
+    <div class="header">
+      <!-- The tab Container -->
+      <div id="tabContainer">
+          <div id="tab0" class="tab" onclick="focusTab('tab0', 0)">Tab #1 
+              <p class="closeButton" onclick="closeTab('tabO')">&times;</p>
+          </div>
+          <div id="addTab" onclick="addTab()">+</div>
+      </div>
+       <!-- The Browser Tools -->
+      <input type="text" id="urlSource" value="http://" onkeydown="checkEnter(event)">  
+      <input class="browserTool" type="button" value="&#8594;" onclick="loadUrl()" id="loadButton">    
+      <button id="reload-btn" class="browserTool" href="#" onClick="Reload();">&#x21bb;</button>
+      <button id="fullscreen-btn" class="browserTool" class="glyphicon glyphicon-fullscreen" href="#" onclick="fullscreenIframe()">&#57664;</button>
+	  <button class="browserTool" style="right: 165px" id="bookmark-btn" onclick="addBookmark(1)">&#128214;</button>
+      <button class="browserTool" style="right:35px;" onclick="goBackwards()">⮌</button>
+      <button class="browserTool" style="right:55px" onclick="goForwards()">⮎</button>
+      <button class="browserTool" onclick="document.getElementById('mainMenu').style.display = 'block'">&#9776;</button>
+      <!-- The Bookmarks Container -->
+	  <div id="bookmarksContainer">
+		<a>Scanu productions</a>
+		</div>
+      <!-- the Main Menu -->
+      <div id="mainMenu">
+        <div class="menuOption" onclick="window.open('settings.html')">Settings</div>
+		<div class="menuOption" onclick="window.open('appelsimpelbrowser.html')">New Tecnophobe Window</div>
+        <div class="menuOption" onclick="window.open('bookmarks.html')">Bookmarks Manager</div>
+        <div class="menuOption" onclick="window.open('about.html')">About Rag Browser</div>
+        <button id="closeMenu" onclick="document.getElementById('mainMenu').style.display = 'none'">&times;</button>
+      </div>
+      <div id="createBookmark">
+        <input id="bookmarkUrl" placeholder="Url" class="bookmarkInput"><br>
+        <input id="bookmarkName" placeholder="Name" class="bookmarkInput"><br>
+        <button class="bookmarkButton" onclick="addBookmark(2)">Add Bookmark</button>
+        <button class="bookmarkButton" onclick="document.getElementById('createBookmark').style.display = 'none';">Cancel</button>
+      </div>
+    </div>
+   
+    <webview id="frame0" class="displayFrame" frameborder="none" onload="doneLoading()">
+</webview>
+    </div>
+	<script src="browser.js"></script>
+	<script>
+		function upgrade(){
+			window.location.href = "update.html";
+		}  
+	</script>
+  </body>
+</html>
