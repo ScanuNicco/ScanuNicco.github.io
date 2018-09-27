@@ -2,29 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link type="text/css" rel="stylesheet" href="menu.css">
-	<title>Scanu Productions Craftblox</title>
+	<title>MDN Games: Three.js demo</title>
 	<style>
-		body { margin: 0; padding: 0; width: 100%; overflow-x: hidden;}
-		canvas { width: 100%; height: 100%;}
+		body { margin: 0; padding: 0; }
+		canvas { width: 100%; height: 100%; }
 	</style>
 </head>
 <body>
-	<div class="center">
-	<img src="Images/Logo.png" id="logo">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br><br>
-		<br>
-		<br><br>
-		<br>
-		<br>
-		<button onclick="location.href = 'game.html'">Play Now</button>
-		</div>
-	<audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
+		<audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
 <script src="three.min.js"></script>
 <script>
 	var WIDTH = window.innerWidth;
@@ -41,20 +26,33 @@
 	var t = 0;
 	var boxGeometry = new THREE.BoxGeometry(10, 10, 10);
 	var basicMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
-	var phongMaterial = new THREE.MeshPhongMaterial({color: 0x0095DD});
-	var lambertMaterial = new THREE.MeshLambertMaterial({color: 0x0095DD});
-	var cube = new THREE.Mesh(boxGeometry, lambertMaterial);
-	cube.position.y = -20;
+	var cube = new THREE.Mesh(boxGeometry, basicMaterial);
 	scene.add(cube);
 	cube.rotation.set(0.4, 0.2, 0);
+	cube.position.x = -25;
+	var torusGeometry = new THREE.TorusGeometry(7, 1, 6, 12);
+	var phongMaterial = new THREE.MeshPhongMaterial({color: 0xFF9500});
+	var torus = new THREE.Mesh(torusGeometry, phongMaterial);
+	scene.add(torus);
+	var dodecahedronGeometry = new THREE.DodecahedronGeometry(7);
+	var lambertMaterial = new THREE.MeshLambertMaterial({color: 0xEAEFF2});
+	var dodecahedron = new THREE.Mesh(dodecahedronGeometry, lambertMaterial);
+	dodecahedron.position.x = 25;
+	scene.add(dodecahedron);
 	var light = new THREE.PointLight(0xFFFFFF);
 	light.position.set(-10, 15, 50);
 	scene.add(light);
+	
+	var keys = {};
+window.onkeyup = function(e) { keys[e.keyCode] = false; }
+window.onkeydown = function(e) { keys[e.keyCode] = true; }
+	
 	function render() {
 		requestAnimationFrame(render);
-		cube.rotation.y += 0.02;
+		if (keys[32]) {
+			camera.position.y = -7*Math.sin(t*2);
+		}
 		renderer.render(scene, camera);
-		t += 0.02;
 	}
 	render();
 </script>
