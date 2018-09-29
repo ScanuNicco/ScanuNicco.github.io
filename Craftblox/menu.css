@@ -21,3 +21,6 @@ button {
 	border: none;
 	border-radius: 5px;
 }
+#playContent {
+    margin:350px;
+}
