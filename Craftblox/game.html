@@ -29,33 +29,15 @@
 
 			}
 
-			#instructions {
-
-				width: 100%;
-				height: 100%;
-
-				display: -webkit-box;
-				display: -moz-box;
-				display: box;
-
-				-webkit-box-orient: horizontal;
-				-moz-box-orient: horizontal;
-				box-orient: horizontal;
-
-				-webkit-box-pack: center;
-				-moz-box-pack: center;
-				box-pack: center;
-
-				-webkit-box-align: center;
-				-moz-box-align: center;
-				box-align: center;
-
-				color: #ffffff;
-				text-align: center;
-
-				cursor: pointer;
-
-			}
+            #menu {
+                width: 300px;
+                height: 500px;
+                background: #dddddd;
+                text-align: center;
+                position: fixed;
+                top: calc(50% - 250px);
+                left: calc(50% - 150px);
+            }
             
             #died {
                 background: rgba(255, 0, 0, .4);
@@ -65,7 +47,7 @@
                 padding-top: 53%;
                 text-align: center;
                 color: white;
-                display: hidden;
+                display: none;
             }
             
             button {
@@ -91,10 +73,13 @@
 
 		<div id="blocker">
 
-			<div id="instructions">
-				<span style="font-size:40px">Click to play</span>
+			<div id="menu">
+				<h3>Menu</h3>
 				<br />
-				(W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)
+				<button onclick="window.location.href = 'index.html'">Quit Game</button><br>
+                <button onclick="window.location.reload()">Restart Game</button><br>
+                <button>Options</button><br>
+                <button>Credits</button><br>
 			</div>
 
 		</div>
@@ -145,10 +130,9 @@
 				controls = new THREE.PointerLockControls( camera );
 
 				var blocker = document.getElementById( 'blocker' );
-				var instructions = document.getElementById( 'instructions' );
+				var instructions = document.getElementById( 'menu' );
 
 				instructions.addEventListener( 'click', function ( event ) {
-
 					controls.lock();
 
 				}, false );
@@ -308,6 +292,7 @@
 					        objects.push( box );
                         }
                     }
+                velocity.y += 350;
 
 				//
 
@@ -325,6 +310,7 @@
          function youDead(message){
                     document.getElementById("died").style.display = 'block';
                     document.getElementById("messageDisplay").value = message;
+                    controls.unlock();
                 }
 
 			function onWindowResize() {
@@ -335,6 +321,12 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
+            var canDie = "no";
+            setTimeout(mortal, 5000);
+            
+            function mortal(){
+                canDie = "yes";
+            }
 
 			function animate() {
 
@@ -342,7 +334,7 @@
                 camera.updateMatrixWorld();
                 var vector = camera.position.clone();
                 vector.applyMatrix4( camera.matrixWorld );
-                if (vector.y == 10){
+                if (vector.y == 10 && canDie == "yes"){
                     youDead("because you tried to swim with sharks.");
                     camera.position.y = 20;
                 }
