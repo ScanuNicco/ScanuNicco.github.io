@@ -70,6 +70,8 @@
         <audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
 		<script src="three.min.js"></script>
 		<script src="PointerLockControls.js"></script>
+        <script src="GLTFLoader.js"></script>
+
 
 		<div id="blocker">
 
@@ -132,7 +134,7 @@
 				var blocker = document.getElementById( 'blocker' );
 				var instructions = document.getElementById( 'menu' );
 
-				instructions.addEventListener( 'click', function ( event ) {
+				blocker.addEventListener( 'click', function ( event ) {
 					controls.lock();
 
 				}, false );
@@ -293,6 +295,41 @@
                         }
                     }
                 velocity.y += 350;
+// Instantiate a loader
+var loader = new THREE.GLTFLoader();
+// Load a glTF resource
+loader.load(
+	// resource URL
+	'Models/craftblox_bee.glb',
+	// called when the resource is loaded
+	function ( gltf ) {
+        gltf.asset.position.y = 50;
+        gltf.position.x = 50;
+        gltf.position.z = 50;
+        gltf.material = boxMaterial;
+		scene.add( gltf.scene );
+
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Scene
+		gltf.scenes; // Array<THREE.Scene>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+	},
+
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
 
 				//
 
