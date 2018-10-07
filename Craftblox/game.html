@@ -63,21 +63,29 @@
             h1 {
                 font-size: 80px;
             }
+            
+            #healthDisplay{
+                margin: auto;
+                font-size: 28px;
+                padding: 2px;
+                text-align: center;
+                border-bottom: solid white 5px;
+            }
 
 		</style>
 	</head>
 	<body>
         <audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
-		<script src="three.min.js"></script>
-		<script src="PointerLockControls.js"></script>
-        <script src="GLTFLoader.js"></script>
+		<script src="Three/three.min.js"></script>
+		<script src="Three/PointerLockControls.js"></script>
+        <script src="Three/GLTFLoader.js"></script>
 
 
 		<div id="blocker">
 
 			<div id="menu">
 				<h3>Menu</h3>
-				<br />
+				<br>
 				<button onclick="window.location.href = 'index.html'">Quit Game</button><br>
                 <button onclick="window.location.reload()">Restart Game</button><br>
                 <button>Options</button><br>
@@ -91,6 +99,7 @@
             <button onclick="window.location.href = 'index.html'">Quit To Menu</button><br><br>
             <button onclick="window.location.reload()">Restart Game</button>
         </div>
+        <div id="healthDisplay"></div>
 
 		<script>
 
@@ -119,7 +128,8 @@
 
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
                 velocity.y += 350;
-
+                playerHealth = 101;
+                playerHealthLower(1); 
                 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
@@ -166,7 +176,8 @@
 
 						case 37: // left
 						case 65: // a
-							moveLeft = true; break;
+							moveLeft = true;
+                            break;
 
 						case 40: // down
 						case 83: // s
@@ -202,7 +213,7 @@
 							break;
 
 						case 40: // down
-						case 83: // s
+                        case 83: // s
 							moveBackward = false;
 							break;
 
@@ -256,15 +267,15 @@
 				}
 
 				floorGeometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
-
-				var floorMaterial = new THREE.MeshBasicMaterial({color: 0x0095DD});
+                waterTexture = new THREE.TextureLoader().load( "Images/water.jpg" );
+				var floorMaterial = new THREE.MeshBasicMaterial({ map: waterTexture});
 
 				var floor = new THREE.Mesh( floorGeometry, floorMaterial );
 				scene.add( floor );
 
 				// objects
 
-				var boxGeometry = new THREE.BoxBufferGeometry( 4, 4, 4 );
+                boxGeometry = new THREE.BoxBufferGeometry( 4, 4, 4 );
 				boxGeometry = boxGeometry.toNonIndexed(); // ensure e5ch face has unique vertices
 
 				position = boxGeometry.attributes.position;
@@ -280,13 +291,11 @@
 				boxGeometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
 
 
-
-                    for (var h = -10; h < 10; h++){
-                        for (var j = -10; j < 10; j++){
-                            					var box = new THREE.Mesh( boxGeometry, boxMaterial );
-
-                            var boxMaterial = new THREE.MeshPhongMaterial( { specular: 0xffffff, flatShading: true, vertexColors: THREE.VertexColors } );
-                            boxMaterial.color.setHSL( Math.random() * 0.2 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+                sandTexture = new THREE.TextureLoader().load( "Images/sand.jpg" );
+                    for (var h = -20; h < 20; h++){
+                        for (var j = -20; j < 20; j++){
+                            boxMaterial = new THREE.MeshBasicMaterial( { map: sandTexture} );
+                            var box = new THREE.Mesh( boxGeometry, boxMaterial );
                             box.position.x = h * 4;
                             box.position.z = j * 4;
             				box.position.y = 4;
@@ -294,20 +303,22 @@
 					        objects.push( box );
                         }
                     }
-                velocity.y += 350;
+                velocity.y += 350;/*
 // Instantiate a loader
 var loader = new THREE.GLTFLoader();
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'Models/craftblox_bee.glb',
+	'Models/DamagedHelmet.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
-        gltf.asset.position.y = 50;
-        gltf.position.x = 50;
-        gltf.position.z = 50;
-        gltf.material = boxMaterial;
+        //gltf.asset.position.y = 50;
+        //gltf.position.x = 50;
+        //gltf.position.z = 50;
+       // gltf.material = boxMaterial;
 		scene.add( gltf.scene );
+        //objects.push(gltf.scene);
+        
 
 		gltf.animations; // Array<THREE.AnimationClip>
 		gltf.scene; // THREE.Scene
@@ -329,7 +340,8 @@ loader.load(
 		console.log( 'An error happened' );
 
 	}
-);
+);*/
+
 
 				//
 
@@ -343,6 +355,14 @@ loader.load(
 				window.addEventListener( 'resize', onWindowResize, false );
 
 			}
+            beeTexture = new THREE.TextureLoader().load( "Images/bee.png" );
+            var beeMaterial = new THREE.MeshBasicMaterial({ map: beeTexture});
+            bee = new THREE.Mesh( boxGeometry, beeMaterial );
+            bee.position.x = 5;
+            bee.position.y = 10;
+            bee.position.z = 5;
+            scene.add(bee);
+            objects.push(bee);
             
          function youDead(message){
                     document.getElementById("died").style.display = 'block';
@@ -358,11 +378,59 @@ loader.load(
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
+            
+            function playerHealthLower(amount){
+                playerHealth -= amount;
+                document.getElementById("healthDisplay").innerHTML = playerHealth;
+                if (playerHealth < 1){
+                    youDead("Out of health");
+                }
+            }
+            
             var canDie = "no";
             setTimeout(mortal, 5000);
             
             function mortal(){
                 canDie = "yes";
+            }
+            
+            var howFarZ = 0;
+            var howFarX = 0;
+            var direction = "X";
+            var speed = .2;
+            function moveBees(){
+                    if (direction == "X"){
+                        bee.position.x += speed;
+                        howFarX++;
+                        if (howFarX > 500){
+                            direction = "Z";
+                            howFarX = 0;
+                        }
+                    }else if (direction == "Z"){
+                        bee.position.z += speed;
+                        howFarZ++;
+                        if (howFarZ > 500){
+                            direction = "X";
+                            howFarZ = 0;
+                        }
+                    }if (howFarX == 350){
+                        speed = 0;
+                        setTimeout(beeSpeed, Math.floor(Math.random() * 1000));
+                    }if ((bee.position.x || bee.position.y) > 75){
+                        beeSpeed();
+                    }if ((bee.position.x || bee.position.y) < -75){
+                        beeSpeed();
+                    }
+                        
+            }
+            
+            function beeSpeed(){
+                var picker = Math.floor(Math.random() * 2);
+                if (picker == 1){
+                    speed = .2;
+                } else {
+                    speed = -.2;
+                }
             }
 
 			function animate() {
@@ -418,7 +486,7 @@ loader.load(
 						canJump = true;
 
 					}
-
+                    moveBees();
 					prevTime = time;
 
 				}
