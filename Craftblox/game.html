@@ -76,6 +76,7 @@
 	</head>
 	<body>
         <audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
+		<audio id="oofSound" src="Music/oof.mp3" autostart="false"></audio>
 		<script src="Three/three.min.js"></script>
 		<script src="Three/PointerLockControls.js"></script>
         <script src="Three/GLTFLoader.js"></script>
@@ -122,13 +123,16 @@
 			var color = new THREE.Color();
 
 			init();
+			playerHealthLower(50);
+			immortal(5000);
 			animate();
 
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
                 velocity.y += 350;
-                playerHealth = 101;
+                playerHealth = 100;
+				document.getElementById("healthDisplay").innerHTML = playerHealth;
                 playerHealthLower(1); 
                 
 				scene = new THREE.Scene();
@@ -379,38 +383,47 @@ loader.load(
 
 			}
             
+			var oof = document.getElementById("oofSound");
             function playerHealthLower(amount){
-                playerHealth -= amount;
-                document.getElementById("healthDisplay").innerHTML = playerHealth;
-                if (playerHealth < 1){
-                    youDead("Out of health");
-                }
+				if (canDie == "yes"){
+					playerHealth -= amount;
+					document.getElementById("healthDisplay").innerHTML = playerHealth;
+					if (playerHealth < 1){
+						youDead("Out of health");
+					}
+					oof.play();
+					immortal(1000);
+				}
             }
-            
+			
             var canDie = "no";
-            setTimeout(mortal, 5000);
-            
+			function immortal(howLong) {
+            	canDie = "no";
+				console.log("immortal");
+            	setTimeout(mortal, howLong);
+			}
+			            
             function mortal(){
                 canDie = "yes";
             }
             
             var howFarZ = 0;
             var howFarX = 0;
-            var direction = "X";
+            var beeDirection = "X";
             var speed = .2;
             function moveBees(){
-                    if (direction == "X"){
+                    if (beeDirection == "X"){
                         bee.position.x += speed;
                         howFarX++;
                         if (howFarX > 500){
-                            direction = "Z";
+                            beeDirection = "Z";
                             howFarX = 0;
                         }
-                    }else if (direction == "Z"){
+                    }else if (beeDirection == "Z"){
                         bee.position.z += speed;
                         howFarZ++;
                         if (howFarZ > 500){
-                            direction = "X";
+                            beeDirection = "X";
                             howFarZ = 0;
                         }
                     }if (howFarX == 350){
@@ -432,14 +445,19 @@ loader.load(
                     speed = -.2;
                 }
             }
+			
+			var mobPositions = [{x: Math.abs(bee.position.x - raycaster.ray.origin.x), y: Math.abs(bee.position.y - raycaster.ray.origin.y)}];
+			function mobsAttack(){
+				if (mobPositions[0].x < 10 && mobPositions[0].y < 10){
+					playerHealthLower(25);
+				}
+			}
 
 			function animate() {
 
 				requestAnimationFrame( animate );
-                camera.updateMatrixWorld();
-                var vector = camera.position.clone();
-                vector.applyMatrix4( camera.matrixWorld );
-                if (vector.y == 10 && canDie == "yes"){
+                if (raycaster.ray.origin.y == 0 && canDie == "yes"){
+					console.log(canDie);
                     youDead("because you tried to swim with sharks.");
                     camera.position.y = 20;
                 }
@@ -487,6 +505,8 @@ loader.load(
 
 					}
                     moveBees();
+					mobPositions = [{x: Math.abs(bee.position.x - raycaster.ray.origin.x), y: Math.abs(bee.position.y - raycaster.ray.origin.y)}]
+					mobsAttack();
 					prevTime = time;
 
 				}
