@@ -75,8 +75,9 @@
 		</style>
 	</head>
 	<body>
-        <audio src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
+        <audio id="backgroundMusic" src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
 		<audio id="oofSound" src="Music/oof.mp3" autostart="false"></audio>
+        <audio id="diedSound" src="Music/died.mp3" autostart="false" loop="loop"></audio>
 		<script src="Three/three.min.js"></script>
 		<script src="Three/PointerLockControls.js"></script>
         <script src="Three/GLTFLoader.js"></script>
@@ -372,6 +373,8 @@ loader.load(
                     document.getElementById("died").style.display = 'block';
                     document.getElementById("messageDisplay").value = message;
                     controls.unlock();
+                    mainSound.pause();
+                    diedMusic.play();
                 }
 
 			function onWindowResize() {
@@ -384,6 +387,8 @@ loader.load(
 			}
             
 			var oof = document.getElementById("oofSound");
+            var diedMusic = document.getElementById("diedSound");
+            var mainSound = document.getElementById("backgroundMusic");
             function playerHealthLower(amount){
 				if (canDie == "yes"){
 					playerHealth -= amount;
