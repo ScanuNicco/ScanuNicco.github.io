@@ -435,14 +435,14 @@
 
 		function moveBees() {
 			if (mobPositions[0].x < 5 && mobPositions[0].z < 5) {
-				if (raycaster.ray.orgin.x - bee.position.x > 0){ //The difference is positive, the player is to my right
+				if (raycaster.ray.orgin.x - bee.position.x > 0) { //The difference is positive, the player is to my right
 					bee.position.x += .5;
 				} else { // The difference is negative, the player is to my left
 					bee.position.x -= .5;
 				}
-				if (raycaster.ray.orgin.z - bee.position.z > 0){ //The difference is positive, the player is to my right
+				if (raycaster.ray.orgin.z - bee.position.z > 0) { //The difference is positive, the player is to in front of me
 					bee.position.z += .5;
-				} else { // The difference is negative, the player is to my left
+				} else { // The difference is negative, the player is to behind me
 					bee.position.z -= .5;
 				}
 			} else {
@@ -487,7 +487,7 @@
 		var mobPositions = [{
 			x: Math.abs(bee.position.x - raycaster.ray.origin.x),
 			y: Math.abs(bee.position.y - raycaster.ray.origin.y),
-			z: Math.abs(bee.position.z - raycaster.ray.origin.z),
+			z: Math.abs(bee.position.z - raycaster.ray.origin.z)
 		}];
 
 		function mobsAttack() {
@@ -550,7 +550,8 @@
 				moveBees();
 				mobPositions = [{
 					x: Math.abs(bee.position.x - raycaster.ray.origin.x),
-					y: Math.abs(bee.position.y - raycaster.ray.origin.y)
+					y: Math.abs(bee.position.y - raycaster.ray.origin.y),
+					z: Math.abs(bee.position.z - raycaster.ray.origin.z)
 				}]
 				mobsAttack();
 				prevTime = time;
