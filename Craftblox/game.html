@@ -372,6 +372,7 @@
 		var beeMaterial = new THREE.MeshBasicMaterial({
 			map: beeTexture
 		});
+		
 		bee = new THREE.Mesh(boxGeometry, beeMaterial);
 		bee.position.x = 5;
 		bee.position.y = 10;
@@ -492,7 +493,7 @@
 
 		function mobsAttack() {
 			if (mobPositions[0].x < 10 && mobPositions[0].z < 10 && mobPositions[0].y < 10) {
-				playerHealthLower(25);
+				playerHealthLower(20);
 			}
 		}
 
