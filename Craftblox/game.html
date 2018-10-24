@@ -434,16 +434,16 @@
 		var speed = .2;
 
 		function moveBees() {
-			if (mobPositions[0].x < 5 && mobPositions[0].z < 5) {
-				if (raycaster.ray.orgin.x - bee.position.x > 0) { //The difference is positive, the player is to my right
-					bee.position.x += .5;
-				} else { // The difference is negative, the player is to my left
+			if (mobPositions[0].x < 20 && mobPositions[0].z < 20) {
+				if (raycaster.ray.x - bee.position.x < 0) { //The difference is positive, the player is to my right
 					bee.position.x -= .5;
+				} else { // The difference is negative, the player is to my left
+					bee.position.x += .5;
 				}
-				if (raycaster.ray.orgin.z - bee.position.z > 0) { //The difference is positive, the player is to in front of me
-					bee.position.z += .5;
-				} else { // The difference is negative, the player is to behind me
+				if (raycaster.ray.z - bee.position.z < 0) { //The difference is positive, the player is to in front of me
 					bee.position.z -= .5;
+				} else { // The difference is negative, the player is to behind me
+					bee.position.z += .5;
 				}
 			} else {
 				if (beeDirection == "X") {
@@ -500,7 +500,7 @@
 
 			requestAnimationFrame(animate);
 			if (raycaster.ray.origin.y == 0 && canDie == "yes") {
-				console.log(canDie);
+				//console.log(canDie);
 				youDead("because you tried to swim with sharks.");
 				camera.position.y = 20;
 			}
