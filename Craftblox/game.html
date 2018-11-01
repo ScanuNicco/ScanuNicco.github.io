@@ -313,7 +313,7 @@
 					objects.push(box);
 				}
 			}
-			
+
 			sandTexture = new THREE.TextureLoader().load("Images/sand.jpg");
 			for (var h = 50; h < 60; h++) {
 				for (var j = 50; j < 60; j++) {
@@ -387,13 +387,7 @@
 		var beeMaterial = new THREE.MeshBasicMaterial({
 			map: beeTexture
 		});
-		
-		bee = new THREE.Mesh(boxGeometry, beeMaterial);
-		bee.position.x = 5;
-		bee.position.y = 10;
-		bee.position.z = 5;
-		scene.add(bee);
-		objects.push(bee);
+
 
 		function youDead(message) {
 			document.getElementById("died").style.display = 'block';
@@ -444,33 +438,114 @@
 			canDie = "yes";
 		}
 
+		class Bee {
+			constructor(x, y, z, health) {
+				//Create a new bee and add it to the world
+				this.be = new THREE.Mesh(boxGeometry, beeMaterial);
+				this.be.position.x = x;
+				this.be.position.y = y;
+				this.be.position.z = z;
+				this.health = health;
+				scene.add(this.be);
+				objects.push(this.be);
+			}
+
+			setX(x) {
+				//Set the bee's X value to the given input
+				this.be.position.x = x;
+			}
+			changeX(x) {
+				//Increment the bee's X by the given value
+				this.be.position.x += x;
+			}
+			setY(y) {
+				this.be.position.y = y;
+			}
+			changeY(y) {
+				this.be.position.y += y;
+			}
+			setZ(z) {
+				this.be.position.z = z;
+			}
+			changeZ(z) {
+				this.be.position.z += z;
+			}
+
+			distanceFromPlayer() {
+				//How far is the bee away from the player
+				return {
+					x: Math.abs(this.be.position.x - raycaster.ray.origin.x),
+					y: Math.abs(this.be.position.y - raycaster.ray.origin.y),
+					z: Math.abs(this.be.position.z - raycaster.ray.origin.z)
+				}
+			}
+			
+			canSmell(){
+				//Is the bee close enough to smell the player
+				if (this.distanceFromPlayer().x < 50 && this.distanceFromPlayer().z < 50){
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			charge(){
+				//Chase the player
+				if ((raycaster.ray.origin.x - this.be.position.x) > 0) { //The difference is positive, the player is to my right
+					this.be.position.x += .3;
+				} else { // The difference is negative, the player is to my left
+					this.be.position.x -= .3;
+				}
+				if (raycaster.ray.origin.z - this.be.position.z > 0) { //The difference is positive, the player is to in front of me
+					this.be.position.z += .3;
+				} else { // The difference is negative, the player is to behind me
+					this.be.position.z -= .3;
+				}
+			}
+			
+			canSting(){
+				//Is the bee close enough to sting the player
+				if (this.distanceFromPlayer().x < 10 && this.distanceFromPlayer().z < 10 && this.distanceFromPlayer().y < 10){
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			getHurt(howBad){
+				//The bee takes damage
+				this.health -= howBad;
+				if (health < 0){
+					dieDieDie();
+				}
+			}
+			
+			dieDieDie(){
+				scane.remove(this.be);
+			}
+		}
+
+		var bee1 = new Bee(10, 10, 10);
+		var bee2 = new Bee(20, 10, 15);
+
 		var howFarZ = 0;
 		var howFarX = 0;
 		var beeDirection = "X";
 		var speed = .2;
 
 		function moveBees() {
-			if (mobPositions[0].x < 50 && mobPositions[0].z < 50) {
-				if ((raycaster.ray.origin.x - bee.position.x) > 0) { //The difference is positive, the player is to my right
-					bee.position.x += .3;
-				} else { // The difference is negative, the player is to my left
-					bee.position.x -= .3;
-				}
-				if (raycaster.ray.origin.z - bee.position.z > 0) { //The difference is positive, the player is to in front of me
-					bee.position.z += .3;
-				} else { // The difference is negative, the player is to behind me
-					bee.position.z -= .3;
-				} 
+			if (bee1.canSmell()) {
+				bee1.charge();
 			} else {
 				if (beeDirection == "X") {
-					bee.position.x += speed;
+					bee1.changeX(speed);
 					howFarX++;
 					if (howFarX > 500) {
 						beeDirection = "Z";
 						howFarX = 0;
 					}
 				} else if (beeDirection == "Z") {
-					bee.position.z += speed;
+					bee1.changeZ(speed);
 					howFarZ++;
 					if (howFarZ > 500) {
 						beeDirection = "X";
@@ -481,10 +556,10 @@
 					speed = 0;
 					setTimeout(beeSpeed, Math.floor(Math.random() * 1000));
 				}
-				if ((bee.position.x || bee.position.z) > 75) {
+				if ((bee1.be.position.x || bee1.be.position.z) > 75) {
 					beeSpeed();
 				}
-				if ((bee.position.x || bee.position.z) < -75) {
+				if ((bee1.be.position.x || bee1.be.position.z) < -75) {
 					beeSpeed();
 				}
 
@@ -500,14 +575,8 @@
 			}
 		}
 
-		var mobPositions = [{
-			x: Math.abs(bee.position.x - raycaster.ray.origin.x),
-			y: Math.abs(bee.position.y - raycaster.ray.origin.y),
-			z: Math.abs(bee.position.z - raycaster.ray.origin.z)
-		}];
-
 		function mobsAttack() {
-			if (mobPositions[0].x < 10 && mobPositions[0].z < 10 && mobPositions[0].y < 10) {
+			if (bee1.canSting()) {
 				playerHealthLower(20);
 			}
 		}
@@ -564,11 +633,6 @@
 
 				}
 				moveBees();
-				mobPositions = [{
-					x: Math.abs(bee.position.x - raycaster.ray.origin.x),
-					y: Math.abs(bee.position.y - raycaster.ray.origin.y),
-					z: Math.abs(bee.position.z - raycaster.ray.origin.z)
-				}]
 				mobsAttack();
 				prevTime = time;
 
