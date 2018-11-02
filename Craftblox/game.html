@@ -83,7 +83,7 @@
 			text-align: center;
 			border-bottom: solid white 5px;
 		}
-		
+
 		#loading {
 			z-index: 100;
 			background: white;
@@ -401,13 +401,14 @@
 		var beeMaterial = new THREE.MeshBasicMaterial({
 			map: beeTexture
 		});
-		
+
 		var numSeconds = 4;
-		function countdown(){
+
+		function countdown() {
 			numSeconds--;
-			if (numSeconds == 1){
+			if (numSeconds == 1) {
 				document.getElementById("secondsDisplay").innerHTML = "Game starts in 1 second.";
-			} else if (numSeconds == 0){
+			} else if (numSeconds == 0) {
 				document.getElementById("secondsDisplay").innerHTML = "Game has started.";
 				clearInterval(waitClock);
 				controls.lock();
@@ -477,6 +478,7 @@
 				this.countX = 0;
 				this.countY = 0;
 				this.countZ = 0;
+				this.speed = .2;
 				this.direction = "X";
 				scene.add(this.be);
 				objects.push(this.be);
@@ -553,54 +555,53 @@
 			}
 
 			dieDieDie() {
-				scane.remove(this.be);
+				scene.remove(this.be);
+			}
+
+			autoDirection() {
+				var picker = Math.floor(Math.random() * 2);
+				if (picker == 1) {
+					this.speed = .2;
+				} else {
+					this.speed = -.2;
+				}
 			}
 		}
 
 		var bee1 = new Bee(10, 10, 10, 100);
 		var bee2 = new Bee(20, 10, 15, 100);
 
-		var speed = .2;
 
-		function moveBees() {
-			if (bee1.canSmell()) {
-				bee1.charge();
+		function moveBees(theBee) {
+			if (theBee.canSmell()) {
+				theBee.charge();
 			} else {
-				if (bee1.direction == "X") {
-					bee1.changeX(speed);
-					bee1.countX++;
-					if (bee1.countX > 500) {
-						bee1.direction = "Z";
-						bee1.countX = 0;
+				if (theBee.direction == "X") {
+					theBee.changeX(bee1.speed);
+					theBee.countX++;
+					if (theBee.countX > 500) {
+						theBee.direction = "Z";
+						theBee.countX = 0;
 					}
-				} else if (bee1.direction == "Z") {
-					bee1.changeZ(speed);
-					bee1.countZ++;
-					if (bee1.countZ > 500) {
-						bee1.direction = "X";
-						bee1.countZ = 0;
+				} else if (theBee.direction == "Z") {
+					theBee.changeZ(theBee.speed);
+					theBee.countZ++;
+					if (theBee.countZ > 500) {
+						theBee.direction = "X";
+						theBee.countZ = 0;
 					}
 				}
-				if (bee1.countX == 350) {
-					speed = 0;
-					setTimeout(beeSpeed, Math.floor(Math.random() * 1000));
+				if (theBee.countX == 350) {
+					theBee.speed = 0;
+					setTimeout(bee1.speed, Math.floor(Math.random() * 1000));
 				}
-				if ((bee1.be.position.x || bee1.be.position.z) > 75) {
-					beeSpeed();
+				if ((theBee.be.position.x || theBee.be.position.z) > 75) {
+					theBee.autoDirection();
 				}
-				if ((bee1.be.position.x || bee1.be.position.z) < -75) {
-					beeSpeed();
+				if ((theBee.be.position.x || theBee.be.position.z) < -75) {
+					theBee.autoDirection;
 				}
 
-			}
-		}
-
-		function beeSpeed() {
-			var picker = Math.floor(Math.random() * 2);
-			if (picker == 1) {
-				speed = .2;
-			} else {
-				speed = -.2;
 			}
 		}
 
@@ -661,7 +662,8 @@
 					canJump = true;
 
 				}
-				moveBees();
+				moveBees(bee1);
+				moveBees(bee2);
 				mobsAttack();
 				prevTime = time;
 
