@@ -83,10 +83,23 @@
 			text-align: center;
 			border-bottom: solid white 5px;
 		}
+		
+		#loading {
+			z-index: 100;
+			background: white;
+			height: 100%;
+			width: 100%;
+			position: fixed;
+			text-align: center;
+		}
 	</style>
 
 	<div id="blocker">
-
+		<div id="loading">
+			<img src="Images/Logo.png">
+			<h1 id="secondsDisplay">Game is loading...</h1><br>
+			<h4>Click to start now.</h4>
+		</div>
 		<div id="menu">
 			<h3>Menu</h3>
 			<br>
@@ -123,10 +136,11 @@
 		var direction = new THREE.Vector3();
 		var vertex = new THREE.Vector3();
 		var color = new THREE.Color();
+		var waitClock = setInterval(countdown, 1000);
 
 		init();
 		playerHealthLower(50);
-		immortal(5000);
+		immortal(6000);
 		animate();
 
 		function init() {
@@ -159,6 +173,7 @@
 
 				instructions.style.display = 'none';
 				blocker.style.display = 'none';
+				document.getElementById("loading").style.display = "none";
 
 			});
 
@@ -328,7 +343,6 @@
 					objects.push(box);
 				}
 			}
-			velocity.y += 350;
 			/*
 			// Instantiate a loader
 			var loader = new THREE.GLTFLoader();
@@ -387,6 +401,20 @@
 		var beeMaterial = new THREE.MeshBasicMaterial({
 			map: beeTexture
 		});
+		
+		var numSeconds = 4;
+		function countdown(){
+			numSeconds--;
+			if (numSeconds == 1){
+				document.getElementById("secondsDisplay").innerHTML = "Game starts in 1 second.";
+			} else if (numSeconds == 0){
+				document.getElementById("secondsDisplay").innerHTML = "Game has started.";
+				clearInterval(waitClock);
+				controls.lock();
+			} else {
+				document.getElementById("secondsDisplay").innerHTML = "Game starts in " + numSeconds + " seconds.";
+			}
+		}
 
 
 		function youDead(message) {
@@ -446,6 +474,10 @@
 				this.be.position.y = y;
 				this.be.position.z = z;
 				this.health = health;
+				this.countX = 0;
+				this.countY = 0;
+				this.countZ = 0;
+				this.direction = "X";
 				scene.add(this.be);
 				objects.push(this.be);
 			}
@@ -479,17 +511,17 @@
 					z: Math.abs(this.be.position.z - raycaster.ray.origin.z)
 				}
 			}
-			
-			canSmell(){
+
+			canSmell() {
 				//Is the bee close enough to smell the player
-				if (this.distanceFromPlayer().x < 50 && this.distanceFromPlayer().z < 50){
+				if (this.distanceFromPlayer().x < 50 && this.distanceFromPlayer().z < 50) {
 					return true;
 				} else {
 					return false;
 				}
 			}
-			
-			charge(){
+
+			charge() {
 				//Chase the player
 				if ((raycaster.ray.origin.x - this.be.position.x) > 0) { //The difference is positive, the player is to my right
 					this.be.position.x += .3;
@@ -502,57 +534,54 @@
 					this.be.position.z -= .3;
 				}
 			}
-			
-			canSting(){
+
+			canSting() {
 				//Is the bee close enough to sting the player
-				if (this.distanceFromPlayer().x < 10 && this.distanceFromPlayer().z < 10 && this.distanceFromPlayer().y < 10){
+				if (this.distanceFromPlayer().x < 10 && this.distanceFromPlayer().z < 10 && this.distanceFromPlayer().y < 10) {
 					return true;
 				} else {
 					return false;
 				}
 			}
-			
-			getHurt(howBad){
+
+			getHurt(howBad) {
 				//The bee takes damage
 				this.health -= howBad;
-				if (health < 0){
+				if (health < 0) {
 					dieDieDie();
 				}
 			}
-			
-			dieDieDie(){
+
+			dieDieDie() {
 				scane.remove(this.be);
 			}
 		}
 
-		var bee1 = new Bee(10, 10, 10);
-		var bee2 = new Bee(20, 10, 15);
+		var bee1 = new Bee(10, 10, 10, 100);
+		var bee2 = new Bee(20, 10, 15, 100);
 
-		var howFarZ = 0;
-		var howFarX = 0;
-		var beeDirection = "X";
 		var speed = .2;
 
 		function moveBees() {
 			if (bee1.canSmell()) {
 				bee1.charge();
 			} else {
-				if (beeDirection == "X") {
+				if (bee1.direction == "X") {
 					bee1.changeX(speed);
-					howFarX++;
-					if (howFarX > 500) {
-						beeDirection = "Z";
-						howFarX = 0;
+					bee1.countX++;
+					if (bee1.countX > 500) {
+						bee1.direction = "Z";
+						bee1.countX = 0;
 					}
-				} else if (beeDirection == "Z") {
+				} else if (bee1.direction == "Z") {
 					bee1.changeZ(speed);
-					howFarZ++;
-					if (howFarZ > 500) {
-						beeDirection = "X";
-						howFarZ = 0;
+					bee1.countZ++;
+					if (bee1.countZ > 500) {
+						bee1.direction = "X";
+						bee1.countZ = 0;
 					}
 				}
-				if (howFarX == 350) {
+				if (bee1.countX == 350) {
 					speed = 0;
 					setTimeout(beeSpeed, Math.floor(Math.random() * 1000));
 				}
