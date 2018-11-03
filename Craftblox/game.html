@@ -2,677 +2,675 @@
 <html lang="en">
 
 <head>
-	<title>Craftblox</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Craftblox</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
 </head>
 
 <body>
-	<audio id="backgroundMusic" src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
-	<audio id="oofSound" src="Music/oof.mp3" autostart="false"></audio>
-	<audio id="diedSound" src="Music/died.mp3" autostart="false" loop="loop"></audio>
-	<script src="Three/three.min.js"></script>
-	<script src="Three/PointerLockControls.js"></script>
-	<script src="Three/GLTFLoader.js"></script>
-
-	<style>
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-		}
-
-		body {
-			background-color: #ffffff;
-			margin: 0;
-			overflow: hidden;
-			font-family: arial;
-		}
-
-		#blocker {
-
-			position: absolute;
-
-			width: 100%;
-			height: 100%;
-
-			background-color: rgba(0, 0, 0, 0.5);
-
-		}
-
-		#menu {
-			width: 300px;
-			height: 500px;
-			background: #dddddd;
-			text-align: center;
-			position: fixed;
-			top: calc(50% - 250px);
-			left: calc(50% - 150px);
-		}
-
-		#died {
-			background: rgba(255, 0, 0, .4);
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			padding-top: 20%;
-			text-align: center;
-			color: white;
-			display: none;
-		}
-
-		button {
-			margin: 5px;
-			padding: 10px;
-			color: white;
-			font-size: 30px;
-			background: #0095DD;
-			border: none;
-			border-radius: 5px;
-		}
-
-		h1 {
-			font-size: 80px;
-		}
-
-		#healthDisplay {
-			margin: auto;
-			font-size: 28px;
-			padding: 2px;
-			text-align: center;
-			border-bottom: solid white 5px;
-		}
-
-		#loading {
-			z-index: 100;
-			background: white;
-			height: 100%;
-			width: 100%;
-			position: fixed;
-			text-align: center;
-		}
-	</style>
-
-	<div id="blocker">
-		<div id="loading">
-			<img src="Images/Logo.png">
-			<h1 id="secondsDisplay">Game is loading...</h1><br>
-			<h4>Click to start now.</h4>
-		</div>
-		<div id="menu">
-			<h3>Menu</h3>
-			<br>
-			<button onclick="window.location.href = 'index.html'">Quit Game</button><br>
-			<button onclick="window.location.reload()">Restart Game</button><br>
-			<button>Options</button><br>
-			<button>Credits</button><br>
-		</div>
-
-	</div>
-	<div id="died">
-		<h1>You Died</h1>
-		<p id="messageDisplay"></p>
-		<button onclick="window.location.href = 'index.html'">Quit To Menu</button><br><br>
-		<button onclick="window.location.reload()">Restart Game</button>
-	</div>
-	<div id="healthDisplay"></div>
+    <audio id="backgroundMusic" src="Music/main.mp3" autoplay="autoplay" loop="loop" type="audio/mp3"></audio>
+    <audio id="oofSound" src="Music/oof.mp3" autostart="false"></audio>
+    <audio id="diedSound" src="Music/died.mp3" autostart="false" loop="loop"></audio>
+    <script src="Three/three.min.js"></script>
+    <script src="Three/PointerLockControls.js"></script>
+    <script src="Three/GLTFLoader.js"></script>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            overflow: hidden;
+            font-family: arial;
+        }
+
+        #blocker {
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.5);
+
+        }
+
+        #menu {
+            width: 300px;
+            height: 500px;
+            background: #dddddd;
+            text-align: center;
+            position: fixed;
+            top: calc(50% - 250px);
+            left: calc(50% - 150px);
+        }
+
+        #died {
+            background: rgba(255, 0, 0, .4);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            padding-top: 20%;
+            text-align: center;
+            color: white;
+            display: none;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            color: white;
+            font-size: 30px;
+            background: #0095DD;
+            border: none;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 80px;
+        }
+
+        #healthDisplay {
+            margin: auto;
+            font-size: 28px;
+            padding: 2px;
+            text-align: center;
+            border-bottom: solid white 5px;
+        }
+
+        #loading {
+            z-index: 100;
+            background: white;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            text-align: center;
+        }
+
+    </style>
+
+    <div id="blocker">
+        <div id="loading">
+            <img src="Images/Logo.png">
+            <h1 id="secondsDisplay">Game is loading...</h1><br>
+            <h4>Click to start now.</h4>
+        </div>
+        <div id="menu">
+            <h3>Menu</h3>
+            <br>
+            <button onclick="window.location.href = 'index.html'">Quit Game</button><br>
+            <button onclick="window.location.reload()">Restart Game</button><br>
+            <button>Options</button><br>
+            <button>Credits</button><br>
+        </div>
+
+    </div>
+    <div id="died">
+        <h1>You Died</h1>
+        <p id="messageDisplay"></p>
+        <button onclick="window.location.href = 'index.html'">Quit To Menu</button><br><br>
+        <button onclick="window.location.reload()">Restart Game</button>
+    </div>
+    <div id="healthDisplay"></div>
 
-	<script>
-		var camera, scene, renderer, controls;
+    <script>
+        var camera, scene, renderer, controls;
 
-		var objects = [];
+        var objects = [];
 
-		var raycaster;
+        var raycaster;
 
-		var moveForward = false;
-		var moveBackward = false;
-		var moveLeft = false;
-		var moveRight = false;
-		var canJump = false;
+        var moveForward = false;
+        var moveBackward = false;
+        var moveLeft = false;
+        var moveRight = false;
+        var canJump = false;
 
-		var prevTime = performance.now();
-		var velocity = new THREE.Vector3();
-		var direction = new THREE.Vector3();
-		var vertex = new THREE.Vector3();
-		var color = new THREE.Color();
-		var waitClock = setInterval(countdown, 1000);
+        var prevTime = performance.now();
+        var velocity = new THREE.Vector3();
+        var direction = new THREE.Vector3();
+        var vertex = new THREE.Vector3();
+        var color = new THREE.Color();
+        var waitClock = setInterval(countdown, 1000);
 
-		init();
-		playerHealthLower(50);
-		immortal(6000);
-		animate();
+        init();
+        playerHealthLower(50);
+        immortal(6000);
+        animate();
 
-		function init() {
+        function init() {
 
-			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-			velocity.y += 350;
-			playerHealth = 100;
-			document.getElementById("healthDisplay").innerHTML = playerHealth;
-			playerHealthLower(1);
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+            velocity.y += 350;
+            playerHealth = 100;
+            document.getElementById("healthDisplay").innerHTML = playerHealth;
+            playerHealthLower(1);
 
-			scene = new THREE.Scene();
-			scene.background = new THREE.Color(0xffffff);
-			scene.fog = new THREE.Fog(0xffffff, 0, 750);
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff);
+            scene.fog = new THREE.Fog(0xffffff, 0, 750);
 
-			var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
-			light.position.set(0.5, 1, 0.75);
-			scene.add(light);
+            var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75);
+            light.position.set(0.5, 1, 0.75);
+            scene.add(light);
 
-			controls = new THREE.PointerLockControls(camera);
+            controls = new THREE.PointerLockControls(camera);
 
-			var blocker = document.getElementById('blocker');
-			var instructions = document.getElementById('menu');
+            var blocker = document.getElementById('blocker');
+            var instructions = document.getElementById('menu');
 
-			blocker.addEventListener('click', function(event) {
-				controls.lock();
+            blocker.addEventListener('click', function(event) {
+                controls.lock();
 
-			}, false);
+            }, false);
 
-			controls.addEventListener('lock', function() {
+            controls.addEventListener('lock', function() {
 
-				instructions.style.display = 'none';
-				blocker.style.display = 'none';
-				document.getElementById("loading").style.display = "none";
+                instructions.style.display = 'none';
+                blocker.style.display = 'none';
+                document.getElementById("loading").style.display = "none";
 
-			});
+            });
 
-			controls.addEventListener('unlock', function() {
+            controls.addEventListener('unlock', function() {
 
-				blocker.style.display = 'block';
-				instructions.style.display = '';
+                blocker.style.display = 'block';
+                instructions.style.display = '';
 
-			});
+            });
 
-			scene.add(controls.getObject());
+            scene.add(controls.getObject());
 
-			var onKeyDown = function(event) {
+            var onKeyDown = function(event) {
 
-				switch (event.keyCode) {
+                switch (event.keyCode) {
 
-					case 38: // up
-					case 87: // w
-						moveForward = true;
-						break;
+                    case 38: // up
+                    case 87: // w
+                        moveForward = true;
+                        break;
 
-					case 37: // left
-					case 65: // a
-						moveLeft = true;
-						break;
+                    case 37: // left
+                    case 65: // a
+                        moveLeft = true;
+                        break;
 
-					case 40: // down
-					case 83: // s
-						moveBackward = true;
-						break;
+                    case 40: // down
+                    case 83: // s
+                        moveBackward = true;
+                        break;
 
-					case 39: // right
-					case 68: // d
-						moveRight = true;
-						break;
+                    case 39: // right
+                    case 68: // d
+                        moveRight = true;
+                        break;
 
-					case 32: // space
-						if (canJump === true) velocity.y += 350;
-						canJump = false;
-						break;
+                    case 32: // space
+                        if (canJump === true) velocity.y += 350;
+                        canJump = false;
+                        break;
 
-				}
+                }
 
-			};
+            };
 
-			var onKeyUp = function(event) {
+            var onKeyUp = function(event) {
 
-				switch (event.keyCode) {
+                switch (event.keyCode) {
 
-					case 38: // up
-					case 87: // w
-						moveForward = false;
-						break;
+                    case 38: // up
+                    case 87: // w
+                        moveForward = false;
+                        break;
 
-					case 37: // left
-					case 65: // a
-						moveLeft = false;
-						break;
+                    case 37: // left
+                    case 65: // a
+                        moveLeft = false;
+                        break;
 
-					case 40: // down
-					case 83: // s
-						moveBackward = false;
-						break;
+                    case 40: // down
+                    case 83: // s
+                        moveBackward = false;
+                        break;
 
-					case 39: // right
-					case 68: // d
-						moveRight = false;
-						break;
+                    case 39: // right
+                    case 68: // d
+                        moveRight = false;
+                        break;
 
-				}
+                }
 
-			};
+            };
 
-			document.addEventListener('keydown', onKeyDown, false);
-			document.addEventListener('keyup', onKeyUp, false);
+            document.addEventListener('keydown', onKeyDown, false);
+            document.addEventListener('keyup', onKeyUp, false);
 
-			raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, -1, 0), 0, 10);
+            raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, -1, 0), 0, 10);
 
-			// floor
+            // floor
 
-			var floorGeometry = new THREE.PlaneBufferGeometry(2000, 2000, 100, 100);
-			floorGeometry.rotateX(-Math.PI / 2);
+            var floorGeometry = new THREE.PlaneBufferGeometry(2000, 2000, 100, 100);
+            floorGeometry.rotateX(-Math.PI / 2);
 
-			// vertex displacement
+            // vertex displacement
 
-			var position = floorGeometry.attributes.position;
+            var position = floorGeometry.attributes.position;
 
-			for (var i = 0, l = position.count; i < l; i++) {
+            for (var i = 0, l = position.count; i < l; i++) {
 
-				vertex.fromBufferAttribute(position, i);
+                vertex.fromBufferAttribute(position, i);
 
-				vertex.x += Math.random() * 20 - 10;
-				vertex.y += Math.random() * 2;
-				vertex.z += Math.random() * 20 - 10;
+                vertex.x += Math.random() * 20 - 10;
+                vertex.y += Math.random() * 2;
+                vertex.z += Math.random() * 20 - 10;
 
-				position.setXYZ(i, vertex.x, vertex.y, vertex.z);
+                position.setXYZ(i, vertex.x, vertex.y, vertex.z);
 
-			}
+            }
 
-			floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
+            floorGeometry = floorGeometry.toNonIndexed(); // ensure each face has unique vertices
 
-			position = floorGeometry.attributes.position;
-			var colors = [];
+            position = floorGeometry.attributes.position;
+            var colors = [];
 
 
 
-			for (var i = 0, l = position.count; i < l; i++) {
+            for (var i = 0, l = position.count; i < l; i++) {
 
-				color.setHSL(Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
-				colors.push(color.r, color.g, color.b);
+                color.setHSL(Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
+                colors.push(color.r, color.g, color.b);
 
-			}
+            }
 
-			floorGeometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-			waterTexture = new THREE.TextureLoader().load("Images/water.jpg");
-			var floorMaterial = new THREE.MeshBasicMaterial({
-				map: waterTexture
-			});
+            floorGeometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            waterTexture = new THREE.TextureLoader().load("Images/water.jpg");
+            var floorMaterial = new THREE.MeshBasicMaterial({
+                map: waterTexture
+            });
 
-			var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-			scene.add(floor);
+            var floor = new THREE.Mesh(floorGeometry, floorMaterial);
+            scene.add(floor);
 
-			// objects
+            // objects
 
-			boxGeometry = new THREE.BoxBufferGeometry(4, 4, 4);
-			boxGeometry = boxGeometry.toNonIndexed(); // ensure e5ch face has unique vertices
+            boxGeometry = new THREE.BoxBufferGeometry(4, 4, 4);
+            boxGeometry = boxGeometry.toNonIndexed(); // ensure e5ch face has unique vertices
 
-			position = boxGeometry.attributes.position;
-			colors = [];
+            position = boxGeometry.attributes.position;
+            colors = [];
 
-			for (var i = 0, l = position.count; i < l; i++) {
+            for (var i = 0, l = position.count; i < l; i++) {
 
-				color.setHSL(Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
-				colors.push(color.r, color.g, color.b);
+                color.setHSL(Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
+                colors.push(color.r, color.g, color.b);
 
-			}
+            }
 
-			boxGeometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            boxGeometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
 
-			sandTexture = new THREE.TextureLoader().load("Images/sand.jpg");
-			for (var h = -20; h < 20; h++) {
-				for (var j = -20; j < 20; j++) {
-					boxMaterial = new THREE.MeshBasicMaterial({
-						map: sandTexture
-					});
-					var box = new THREE.Mesh(boxGeometry, boxMaterial);
-					box.position.x = h * 4;
-					box.position.z = j * 4;
-					box.position.y = 4;
-					scene.add(box);
-					objects.push(box);
-				}
-			}
+            sandTexture = new THREE.TextureLoader().load("Images/sand.jpg");
+            for (var h = -20; h < 20; h++) {
+                for (var j = -20; j < 20; j++) {
+                    boxMaterial = new THREE.MeshBasicMaterial({
+                        map: sandTexture
+                    });
+                    var box = new THREE.Mesh(boxGeometry, boxMaterial);
+                    box.position.x = h * 4;
+                    box.position.z = j * 4;
+                    box.position.y = 4;
+                    scene.add(box);
+                    objects.push(box);
+                }
+            }
 
-			sandTexture = new THREE.TextureLoader().load("Images/sand.jpg");
-			for (var h = 50; h < 60; h++) {
-				for (var j = 50; j < 60; j++) {
-					boxMaterial = new THREE.MeshBasicMaterial({
-						map: sandTexture
-					});
-					var box = new THREE.Mesh(boxGeometry, boxMaterial);
-					box.position.x = h * 4;
-					box.position.z = j * 4;
-					box.position.y = 4;
-					scene.add(box);
-					objects.push(box);
-				}
-			}
-			/*
-			// Instantiate a loader
-			var loader = new THREE.GLTFLoader();
-			// Load a glTF resource
-			loader.load(
-				// resource URL
-				'Models/DamagedHelmet.gltf',
-				// called when the resource is loaded
-				function ( gltf ) {
-			        //gltf.asset.position.y = 50;
-			        //gltf.position.x = 50;
-			        //gltf.position.z = 50;
-			       // gltf.material = boxMaterial;
-					scene.add( gltf.scene );
-			        //objects.push(gltf.scene);
-			        
+            sandTexture = new THREE.TextureLoader().load("Images/sand.jpg");
+            for (var h = 50; h < 60; h++) {
+                for (var j = 50; j < 60; j++) {
+                    boxMaterial = new THREE.MeshBasicMaterial({
+                        map: sandTexture
+                    });
+                    var box = new THREE.Mesh(boxGeometry, boxMaterial);
+                    box.position.x = h * 4;
+                    box.position.z = j * 4;
+                    box.position.y = 4;
+                    scene.add(box);
+                    objects.push(box);
+                }
+            }
+            /*
+            // Instantiate a loader
+            var loader = new THREE.GLTFLoader();
+            // Load a glTF resource
+            loader.load(
+            	// resource URL
+            	'Models/DamagedHelmet.gltf',
+            	// called when the resource is loaded
+            	function ( gltf ) {
+                    //gltf.asset.position.y = 50;
+                    //gltf.position.x = 50;
+                    //gltf.position.z = 50;
+                   // gltf.material = boxMaterial;
+            		scene.add( gltf.scene );
+                    //objects.push(gltf.scene);
+                    
 
-					gltf.animations; // Array<THREE.AnimationClip>
-					gltf.scene; // THREE.Scene
-					gltf.scenes; // Array<THREE.Scene>
-					gltf.cameras; // Array<THREE.Camera>
-					gltf.asset; // Object
+            		gltf.animations; // Array<THREE.AnimationClip>
+            		gltf.scene; // THREE.Scene
+            		gltf.scenes; // Array<THREE.Scene>
+            		gltf.cameras; // Array<THREE.Camera>
+            		gltf.asset; // Object
 
-				},
+            	},
 
-				// called while loading is progressing
-				function ( xhr ) {
+            	// called while loading is progressing
+            	function ( xhr ) {
 
-					console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+            		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-				},
-				// called when loading has errors
-				function ( error ) {
+            	},
+            	// called when loading has errors
+            	function ( error ) {
 
-					console.log( 'An error happened' );
+            		console.log( 'An error happened' );
 
-				}
-			);*/
+            	}
+            );*/
 
 
-			//
+            //
 
-			renderer = new THREE.WebGLRenderer({
-				antialias: true
-			});
-			renderer.setPixelRatio(window.devicePixelRatio);
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			document.body.appendChild(renderer.domElement);
+            renderer = new THREE.WebGLRenderer({
+                antialias: true
+            });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
 
-			//
+            //
 
-			window.addEventListener('resize', onWindowResize, false);
-
-		}
-		beeTexture = new THREE.TextureLoader().load("Images/bee.png");
-		var beeMaterial = new THREE.MeshBasicMaterial({
-			map: beeTexture
-		});
-
-		var numSeconds = 4;
-
-		function countdown() {
-			numSeconds--;
-			if (numSeconds == 1) {
-				document.getElementById("secondsDisplay").innerHTML = "Game starts in 1 second.";
-			} else if (numSeconds == 0) {
-				document.getElementById("secondsDisplay").innerHTML = "Game has started.";
-				clearInterval(waitClock);
-				controls.lock();
-			} else {
-				document.getElementById("secondsDisplay").innerHTML = "Game starts in " + numSeconds + " seconds.";
-			}
-		}
-
-
-		function youDead(message) {
-			document.getElementById("died").style.display = 'block';
-			document.getElementById("messageDisplay").value = message;
-			controls.unlock();
-			mainSound.pause();
-			diedMusic.play();
-			document.getElementById("menu").style.display = "none";
-		}
-
-		function onWindowResize() {
-
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize(window.innerWidth, window.innerHeight);
-
-		}
-
-		var oof = document.getElementById("oofSound");
-		var diedMusic = document.getElementById("diedSound");
-		var mainSound = document.getElementById("backgroundMusic");
-
-		function playerHealthLower(amount) {
-			if (canDie == "yes") {
-				playerHealth -= amount;
-				document.getElementById("healthDisplay").innerHTML = playerHealth;
-				if (playerHealth < 1) {
-					youDead("Out of health");
-				} else if (playerHealth < 26) {
-					document.getElementById("healthDisplay").style.background = "red";
-					document.getElementById("healthDisplay").style.color = "white";
-				}
-				oof.play();
-				immortal(1000);
-			}
-		}
-
-		var canDie = "no";
-
-		function immortal(howLong) {
-			canDie = "no";
-			console.log("immortal");
-			setTimeout(mortal, howLong);
-		}
-
-		function mortal() {
-			canDie = "yes";
-		}
-
-		class Bee {
-			constructor(x, y, z, health) {
-				//Create a new bee and add it to the world
-				this.be = new THREE.Mesh(boxGeometry, beeMaterial);
-				this.be.position.x = x;
-				this.be.position.y = y;
-				this.be.position.z = z;
-				this.health = health;
-				this.countX = 0;
-				this.countY = 0;
-				this.countZ = 0;
-				this.speed = .2;
-				this.direction = "X";
-				scene.add(this.be);
-				objects.push(this.be);
-			}
-
-			setX(x) {
-				//Set the bee's X value to the given input
-				this.be.position.x = x;
-			}
-			changeX(x) {
-				//Increment the bee's X by the given value
-				this.be.position.x += x;
-			}
-			setY(y) {
-				this.be.position.y = y;
-			}
-			changeY(y) {
-				this.be.position.y += y;
-			}
-			setZ(z) {
-				this.be.position.z = z;
-			}
-			changeZ(z) {
-				this.be.position.z += z;
-			}
-
-			distanceFromPlayer() {
-				//How far is the bee away from the player
-				return {
-					x: Math.abs(this.be.position.x - raycaster.ray.origin.x),
-					y: Math.abs(this.be.position.y - raycaster.ray.origin.y),
-					z: Math.abs(this.be.position.z - raycaster.ray.origin.z)
-				}
-			}
-
-			canSmell() {
-				//Is the bee close enough to smell the player
-				if (this.distanceFromPlayer().x < 50 && this.distanceFromPlayer().z < 50) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-
-			charge() {
-				//Chase the player
-				if ((raycaster.ray.origin.x - this.be.position.x) > 0) { //The difference is positive, the player is to my right
-					this.be.position.x += .3;
-				} else { // The difference is negative, the player is to my left
-					this.be.position.x -= .3;
-				}
-				if (raycaster.ray.origin.z - this.be.position.z > 0) { //The difference is positive, the player is to in front of me
-					this.be.position.z += .3;
-				} else { // The difference is negative, the player is to behind me
-					this.be.position.z -= .3;
-				}
-			}
-
-			canSting() {
-				//Is the bee close enough to sting the player
-				if (this.distanceFromPlayer().x < 10 && this.distanceFromPlayer().z < 10 && this.distanceFromPlayer().y < 10) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-
-			getHurt(howBad) {
-				//The bee takes damage
-				this.health -= howBad;
-				if (health < 0) {
-					dieDieDie();
-				}
-			}
-
-			dieDieDie() {
-				scene.remove(this.be);
-			}
-
-			autoDirection() {
-				var picker = Math.floor(Math.random() * 2);
-				if (picker == 1) {
-					this.speed = .2;
-				} else {
-					this.speed = -.2;
-				}
-			}
-		}
-
-		var bee1 = new Bee(10, 10, 10, 100);
-		var bee2 = new Bee(20, 10, 15, 100);
-
-
-		function moveBees(theBee) {
-			if (theBee.canSmell()) {
-				theBee.charge();
-			} else {
-				if (theBee.direction == "X") {
-					theBee.changeX(bee1.speed);
-					theBee.countX++;
-					if (theBee.countX > 500) {
-						theBee.direction = "Z";
-						theBee.countX = 0;
-					}
-				} else if (theBee.direction == "Z") {
-					theBee.changeZ(theBee.speed);
-					theBee.countZ++;
-					if (theBee.countZ > 500) {
-						theBee.direction = "X";
-						theBee.countZ = 0;
-					}
-				}
-				if (theBee.countX == 350) {
-					theBee.speed = 0;
-					setTimeout(bee1.speed, Math.floor(Math.random() * 1000));
-				}
-				if ((theBee.be.position.x || theBee.be.position.z) > 75) {
-					theBee.autoDirection();
-				}
-				if ((theBee.be.position.x || theBee.be.position.z) < -75) {
-					theBee.autoDirection;
-				}
-
-			}
-		}
-
-		function mobsAttack() {
-			if (bee1.canSting()) {
-				playerHealthLower(20);
-			}
-		}
-
-		function animate() {
-
-			requestAnimationFrame(animate);
-			if (raycaster.ray.origin.y == 0 && canDie == "yes") {
-				//console.log(canDie);
-				youDead("because you tried to swim with sharks.");
-				camera.position.y = 20;
-			}
-			if (controls.isLocked === true) {
-
-				raycaster.ray.origin.copy(controls.getObject().position);
-				raycaster.ray.origin.y -= 10;
-
-				var intersections = raycaster.intersectObjects(objects);
-
-				var onObject = intersections.length > 0;
-
-				var time = performance.now();
-				var delta = (time - prevTime) / 1000;
-
-				velocity.x -= velocity.x * 10.0 * delta;
-				velocity.z -= velocity.z * 10.0 * delta;
-
-				velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
-
-				direction.z = Number(moveForward) - Number(moveBackward);
-				direction.x = Number(moveLeft) - Number(moveRight);
-				direction.normalize(); // this ensures consistent movements in all directions
-
-				if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
-				if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
-
-				if (onObject === true) {
-
-					velocity.y = Math.max(0, velocity.y);
-					canJump = true;
-
-				}
-
-				controls.getObject().translateX(velocity.x * delta);
-				controls.getObject().translateY(velocity.y * delta);
-				controls.getObject().translateZ(velocity.z * delta);
-
-				if (controls.getObject().position.y < 10) {
-
-					velocity.y = 0;
-					controls.getObject().position.y = 10;
-
-					canJump = true;
-
-				}
-				moveBees(bee1);
-				moveBees(bee2);
-				mobsAttack();
-				prevTime = time;
-
-			}
-
-			renderer.render(scene, camera);
-
-		}
-	</script>
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+        beeTexture = new THREE.TextureLoader().load("Images/bee.png");
+        var beeMaterial = new THREE.MeshBasicMaterial({
+            map: beeTexture
+        });
+
+        var numSeconds = 4;
+
+        function countdown() {
+            numSeconds--;
+            if (numSeconds == 1) {
+                document.getElementById("secondsDisplay").innerHTML = "Game starts in 1 second.";
+            } else if (numSeconds == 0) {
+                document.getElementById("secondsDisplay").innerHTML = "Game has started.";
+                clearInterval(waitClock);
+                controls.lock();
+            } else {
+                document.getElementById("secondsDisplay").innerHTML = "Game starts in " + numSeconds + " seconds.";
+            }
+        }
+
+
+        function youDead(message) {
+            document.getElementById("died").style.display = 'block';
+            document.getElementById("messageDisplay").value = message;
+            controls.unlock();
+            mainSound.pause();
+            diedMusic.play();
+            document.getElementById("menu").style.display = "none";
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        var oof = document.getElementById("oofSound");
+        var diedMusic = document.getElementById("diedSound");
+        var mainSound = document.getElementById("backgroundMusic");
+
+        function playerHealthLower(amount) {
+            if (canDie == "yes") {
+                playerHealth -= amount;
+                document.getElementById("healthDisplay").innerHTML = playerHealth;
+                if (playerHealth < 1) {
+                    youDead("Out of health");
+                } else if (playerHealth < 26) {
+                    document.getElementById("healthDisplay").style.background = "red";
+                    document.getElementById("healthDisplay").style.color = "white";
+                }
+                oof.play();
+                immortal(1000);
+            }
+        }
+
+        var canDie = "no";
+
+        function immortal(howLong) {
+            canDie = "no";
+            console.log("immortal");
+            setTimeout(mortal, howLong);
+        }
+
+        function mortal() {
+            canDie = "yes";
+        }
+
+        class Bee {
+            constructor(x, y, z, health) {
+                //Create a new bee and add it to the world
+                this.be = new THREE.Mesh(boxGeometry, beeMaterial);
+                this.be.position.x = x;
+                this.be.position.y = y;
+                this.be.position.z = z;
+                this.health = health;
+                this.countX = 0;
+                this.countY = 0;
+                this.countZ = 0;
+                this.speed = .2;
+                this.direction = "X";
+                scene.add(this.be);
+                objects.push(this.be);
+            }
+
+            setX(x) {
+                //Set the bee's X value to the given input
+                this.be.position.x = x;
+            }
+            changeX(x) {
+                //Increment the bee's X by the given value
+                this.be.position.x += x;
+            }
+            setY(y) {
+                this.be.position.y = y;
+            }
+            changeY(y) {
+                this.be.position.y += y;
+            }
+            setZ(z) {
+                this.be.position.z = z;
+            }
+            changeZ(z) {
+                this.be.position.z += z;
+            }
+
+            distanceFromPlayer() {
+                //How far is the bee away from the player
+                return {
+                    x: Math.abs(this.be.position.x - raycaster.ray.origin.x),
+                    y: Math.abs(this.be.position.y - raycaster.ray.origin.y),
+                    z: Math.abs(this.be.position.z - raycaster.ray.origin.z)
+                }
+            }
+
+            canSmell() {
+                //Is the bee close enough to smell the player
+                if (this.distanceFromPlayer().x < 50 && this.distanceFromPlayer().z < 50) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            charge() {
+                //Chase the player
+                if ((raycaster.ray.origin.x - this.be.position.x) > 0) { //The difference is positive, the player is to my right
+                    this.be.position.x += .3;
+                } else { // The difference is negative, the player is to my left
+                    this.be.position.x -= .3;
+                }
+                if (raycaster.ray.origin.z - this.be.position.z > 0) { //The difference is positive, the player is to in front of me
+                    this.be.position.z += .3;
+                } else { // The difference is negative, the player is to behind me
+                    this.be.position.z -= .3;
+                }
+            }
+
+            canSting() {
+                //Is the bee close enough to sting the player
+                if (this.distanceFromPlayer().x < 10 && this.distanceFromPlayer().z < 10 && this.distanceFromPlayer().y < 10) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            getHurt(howBad) {
+                //The bee takes damage
+                this.health -= howBad;
+                if (health < 0) {
+                    dieDieDie();
+                }
+            }
+
+            dieDieDie() {
+                scene.remove(this.be);
+            }
+
+            autoDirection() {
+                var picker = Math.floor(Math.random() * 2);
+                if (picker == 1) {
+                    this.speed = .2;
+                } else {
+                    this.speed = -.2;
+                }
+            }
+        }
+
+        var bee1 = new Bee(10, 10, 10, 100);
+        var bee2 = new Bee(55, 10, 55, 100);
+
+
+        function moveBees(theBee) {
+            if (theBee.canSmell()) {
+                theBee.charge();
+                if (theBee.canSting()) {
+                    playerHealthLower(20);
+                }
+            } else {
+                if (theBee.direction == "X") {
+                    theBee.changeX(bee1.speed);
+                    theBee.countX++;
+                    if (theBee.countX > 500) {
+                        theBee.direction = "Z";
+                        theBee.countX = 0;
+                    }
+                } else if (theBee.direction == "Z") {
+                    theBee.changeZ(theBee.speed);
+                    theBee.countZ++;
+                    if (theBee.countZ > 500) {
+                        theBee.direction = "X";
+                        theBee.countZ = 0;
+                    }
+                }
+                if (theBee.countX == 350) {
+                    theBee.speed = 0;
+                    setTimeout(bee1.speed, Math.floor(Math.random() * 1000));
+                }
+                if ((theBee.be.position.x || theBee.be.position.z) > 75) {
+                    theBee.autoDirection();
+                }
+                if ((theBee.be.position.x || theBee.be.position.z) < -75) {
+                    theBee.autoDirection();
+                }
+            }
+        }
+
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+            if (raycaster.ray.origin.y == 0 && canDie == "yes") {
+                //console.log(canDie);
+                youDead("because you tried to swim with sharks.");
+                camera.position.y = 20;
+            }
+            if (controls.isLocked === true) {
+
+                raycaster.ray.origin.copy(controls.getObject().position);
+                raycaster.ray.origin.y -= 10;
+
+                var intersections = raycaster.intersectObjects(objects);
+
+                var onObject = intersections.length > 0;
+
+                var time = performance.now();
+                var delta = (time - prevTime) / 1000;
+
+                velocity.x -= velocity.x * 10.0 * delta;
+                velocity.z -= velocity.z * 10.0 * delta;
+
+                velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+                direction.z = Number(moveForward) - Number(moveBackward);
+                direction.x = Number(moveLeft) - Number(moveRight);
+                direction.normalize(); // this ensures consistent movements in all directions
+
+                if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
+                if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
+
+                if (onObject === true) {
+
+                    velocity.y = Math.max(0, velocity.y);
+                    canJump = true;
+
+                }
+
+                controls.getObject().translateX(velocity.x * delta);
+                controls.getObject().translateY(velocity.y * delta);
+                controls.getObject().translateZ(velocity.z * delta);
+
+                if (controls.getObject().position.y < 10) {
+
+                    velocity.y = 0;
+                    controls.getObject().position.y = 10;
+
+                    canJump = true;
+
+                }
+                moveBees(bee1);
+                moveBees(bee2);
+                prevTime = time;
+
+            }
+
+            renderer.render(scene, camera);
+
+        }
+
+    </script>
 </body>
 
 </html>
