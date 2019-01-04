@@ -4,6 +4,7 @@
 	margin: auto;
 	width: 50%;
 	left: 25%;
+	z-index: 1;
 }
 
 .center {
@@ -20,7 +21,21 @@ button {
 	background: #0095DD;
 	border: none;
 	border-radius: 5px;
+	cursor: pointer;
+		z-index: 200000;
 }
 #playContent {
     margin:350px;
+}
+
+#intro{
+	position: fixed;
+	background: white;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-family: arial;
+	font-size: 28pt;
+	padding: 50px;
+	z-index: 100;
 }
