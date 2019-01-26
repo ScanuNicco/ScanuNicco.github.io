@@ -1,72 +1,47 @@
+
+<!DOCTYPE html>
 <html>
-    <head>
-    <title>Scanu Productions Beta</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="main.css" rel="stylesheet" type="text/css">
 </head>
+<body onscroll="toggleArrow()">
+  <div id="topBar">
+    <img src="http://scanurag.com/images/LargeScanuProdIcon.png" height="60px"> <h1 id="header">Beta</h1>
+    </div>  
+    <img src="arrow.png" id="arrow">
 
-<body>
-    <center>
-        <h1>Scanu Productions Beta</h1>
-        <div id="linksContainer">
-            <a class="activeLink link" href="/">Home</a>
-            <a class="link" href="" style="cursor: not-allowed">Rag OS</a>
-            <a class="link" href="" style="cursor: not-allowed">Rag Browser</a>
-        </div>
-        This is the place where you can find the code that I am currently working on. Code here may have bugs or mignt not work yet at all.
-        <h2>Coming Soon! - Boat Race</h2>
-        <img src="boatRace.png" width="70%"><br><br>
-        Boat Race is a game where you race a boat around Venice. Boat Race Alpha will be released on Febuary 31st <br>featuring practice mode and 3 venice tracks.
-        <h2>Rag OS</h2>
-        <p>I am currently taking Rag OS off of the web but eventually I may put it back if I can get it to work.</p>
-        <br>
-        <h2>Rag Browser</h2>
-        <p>I am discontinuing rag browser. If you want a mainstream browser then get Chrome and if you don't want Google spying on you then get Firefox</p>
-        <style>
-            h2 {
-                color: firebrick;
-                padding-bottom: 20px;
-                border-bottom: solid 2px darkgrey;
-                max-width: 35%;
-                text-align: left;
-            }
+<div class="bgimg-1">
+  <div class="caption">
+  <span class="border">Boat Race - Coming Soon</span>
+  </div>
+</div>
 
-            h1 {
-                padding-bottom: 20px;
-                border-bottom: solid 1px darkgrey;
-            }
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  <h3 style="text-align:center;">Boat Race - Coming Soon</h3>
+  <p>Boat Race is a game where you race a boat around Venice. Boat Race Alpha will be released on Febuary 31st 
+featuring practice mode and 3 venice tracks.
+</div>
 
-            body {
-                font-family: arial;
-                padding: 15px;
-            }
 
-            p {
-                max-width: 35%;
-            }
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+  <p>Rag Browser and Rag OS have been discontinued. If you want a mainstream browser then get Chrome and if you don't want Google spying on you then get Firefox. I am currently taking Rag OS off of the web but eventually I may put it back if I can get it to work.
 
-            .link:hover {
-                color: #444444;
-                transition-duration: .5s;
-            }
+</p>
+  </div>
+</div>
+<script>
+    function toggleArrow(){
+        if(window.scrollY === 0){
+            //console.log("Show Arrow");
+            document.getElementById("arrow").style.opacity = "1";
+        } else {
+            //console.log("Hide Arrow");
+            document.getElementById("arrow").style.opacity = "0";
+        }
+    }
+    </script>
 
-            .link {
-                transition-duration: .5s;
-                color: grey;
-                text-decoration: none;
-                margin: 10px;
-            }
-
-            #linksContainer {
-                position: fixed;
-                margin: auto;
-                top: 30px;
-                font-size: 20;
-            }
-
-            .activeLink {
-                color: black;
-                text-decoration: underline;
-            }
-        </style>
-    </center>
 </body>
 </html>
