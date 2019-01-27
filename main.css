@@ -113,3 +113,28 @@ h3 {
 ::-webkit-scrollbar-thumb:hover {
     background: #a80b0b; 
 }
+
+#nav {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+#nav a {
+    margin: 20px;
+    font-size: 24px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#nav a:hover{
+    transition: .5s;
+    font-size: 20px;
+}
+
+.active {
+    color: red;
+}

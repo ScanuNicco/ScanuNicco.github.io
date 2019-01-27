@@ -2,45 +2,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="main.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet" type="text/css">
 </head>
+
 <body onscroll="toggleArrow()">
-  <div id="topBar">
-    <img src="http://scanurag.com/images/LargeScanuProdIcon.png" height="60px"> <h1 id="header">Beta</h1>
-    </div>  
+    <div id="topBar">
+        <img src="http://scanurag.com/images/LargeScanuProdIcon.png" height="60px">
+        <h1 id="header">Beta</h1>
+        <div id="nav"><a class="active">Home</a><a style="color: grey; cursor: not-allowed">Boat Race</a></div>
+    </div>
     <img src="arrow.png" id="arrow">
 
-<div class="bgimg-1">
-  <div class="caption">
-  <span class="border">Boat Race - Coming Soon</span>
-  </div>
-</div>
+    <div class="bgimg-1">
+        <div class="caption">
+            <span class="border">Boat Race - Coming Soon</span>
+        </div>
+    </div>
 
-<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-  <h3 style="text-align:center;">Boat Race - Coming Soon</h3>
-  <p>Boat Race is a game where you race a boat around Venice. Boat Race Alpha will be released on Febuary 31st 
-featuring practice mode and 3 venice tracks.
-</div>
+    <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+        <h3 style="text-align:center;">Boat Race - Coming Soon</h3>
+        <p>Boat Race is a game where you race a boat around Venice. Boat Race Alpha will be released on Febuary 31st
+            featuring practice mode and 3 venice tracks.
+    </div>
 
 
-<div style="position:relative;">
-  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-  <p>Rag Browser and Rag OS have been discontinued. If you want a mainstream browser then get Chrome and if you don't want Google spying on you then get Firefox. I am currently taking Rag OS off of the web but eventually I may put it back if I can get it to work.
+    <div style="position:relative;">
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+            <p>Rag Browser and Rag OS have been discontinued. If you want a mainstream browser then get Chrome and if you don't want Google spying on you then get Firefox. I am currently taking Rag OS off of the web but eventually I may put it back if I can get it to work.
 
-</p>
-  </div>
-</div>
-<script>
-    function toggleArrow(){
-        if(window.scrollY === 0){
-            //console.log("Show Arrow");
-            document.getElementById("arrow").style.opacity = "1";
-        } else {
-            //console.log("Hide Arrow");
-            document.getElementById("arrow").style.opacity = "0";
+            </p>
+        </div>
+    </div>
+    <script>
+        function toggleArrow() {
+            if (window.scrollY === 0) {
+                //console.log("Show Arrow");
+                document.getElementById("arrow").style.opacity = "1";
+            } else {
+                //console.log("Hide Arrow");
+                document.getElementById("arrow").style.opacity = "0";
+            }
         }
-    }
     </script>
 
 </body>
