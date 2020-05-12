@@ -1,50 +1,15 @@
-
-<!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="main.css" rel="stylesheet" type="text/css">
-</head>
-
-<body onscroll="toggleArrow()">
-    <div id="topBar">
-        <img src="http://scanurag.com/images/LargeScanuProdIcon.png" height="60px">
-        <h1 id="header">Beta</h1>
-        <div id="nav"><a class="active" style="color: red">Home</a><a href="Boat-Race">Boat Race</a></div>
-    </div>
-    <img src="arrow.png" id="arrow">
-
-    <div class="bgimg-1">
-        <div class="caption">
-            <span class="border">Boat Race -  Pre-Alpha</span><br><br>
-            <button onclick="location.href = 'Boat-Race'">Play Boat Race</button>
-        </div>
-    </div>
-
-    <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3 style="text-align:center;">Boat Race - Pre-Alpha</h3>
-        <p>Boat Race is a game where you race a boat around Venice. I was going to wait until the alpha release to let people play it but then I realized that there is no point in doing that. NOTE: Boat Race is currently broken, you should try again later.
-    </div>
-
-
-    <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
-            <p>Rag Browser and Rag OS have been discontinued. If you want a mainstream browser then get Chrome and if you don't want Google spying on you then get Firefox. I am currently taking Rag OS off of the web but eventually I may put it back if I can get it to work.
-
-            </p>
-        </div>
-    </div>
-    <script>
-        function toggleArrow() {
-            if (window.scrollY === 0) {
-                //console.log("Show Arrow");
-                document.getElementById("arrow").style.opacity = "1";
-            } else {
-                //console.log("Hide Arrow");
-                document.getElementById("arrow").style.opacity = "0";
+    <head>
+        <title>Server Down</title>
+    </head>
+    <body>
+        <h1>My Server Died</h1>
+        <p>At some point during the week of May 4th, my server died. I don't know why it happened. Either it's not booting or the ethernet port is broken somehow. I don't know if it is the server itself (Which is a BeagleBone Black I got for free out of a box) or the way I was powering it (via a USB port on the back of a SamSung smart hub with a cable from an old leapfrog device). Over the next few weeks I will try to revive it and if that doesn't work I will run it on my raspberry pi B+. All of my files a safe so my website should be back as soon as I get a new server</p>
+        <style>
+            * {
+                font-family: arial;
+                text-align: center;
             }
-        }
-    </script>
-
-</body>
+        </style>
+    </body>
 </html>
