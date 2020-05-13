@@ -1,155 +1,69 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  font: 400 15px/1.8 "Lato", sans-serif;
-  color: #777;
+            * {
+                font-family: arial;
+                text-align: center;
+            }
+#ipbox{
+	margin: 5px;
+	border: solid 2px grey;
+	border-radius: 2px;
+	position: sticky;
+	top: 5px;
+	background: white;
+	color: black;
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  position: relative;
-  opacity: 0.65;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-.bgimg-1 {
-  background-image: url("boatRace.png");
-  min-height: 100%;
+span {
+	font-family: sans-serif;
+	position: sticky;
+	top: 50px;
 }
 
-.bgimg-2 {
-  background-image: url("img_parallax2.jpg");
-  min-height: 150px;
+#server-status {
+	width: 400px;
+	height: 100px;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+	margin: auto;
+		box-shadow: 2px 2px 5px rgba(0, 0, 0, .3)
 }
 
-.bgimg-3 {
-  background-image: url("img_parallax3.jpg");
-  min-height: 400px;
+#mcImage {
+	width: 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 }
 
-.caption {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #000;
+#serverInfo {
+	color: white;
+	position: absolute;
+	right: 0px;
+	height: 100%;
+	width: 300px;
+	text-align: center;
+	overflow: hidden;
 }
 
-.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  letter-spacing: 10px;
+.offline {
+	background: #c41212;
 }
 
-h3 {
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111;
+.online {
+	background: #12c418;
 }
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-  }
+.error {
+	background: #cccccc;
 }
 
-#topBar{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    opacity: 1;
-    color: black;
-    background: #ffffff;
-    padding: 10px;
-    z-index: 10;
+#logo {
+	max-width: 25vw;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, .3)
 }
 
-#header {
-    position: absolute;
-    top: -30px;
-    left: 80px;
-    font-size: 36pt;
-}
-
-#arrow{
-    position: fixed;
-    width: 100px;
-    bottom: 0px;
-    left: calc(50% - 50px);
-    z-index: 10;
-    transition: .5s;
-}
-
-/* the scrollbar*/
-/* width */
-::-webkit-scrollbar {
-    width: 5px;
-    box-shadow: -2px -2px 5px rgba(0, 0, 0, .8);
-}
-
-/* width on hover */
-::-webkit-scrollbar:hover {
-    width: 15px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
-  
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #db1111; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #a80b0b; 
-}
-
-#nav {
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    padding: 10px;
-    padding-top: 15px;
-}
-
-#nav a {
-    margin: 20px;
-    font-size: 24px;
-    margin-top: 25px;
-    cursor: pointer;
-    transition: .5s;
-    text-decoration: none;
-    color: black;
-}
-
-#nav a:hover{
-    transition: .5s;
-    font-size: 20px;
-}
-
-.active {
-    color: red;
-}
-
-button {
-    font-size: 18pt;
-    border: none;
-    background: red;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 2px;
-}
-
-button:hover {
-    background: #ff0000;
+p {
+	max-width: 50vw;
+	margin: auto;
 }

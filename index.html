@@ -1,15 +1,48 @@
 <html>
     <head>
-        <title>Server Down</title>
-    </head>
-    <body>
-        <h1>My Server Died</h1>
-        <p>At some point during the week of May 4th, my server died. I don't know why it happened. Either it's not booting or the ethernet port is broken somehow. I don't know if it is the server itself (Which is a BeagleBone Black I got for free out of a box) or the way I was powering it (via a USB port on the back of a SamSung smart hub with a cable from an old leapfrog device). Over the next few weeks I will try to revive it and if that doesn't work I will run it on my raspberry pi B+. All of my files a safe so my website should be back as soon as I get a new server</p>
-        <style>
-            * {
-                font-family: arial;
-                text-align: center;
-            }
-        </style>
-    </body>
+	<title>Server Down</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+	<img id="logo" src='images/logo.png'>
+	<h1>My Server Died</h1>
+	<p>At some point during the week of May 4th, my server died. I don't know why it happened. Either it's not booting or the ethernet port is broken somehow. I don't know if it is the server itself (Which is a BeagleBone Black I got for free out of a box) or the way I was powering it (via a USB port on the back of a SamSung smart hub with a cable from an old leapfrog device). Over the next few weeks I will try to revive it and if that doesn't work I will run it on my raspberry pi B+. All of my files are safe so my website should be back as soon as I get a new server</p>
+	<h1>What about the minecraft server?</h1>
+	<p>The minecraft server is hosted seperately from the web server. Therefore, it is not directly affected by this.</p><br>
+	<a href="RagCraft.zip">Download The Official RagCraft Texture Pack</a>
+	<h2>Live Status</h2>
+	<div id="server-status">
+		<img id="mcImage" src="images/mcX.png">
+		<div id="serverInfo">
+			<h3 id="sHeader">RagCraft Is Offline</h3>
+			<span id="stats"></span>
+		</div>
+	</div>
+	<h1>Links</h1>
+	<a href="https://discord.gg/QrAgDrR">Scanu Productions Discord Server</a><br>
+	<a href="mailto:scanuproductions@gmail.com">Email Me</a><br>
+	<a href="https://www.youtube.com/channel/UCJXaucoo2fDwQhhW1h-ujkg">Scanu Productions YouTube</a>
+	<script src="https://mcapi.us/scripts/minecraft.js"></script>
+	<script>
+		MinecraftAPI.getServerStatus('scanuproductions.com', {
+			port: 25565 // optional, only if you need a custom port
+		}, function(err, status) {
+			if (err) {
+				return document.querySelector('.server-status').innerHTML = 'Error loading status';
+				document.getElementById('server-status').classList.add("error");
+			}
+			if (status.online) {
+				document.getElementById('sHeader').innerHTML = "RagCraft Is Online";
+				document.getElementById('stats').innerHTML = status.players.now + " / " + status.players.max + " Playing Now <br> Server Version: " + status.server.name;
+				document.getElementById('mcImage').src = status.favicon;
+				document.getElementById('server-status').classList.add("online");
+				console.log("RagCraft is Online");
+			} else {
+				document.getElementById('server-status').classList.add("offline");
+				console.log("RagCraft is Offline");
+			}
+		});
+	</script>
+</body>
 </html>
